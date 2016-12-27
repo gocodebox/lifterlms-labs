@@ -15,7 +15,7 @@ class LLMS_Labs_Settings_Page {
 	public function __construct() {
 
 		add_action( 'admin_init', array( $this, 'handle_form' ) );
-		add_action( 'admin_menu', array( $this, 'register' ) );
+		add_action( 'admin_menu', array( $this, 'register' ), 777 );
 
 	}
 
