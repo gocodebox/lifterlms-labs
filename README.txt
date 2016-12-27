@@ -32,6 +32,6 @@ Because not every LifterLMS user needs (or wants) the features in this plugin!
 
 == Changelog ==
 
-= 1.0 =
+= v1.0 - 2016-12-27 =
 
 + Initial public release

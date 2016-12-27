@@ -100,6 +100,7 @@ final class LifterLMS_Labs {
 
 		require_once 'inc/labs/abstract.llms.lab.php';
 		require_once 'inc/labs/class.llms.lab.super.sidebars.php';
+		require_once 'inc/labs/class.llms.lab.simple.branding.php';
 
 	}
 

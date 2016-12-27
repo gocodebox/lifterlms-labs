@@ -17,7 +17,7 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	protected function configure() {
 		$this->id = 'super-sidebars';
 		$this->title = __( 'Super Sidebars', 'lifterlms-labs' );
-		$this->description = __( 'Very quickly configure those pesky LifterLMS Sidebars to work with your obstinate theme which refuses to natively declare sidebar support.', 'lifterlms-labs' );
+		$this->description = sprintf( __( 'Very quickly configure LifterLMS sidebars to work with your theme. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ), '<a href="https://lifterlms.com/docs/super-sidebars-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars" target="blank">', '</a>' );
 	}
 
 	/**

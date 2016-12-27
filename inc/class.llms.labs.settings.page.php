@@ -36,6 +36,7 @@ class LLMS_Labs_Settings_Page {
 	 * @version  1.0.0
 	 */
 	public function handle_form() {
+
 		if ( empty( $_POST['llms_labs_manager_nonce'] ) || ! wp_verify_nonce( $_POST['llms_labs_manager_nonce'], 'llms_labs_manager' ) ) {
 			return;
 		}
@@ -72,7 +73,12 @@ class LLMS_Labs_Settings_Page {
 			if ( ! $lab ) {
 				return;
 			}
+
 			$lab->set_option( 'enabled', $val );
+
+			if ( 'yes' === $val ) {
+				wp_safe_redirect( admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ) );
+			}
 
 		} elseif ( 'settings' === $action ) {
 
@@ -84,9 +90,9 @@ class LLMS_Labs_Settings_Page {
 
 			}
 
+			do_action( 'llms_lab_' . $id . '_settings_saved' );
+
 		}
-
-
 
 	}
 
@@ -134,7 +140,7 @@ class LLMS_Labs_Settings_Page {
 		?>
 
 		<h4><?php _e( 'Each lab is an experimental, conceptual, or fun new feature which you can enable to enhance, improve, or alter the core functionality of LifterLMS.' ); ?></h4>
-		<h4><?php _e( 'Some labs are being tested and may be moved into the LifterLMS core, others migth remain here forever.' ); ?></h4>
+		<h4><?php _e( 'Some labs are being tested and may be moved into the LifterLMS core, others might remain here forever.' ); ?></h4>
 
 		<table class="wp-list-table widefat fixed striped">
 			<thead>
@@ -165,8 +171,8 @@ class LLMS_Labs_Settings_Page {
 						</td>
 						<td>
 							<?php if ( $enabled ) :?>
+								<a class="llms-button-primary small" href="<?php echo admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ); ?>"><?php _e( 'Configure', 'lifterlms-labs' ); ?></a>
 								<button class="llms-button-danger small" name="llms-lab-disable" type="submit" value="<?php echo $lab->get_id(); ?>"><?php _e( 'Disable', 'lifterlms-labs' ); ?></button>
-								<a href="<?php echo admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ); ?>"><?php _e( 'Configure', 'lifterlms-labs' ); ?></a>
 							<?php else : ?>
 								<button class="llms-button-primary small" name="llms-lab-enable" type="submit" value="<?php echo $lab->get_id(); ?>"><?php _e( 'Enable', 'lifterlms-labs' ); ?></button>
 							<?php endif; ?>
@@ -192,29 +198,35 @@ class LLMS_Labs_Settings_Page {
 			_e( 'Invalid lab.', 'lifterlms-labs' );
 			return;
 		}
-
-		echo '<h4>' . $lab->get_description() . '</h4>';
-
-		echo '<div class="llms-form-fields">';
-		foreach ( $lab->get_settings() as $field ) {
-			llms_form_field( $field );
+		if ( ! $lab->is_enabled() ) {
+			_e( 'This lab in not enabled, please enable the lab and try again.', 'lifterlms-labs' );
+			return;
 		}
 
-		llms_form_field( array(
-			'columns' => 2,
-			'classes' => 'llms-button-primary',
-			'id' => 'llms-lab-settings-save',
-			'value' => __( 'Save', 'lifterlms-labs' ),
-			'last_column' => true,
-			'required' => false,
-			'type'  => 'submit',
-		) );
+		echo '<div class="llms-widget">';
 
-		echo '<input name="llms-lab-id" type="hidden" value="' . $lab->get_id() . '">';
+			echo '<h4>' . $lab->get_description() . '</h4>';
+
+			echo '<div class="llms-form-fields">';
+			foreach ( $lab->get_settings() as $field ) {
+				llms_form_field( $field );
+			}
+
+			llms_form_field( array(
+				'columns' => 2,
+				'classes' => 'llms-button-primary',
+				'id' => 'llms-lab-settings-save',
+				'value' => __( 'Save', 'lifterlms-labs' ),
+				'last_column' => true,
+				'required' => false,
+				'type'  => 'submit',
+			) );
+
+			echo '<input name="llms-lab-id" type="hidden" value="' . $lab->get_id() . '">';
+
+			echo '</div>';
 
 		echo '</div>';
-
-		echo '<p><a href="' . admin_url( 'admin.php?page=llms-labs' ) . '">' . __( 'Back', 'lifterlms-labs' ) . '</a></p>';
 
 	}
 
@@ -226,13 +238,13 @@ class LLMS_Labs_Settings_Page {
 	 */
 	private function render_title() {
 		echo '<h1>';
-		_e( 'LifterLMS Labs', 'lifterlms-labs' );
-		if ( $id = $this->get_tab() ) {
-			$lab = LLMS_Labs_LabTech::get_lab( $id );
-			if ( $lab ) {
-				printf( ' &ndash; %s', $lab->get_title() );
+			_e( 'LifterLMS Labs', 'lifterlms-labs' );
+			if ( $id = $this->get_tab() ) {
+				$lab = LLMS_Labs_LabTech::get_lab( $id );
+				if ( $lab ) {
+					printf( ' &ndash; %s', $lab->get_title() );
+				}
 			}
-		}
 		echo '</h1>';
 	}
 
