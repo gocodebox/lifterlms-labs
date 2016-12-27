@@ -8,12 +8,27 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core
-
+A collection of experimental, conceptual, and possibly silly features which improve and enhance the functionality of the LifterLMS core.
 
 == Description ==
 
-Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core
+LifterLMS Labs is a collection of experimental, conceptual, and possibly silly features which improve and enhance the functionality of the LifterLMS core.
+
+We've created this free LifterLMS add-on in order to provide these optional features to the LifterLMS community which may or may not be useful to everyone.
+
+Some labs will ultimately find their way into the LifterLMS Core, some may be a lab forever.
+
+
+### Current Labs
+
+**Super Sidebars**
+
+The Super Sidebar Lab will allow you to make LifterLMS Sidebars work with __most__ themes. [Learn more](https://lifterlms.com/docs/super-sidebars-lab?utm_source=descrpition&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars)
+
+
+**Simple Branding**
+
+If you don't like the default LifterLMS colors, you don't want to change themes, and you don't want to write a bit of custom CSS you can enable this lab, select a few colors, and be on your way. [Learn more]("https://lifterlms.com/docs/simple-branding-lab?utm_source=description&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=simplebranding)
 
 
 == Installation ==
