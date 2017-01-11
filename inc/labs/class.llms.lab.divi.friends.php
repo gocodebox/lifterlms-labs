@@ -17,7 +17,7 @@ class LLMS_Lab_Divi_Friends extends LLMS_Lab {
 	protected function configure() {
 		$this->id = 'divi-friends';
 		$this->title = __( 'Divi Friends', 'lifterlms-labs' );
-		$this->description = sprintf( __( 'Make LifterLMS and Divi be the bestest of friends. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ), '<a href="https://lifterlms.com/docs/super-sidebars-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars" target="blank">', '</a>' );
+		$this->description = __( 'Make LifterLMS and Divi be the bestest of friends.', 'lifterlms-labs' );
 	}
 
 	/**
