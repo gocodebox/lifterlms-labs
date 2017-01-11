@@ -227,7 +227,7 @@ class LLMS_Labs_Settings_Page {
 
 			} else {
 
-				_e( 'This lab doesn\'t have any settings.', 'lifterlms' );
+				_e( 'This lab doesn\'t have any settings.', 'lifterlms-labs' );
 
 			}
 
