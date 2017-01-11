@@ -91,7 +91,7 @@ final class LifterLMS_Labs {
 	 * Include required files
 	 * @return void
 	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @version 1.1.0
 	 */
 	private function includes() {
 
@@ -99,8 +99,10 @@ final class LifterLMS_Labs {
 		require_once 'inc/class.llms.labs.settings.page.php';
 
 		require_once 'inc/labs/abstract.llms.lab.php';
-		require_once 'inc/labs/class.llms.lab.super.sidebars.php';
-		require_once 'inc/labs/class.llms.lab.simple.branding.php';
+
+		foreach ( glob( LLMS_LABS_PLUGIN_DIR . 'inc/labs/class.llms.lab.*.php', GLOB_NOSORT ) as $lab ) {
+			require_once $lab;
+		}
 
 	}
 
