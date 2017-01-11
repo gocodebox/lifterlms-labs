@@ -21,14 +21,18 @@ Some labs will ultimately find their way into the LifterLMS Core, some may be a 
 
 ### Current Labs
 
-**Super Sidebars**
 
-The Super Sidebar Lab will allow you to make LifterLMS Sidebars work with __most__ themes. [Learn more](https://lifterlms.com/docs/super-sidebars-lab?utm_source=descrpition&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars)
+**Divi Friends**
 
+This lab allow LifterLMS and Divi to be best friends. Currently this lab will fix layout issues visible on the LifterLMS Catalogs.
 
 **Simple Branding**
 
 If you don't like the default LifterLMS colors, you don't want to change themes, and you don't want to write a bit of custom CSS you can enable this lab, select a few colors, and be on your way. [Learn more]("https://lifterlms.com/docs/simple-branding-lab?utm_source=description&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=simplebranding)
+
+**Super Sidebars**
+
+The Super Sidebar Lab will allow you to make LifterLMS Sidebars work with __most__ themes. [Learn more](https://lifterlms.com/docs/super-sidebars-lab?utm_source=descrpition&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars)
 
 
 == Installation ==
