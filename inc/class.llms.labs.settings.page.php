@@ -189,7 +189,7 @@ class LLMS_Labs_Settings_Page {
 	 * Render content for a specific lab
 	 * @return   void
 	 * @since    1.0.0
-	 * @version  1.0.0
+	 * @version  1.1.0
 	 */
 	private function render_tab() {
 
@@ -208,19 +208,28 @@ class LLMS_Labs_Settings_Page {
 			echo '<h4>' . $lab->get_description() . '</h4>';
 
 			echo '<div class="llms-form-fields">';
-			foreach ( $lab->get_settings() as $field ) {
-				llms_form_field( $field );
-			}
 
-			llms_form_field( array(
-				'columns' => 2,
-				'classes' => 'llms-button-primary',
-				'id' => 'llms-lab-settings-save',
-				'value' => __( 'Save', 'lifterlms-labs' ),
-				'last_column' => true,
-				'required' => false,
-				'type'  => 'submit',
-			) );
+			if ( $settings = $lab->get_settings() ) {
+
+				foreach ( $settings as $field ) {
+					llms_form_field( $field );
+				}
+
+				llms_form_field( array(
+					'columns' => 2,
+					'classes' => 'llms-button-primary',
+					'id' => 'llms-lab-settings-save',
+					'value' => __( 'Save', 'lifterlms-labs' ),
+					'last_column' => true,
+					'required' => false,
+					'type'  => 'submit',
+				) );
+
+			} else {
+
+				_e( 'This lab doesn\'t have any settings.', 'lifterlms' );
+
+			}
 
 			echo '<input name="llms-lab-id" type="hidden" value="' . $lab->get_id() . '">';
 
