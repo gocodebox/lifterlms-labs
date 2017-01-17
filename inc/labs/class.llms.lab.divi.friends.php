@@ -24,11 +24,11 @@ class LLMS_Lab_Divi_Friends extends LLMS_Lab {
 	 * Initialize the Lab
 	 * @return   void
 	 * @since    1.1.0
-	 * @version  1.1.0
+	 * @version  1.1.1
 	 */
 	protected function init() {
 
-		add_action( 'init', array( $this, 'remove_lifterlms_sidebars_divi') , 15 );
+		add_action( 'init', array( $this, 'remove_llms_sidebars' ), 15 );
 		add_action( 'lifterlms_before_main_content', array( $this, 'output_content_wrapper_start' ), 10 );
 		add_action( 'lifterlms_after_main_content', array( $this, 'output_content_wrapper_end' ), 10 );
 
@@ -40,9 +40,9 @@ class LLMS_Lab_Divi_Friends extends LLMS_Lab {
 	 * Late initialization for removal of lifterlms sidebars
 	 * @return    void
 	 * @since     1.1.0
-	 * @version   1.1.0
+	 * @version   1.1.1
 	 */
-	public function remove_lifterlms_sidebars_divi(){
+	public function remove_llms_sidebars() {
 		remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar', 10 );
 	}
 
