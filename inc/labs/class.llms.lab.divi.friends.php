@@ -28,13 +28,22 @@ class LLMS_Lab_Divi_Friends extends LLMS_Lab {
 	 */
 	protected function init() {
 
-		remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar', 10 );
-
+		add_action( 'init', array( $this, 'remove_lifterlms_sidebars_divi') , 15 );
 		add_action( 'lifterlms_before_main_content', array( $this, 'output_content_wrapper_start' ), 10 );
 		add_action( 'lifterlms_after_main_content', array( $this, 'output_content_wrapper_end' ), 10 );
 
 		add_filter( 'body_class', array( $this, 'body_class' ), 777 );
 
+	}
+
+	/**
+	 * Late initialization for removal of lifterlms sidebars
+	 * @return    void
+	 * @since     1.1.0
+	 * @version   1.1.0
+	 */
+	public function remove_lifterlms_sidebars_divi(){
+		remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar', 10 );
 	}
 
 	/**
@@ -48,7 +57,7 @@ class LLMS_Lab_Divi_Friends extends LLMS_Lab {
 			<div id="main-content">
 				<div class="container">
 					<div id="content-area" class="clearfix">';
-					echo '<div id="left-area">';
+		echo '<div id="left-area">';
 	}
 
 	/**
@@ -58,8 +67,8 @@ class LLMS_Lab_Divi_Friends extends LLMS_Lab {
 	 * @version  1.1.0
 	 */
 	public function output_content_wrapper_end() {
-			echo '</div><!-- #left-area -->';
-			echo '
+		echo '</div><!-- #left-area -->';
+		echo '
 					</div> <!-- #content-area -->
 				</div> <!-- .container -->
 			</div> <!-- #main-content -->';

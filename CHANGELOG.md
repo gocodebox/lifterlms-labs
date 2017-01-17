@@ -1,6 +1,11 @@
 LifterLMS Labs Changelog
 ========================
 
+= v1.1.0 - 2017-01-16 =
+---------------------
+
++ Fixed bug with Divi theme not removing lifterlms sidebars by making action initalize late
+
 = v1.0 - 2017-01-10 =
 ---------------------
 
