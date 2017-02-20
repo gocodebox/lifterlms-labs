@@ -24,16 +24,28 @@ class LLMS_Lab_Divi_Friends extends LLMS_Lab {
 	 * Initialize the Lab
 	 * @return   void
 	 * @since    1.1.0
-	 * @version  1.1.1
+	 * @version  1.1.2
 	 */
 	protected function init() {
 
 		add_action( 'init', array( $this, 'remove_llms_sidebars' ), 15 );
+		add_action( 'admin_init', array( $this, 'include_template_functions' ) );
 		add_action( 'lifterlms_before_main_content', array( $this, 'output_content_wrapper_start' ), 10 );
 		add_action( 'lifterlms_after_main_content', array( $this, 'output_content_wrapper_end' ), 10 );
 
 		add_filter( 'body_class', array( $this, 'body_class' ), 777 );
 
+	}
+
+	/**
+	 * Include LifterLMS Template Functions on the admin panel so widgets and shortcodes can be used
+	 * within the Divi builder
+	 * @return   void
+	 * @since    1.1.2
+	 * @version  1.1.2
+	 */
+	public function include_template_functions() {
+		include_once LLMS_PLUGIN_DIR . 'includes/llms.template.functions.php' ;
 	}
 
 	/**

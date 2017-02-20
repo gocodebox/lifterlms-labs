@@ -3,7 +3,7 @@
  * Plugin Name: LifterLMS Labs
  * Plugin URI: https://lifterlms.com/
  * Description: Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Thomas Patrick Levy, codeBOX LLC
  * Author URI: http://gocodebox.com
  * Text Domain: lifterlms-labs
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  */
 final class LifterLMS_Labs {
 
-	public $version = '1.1.1';
+	public $version = '1.1.2';
 
 	protected static $_instance = null;
 

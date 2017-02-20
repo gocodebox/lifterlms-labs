@@ -1,6 +1,12 @@
 LifterLMS Labs Changelog
 ========================
 
+= v1.1.2 - 2017-02-20 =
+-----------------------
+
++ Load template functions on the admin panel when using the Divi Friends lab. Allows LifterLMS widgets and shortcodes to be used within Divi page builder.
+
+
 = v1.1.1 - 2017-01-17 =
 -----------------------
 
