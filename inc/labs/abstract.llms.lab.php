@@ -21,6 +21,12 @@ abstract class LLMS_Lab {
 		// register the lab with the lab technician
 		add_filter( 'llms_labs_registered_labs', array( $this, 'register' ) );
 
+		// call a function on lab activation
+		add_action( 'llms_lab_' . $this->get_id() . '_enabled', array( $this, 'on_enable' ) );
+
+		// call a function on lab deactivation
+		add_action( 'llms_lab_' . $this->get_id() . '_disabled', array( $this, 'on_disable' ) );
+
 		if ( $this->is_enabled() ) {
 
 			$this->init();
@@ -128,6 +134,22 @@ abstract class LLMS_Lab {
 	public function is_enabled() {
 		return ( 'yes' === $this->get_option( 'enabled', 'no' ) );
 	}
+
+	/**
+	 * Stub function called when lab is disabled
+	 * @return   void
+	 * @since    1.2.0
+	 * @version  1.2.0
+	 */
+	public function on_disable() {}
+
+	/**
+	 * Stub function called when lab is enabled
+	 * @return   void
+	 * @since    1.2.0
+	 * @version  1.2.0
+	 */
+	public function on_enable() {}
 
 	/**
 	 * Register the lab with the lab technician

@@ -77,15 +77,31 @@ class LLMS_Labs_Settings_Page {
 			$lab->set_option( 'enabled', $val );
 
 			if ( 'yes' === $val ) {
+
+				do_action( 'llms_lab_' . $lab->get_id() . '_enabled' );
+
 				wp_safe_redirect( admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ) );
+
+			} else {
+
+				do_action( 'llms_lab_' . $lab->get_id() . '_disabled' );
+
 			}
 
 		} elseif ( 'settings' === $action ) {
 
 			foreach ( $lab->get_settings() as $field ) {
 
-				if ( isset( $_POST[ $field['name'] ] ) ) {
-					$lab->set_option( $field['name'], sanitize_text_field( $_POST[ $field['name'] ] ) );
+				if ( 'html' === $field['type'] ) {
+					continue;
+				}
+
+				$name = ! empty( $field['name'] ) ? $field['name'] : $field['id'];
+
+				if ( isset( $_POST[ $name ] ) ) {
+					$lab->set_option( $name, sanitize_text_field( $_POST[ $name ] ) );
+				} elseif ( 'checkbox' === $field['type'] ) {
+					$lab->set_option( $name, sanitize_text_field( $field['default'] ) );
 				}
 
 			}
