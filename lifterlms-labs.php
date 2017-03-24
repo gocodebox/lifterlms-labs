@@ -7,7 +7,7 @@
  * Author: Thomas Patrick Levy, codeBOX LLC
  * Author URI: http://gocodebox.com
  * Text Domain: lifterlms-labs
- * Domain Path: /languages
+ * Domain Path: /l18n
  * License:     GPLv2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Requires at least: 4.0
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Main LifterLMS_Labs Class
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.2.0
  */
 final class LifterLMS_Labs {
 
@@ -110,18 +110,18 @@ final class LifterLMS_Labs {
 	 * Load Localization files
 	 * @return void
 	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @version 1.2.0
 	 */
 	public function localize() {
 
 		// load locale
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'lifterlms' );
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'lifterlms-labs' );
 
 		// load a lifterlms specific locale file if one exists
-		load_textdomain( 'lifterlms', WP_LANG_DIR . '/lifterlms/lifterlms-' . $locale . '.mo' );
+		load_textdomain( 'lifterlms', WP_LANG_DIR . '/lifterlms/lifterlms-labs-' . $locale . '.mo' );
 
 		// load localization files
-		load_plugin_textdomain( 'lifterlms', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'lifterlms', false, dirname( plugin_basename( __FILE__ ) ) . '/l18n' );
 
 	}
 
