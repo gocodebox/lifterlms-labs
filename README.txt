@@ -54,6 +54,12 @@ Because not every LifterLMS user needs (or wants) the features in this plugin.
 
 == Changelog ==
 
+= v1.2.1 - 2017-03-28 =
+-----------------------
+
++ Prevent Lifti from returning a builder layout for lessons when retrieving the lesson excerpt
+
+
 = v1.2.0 - 2017-03-28 =
 -----------------------
 
