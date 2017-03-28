@@ -256,13 +256,13 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * @param    string     $excerpt  post excerpt
 	 * @return   string
 	 * @since    1.2.0
-	 * @version  1.2.0
+	 * @version  1.2.1
 	 */
 	public function handle_excerpt( $excerpt ) {
 
 		global $post;
 
-		if ( ! $this->is_builder_enabled( $post ) ) {
+		if ( 'lesson' === $post->post_type || ! $this->is_builder_enabled( $post ) ) {
 			return $excerpt;
 		}
 

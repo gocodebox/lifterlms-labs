@@ -4,7 +4,7 @@ Donate link: https://lifterlms.com
 Tags: learning management system, LMS, membership, elearning, online courses, quizzes, sell courses, badges, gamification, learning, Lifter, LifterLMS
 Requires at least: 4.7
 Tested up to: 4.7.3
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,7 +61,7 @@ Because not every LifterLMS user needs (or wants) the features in this plugin.
 
 + Check boxes to remove LifterLMS elements added to courses, lessons, and memberships instead of writing code
 
-### Lifti (Divi compatibility) Upgrades!
+### Lifti: Divi compatibility Upgrades!
 
 + Divi Friends is now called Lifti because it's more fun
 + Add options for Divi page builder and custom layout support on LifterLMS courses, lessons, and memberships

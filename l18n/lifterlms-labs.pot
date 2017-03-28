@@ -177,23 +177,23 @@ msgid "Difficulty"
 msgstr ""
 
 #: inc/labs/class.llms.lab.lifti.php:23
-msgid "Lifti"
+msgid "Lifti: Divi Theme Compatibility"
 msgstr ""
 
 #: inc/labs/class.llms.lab.lifti.php:25
 msgid "Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:119
+#: inc/labs/class.llms.lab.lifti.php:123
 msgid "This editor disabled when Divi Builder is active. %1$sLearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder."
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:336
+#: inc/labs/class.llms.lab.lifti.php:357
 msgid "LifterLMS Course"
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:413
-msgid "Enable Divi Builder on the following LifterLMS Post Types"
+#: inc/labs/class.llms.lab.lifti.php:434
+msgid "Enable Divi Builder & Layout Settings on the following LifterLMS Post Types"
 msgstr ""
 
 #: inc/labs/class.llms.lab.simple.branding.php:27
