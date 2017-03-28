@@ -23,7 +23,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		$this->title = __( 'Lifti', 'lifterlms-labs' );
 		$this->description = sprintf(
 			__( 'Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s.', 'lifterlms-labs' ),
-			'<a href="#">', '</a>'
+			'<a href="https://lifterlms.com/docs/lab-lifti/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=lifti">', '</a>'
 		);
 
 	}

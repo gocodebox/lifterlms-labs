@@ -1,14 +1,13 @@
-LifterLMS Labs Changelog
-========================
+== Changelog ==
 
-= v1.2.0 - 2017-03-27 =
+= v1.2.0 - 2017-03-28 =
 -----------------------
 
 ### Action Manager Lab
 
 + Check boxes to remove LifterLMS elements added to courses, lessons, and memberships instead of writing code
 
-### Lifti (Divi compatibility) Upgrades!
+### Lifti: Divi compatibility Upgrades!
 
 + Divi Friends is now called Lifti because it's more fun
 + Add options for Divi page builder and custom layout support on LifterLMS courses, lessons, and memberships

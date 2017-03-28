@@ -22,7 +22,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 		$this->title = __( 'Action Manager', 'lifterlms-labs' );
 		$this->description = sprintf(
 			__( 'Quickly remove specific elements like course author, syllabus, and more without having to write any code. Click %1$shere%2$s for more information.', 'lifterlms-labs' ),
-			'<a href="#">', '</a>'
+			'<a href="https://lifterlms.com/docs/lab-action-manager/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=actionmanager">', '</a>'
 		);
 
 	}
