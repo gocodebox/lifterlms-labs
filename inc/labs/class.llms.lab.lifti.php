@@ -20,7 +20,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	protected function configure() {
 
 		$this->id = 'divi-friends'; // leave this so we don't have to rewrite db options
-		$this->title = __( 'Lifti', 'lifterlms-labs' );
+		$this->title = __( 'Lifti: Divi Theme Compatibility', 'lifterlms-labs' );
 		$this->description = sprintf(
 			__( 'Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/lab-lifti/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=lifti">', '</a>'
@@ -35,6 +35,10 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * @version  1.2.0
 	 */
 	protected function init() {
+
+		if ( ! $this->is_divi_enabled() ) {
+			return;
+		}
 
 		foreach ( $this->builder_cpts as $cpt ) {
 			if ( 'yes' === $this->get_option( 'et_builder_' . $cpt ) ) {
@@ -323,6 +327,19 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
+	 * Determine if Divi is the current theme/template
+	 * @return   boolean
+	 * @since    1.2.0
+	 * @version  1.2.0
+	 */
+	private function is_divi_enabled() {
+
+		$theme = wp_get_theme();
+		return ( 'Divi' === $theme->get_template() );
+
+	}
+
+	/**
 	 * Create custom page builder predefined layout(s) when enabling the lab
 	 * Stub function called when lab is enabled
 	 * @return   void
@@ -330,6 +347,10 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * @version  1.2.0
 	 */
 	public function on_enable() {
+
+		if ( ! $this->is_divi_enabled() ) {
+			return;
+		}
 
 		$layouts = array(
 			array(
@@ -410,7 +431,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		$settings = array(
 			array(
 				'type' => 'html',
-				'value' => '<strong>' . __( 'Enable Divi Builder on the following LifterLMS Post Types', 'lifterlms-labs' ) . '</strong>',
+				'value' => '<strong>' . __( 'Enable Divi Builder & Layout Settings on the following LifterLMS Post Types', 'lifterlms-labs' ) . '</strong>',
 			),
 		);
 
