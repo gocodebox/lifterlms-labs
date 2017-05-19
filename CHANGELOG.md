@@ -4,6 +4,7 @@
 -----------------------
 
 + Simple Branding: Automatically brand LifterLMS email templates according to branding color settings (requires LifterLMS 3.8.0 and higher).
++ Fix typo in i18n directory name
 
 
 = v1.2.1 - 2017-03-28 =
