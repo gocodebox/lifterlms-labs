@@ -1,5 +1,11 @@
 == Changelog ==
 
+= v1.2.2 - 2017-05-19 =
+-----------------------
+
++ Simple Branding: Automatically brand LifterLMS email templates according to branding color settings (requires LifterLMS 3.8.0 and higher).
+
+
 = v1.2.1 - 2017-03-28 =
 -----------------------
 

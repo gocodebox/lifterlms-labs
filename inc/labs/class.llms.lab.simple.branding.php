@@ -9,7 +9,7 @@
  * kimdealwithit
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.2.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -32,7 +32,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * Initialize the Lab
 	 * @return   void
 	 * @since    1.0.0
-	 * @version  1.0.0
+	 * @version  1.2.2
 	 */
 	protected function init() {
 
@@ -40,6 +40,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		add_action( 'admin_footer', array( $this, 'admin_footer' ) );
 		add_action( 'wp_head', array( $this, 'output_css' ), 777 );
 		add_action( 'llms_lab_' . $this->id . '_settings_saved', array( $this, 'generate_css' ) );
+		add_filter( 'llms_email_css', array( $this, 'email_css' ), 777, 1 );
 
 	}
 
@@ -132,6 +133,32 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		}
 
 		return $new_hex;
+
+	}
+
+	/**
+	 * Add branding settings to LifterLMS emails CSS
+	 * @param    array     $css  CSS rules from LLMS()->mailer()
+	 * @return   array
+	 * @since    1.2.2
+	 * @version  1.2.2
+	 */
+	public function email_css( $css ) {
+
+		$primary = $this->get_option( 'color_primary' );
+		$primary_text = $this->get_luminance( $primary ) > 0.179 ? '#000' : '#fff';
+
+		$action = $this->get_option( 'color_action' );
+		$action_text = $this->get_luminance( $action ) > 0.179 ? '#000' : '#fff';
+
+		$css['button-background-color'] = $action;
+		$css['button-font-color'] = $action_text;
+
+		$css['heading-background-color'] = $primary;
+		$css['heading-font-color'] = $primary_text;
+		$css['main-color'] = $primary;
+
+		return $css;
 
 	}
 
