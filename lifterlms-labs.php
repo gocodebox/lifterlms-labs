@@ -7,7 +7,7 @@
  * Author: Thomas Patrick Levy, codeBOX LLC
  * Author URI: http://gocodebox.com
  * Text Domain: lifterlms-labs
- * Domain Path: /l18n
+ * Domain Path: /i18n
  * License:     GPLv2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Requires at least: 4.0
@@ -116,7 +116,7 @@ final class LifterLMS_Labs {
 		load_textdomain( 'lifterlms', WP_LANG_DIR . '/lifterlms/lifterlms-labs-' . $locale . '.mo' );
 
 		// load localization files
-		load_plugin_textdomain( 'lifterlms', false, dirname( plugin_basename( __FILE__ ) ) . '/l18n' );
+		load_plugin_textdomain( 'lifterlms', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n' );
 
 	}
 
