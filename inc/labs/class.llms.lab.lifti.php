@@ -112,7 +112,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Output some JS in the admin footer to handle toggling of the ET Builder
 	 * @return   void
 	 * @since    1.2.0
-	 * @version  1.2.0
+	 * @version  [version]
 	 */
 	public function admin_footer() {
 		$screen = get_current_screen();
@@ -141,7 +141,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			 */
 			function toggle_editors( status ) {
 				$eds = $( '#wp-content-wrap, #wp-excerpt-wrap' );
-				console.log( status );
 				if ( 'hide' === status ) {
 					$eds.each( function() {
 						$( this ).closest( '.llms-mb-list' ).append(  '<p class="llms-labs-lifti-msg"><?php echo $msg; ?></p>' );
