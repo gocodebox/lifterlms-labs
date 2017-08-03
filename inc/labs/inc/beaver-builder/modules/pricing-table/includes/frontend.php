@@ -1,8 +1,8 @@
 <?php
 /**
  * LifterLMS Course/Membership Pricing Table Module HTML
- * @since    [version]
- * @version  [version]
+ * @since    1.3.0
+ * @version  1.3.0
  */
 
 // Restrict direct access

@@ -1,8 +1,8 @@
 <?php
 /**
  * LifterLMS Course Author Module
- * @since    [version]
- * @version  [version]
+ * @since    1.3.0
+ * @version  1.3.0
  */
 
 // Restrict direct access
@@ -12,8 +12,8 @@ class LLMS_Lab_Course_Author_Module extends FLBUilderModule {
 
 	/**
 	 * Constructor
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function __construct() {
 		parent::__construct( array(

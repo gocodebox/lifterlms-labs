@@ -112,7 +112,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Output some JS in the admin footer to handle toggling of the ET Builder
 	 * @return   void
 	 * @since    1.2.0
-	 * @version  [version]
+	 * @version  1.3.0
 	 */
 	public function admin_footer() {
 		$screen = get_current_screen();

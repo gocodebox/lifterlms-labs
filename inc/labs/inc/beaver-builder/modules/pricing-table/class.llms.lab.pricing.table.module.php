@@ -1,8 +1,8 @@
 <?php
 /**
  * LifterLMS Course/Membership Pricing Table Module HTML
- * @since    [version]
- * @version  [version]
+ * @since    1.3.0
+ * @version  1.3.0
  */
 
 // Restrict direct access
@@ -12,8 +12,8 @@ class LLMS_Lab_Pricing_Table_Module extends FLBUilderModule {
 
 	/**
 	 * Constructor
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function __construct() {
 		parent::__construct( array(
@@ -38,8 +38,8 @@ class LLMS_Lab_Pricing_Table_Module extends FLBUilderModule {
 	/**
 	 * Force display of pricing tables within BB modules
 	 * @return   void
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function add_force_show_table_filter() {
 		add_filter( 'llms_product_pricing_table_enrollment_status', '__return_false' );
@@ -48,8 +48,8 @@ class LLMS_Lab_Pricing_Table_Module extends FLBUilderModule {
 	/**
 	 * Remove force display after pricing tables within BB modules
 	 * @return   void
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function remove_force_show_table_filter() {
 		remove_filter( 'llms_product_pricing_table_enrollment_status', '__return_false' );
@@ -59,8 +59,8 @@ class LLMS_Lab_Pricing_Table_Module extends FLBUilderModule {
 	 * Get the product ID to be used based of BB module settings
 	 * @param    obj     $settings  BB node settings object
 	 * @return   int|false
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function get_product_id( $settings ) {
 
@@ -90,8 +90,8 @@ class LLMS_Lab_Pricing_Table_Module extends FLBUilderModule {
 	 * Always show the pricing table when the builder is active
 	 * @param    bool     $enrollment  enrollment status of the current user
 	 * @return   bool
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function show_table( $enrollment ) {
 

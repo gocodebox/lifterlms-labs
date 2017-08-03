@@ -4,8 +4,8 @@
  *
  * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships
  *
- * @since    [version]
- * @version  [version]
+ * @since    1.3.0
+ * @version  1.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -15,8 +15,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	/**
 	 * Configure the Lab
 	 * @return   void
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	protected function configure() {
 
@@ -32,8 +32,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	/**
 	 * Determine if the Lab is enabled
 	 * @return   boolean
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function is_enabled() {
 		return ( parent::is_enabled() && class_exists( 'FLBuilder' ) );
@@ -42,8 +42,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	/**
 	 * Init
 	 * @return   void
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	protected function init() {
 
@@ -68,8 +68,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	/**
 	 * This function should return array of settings fields
 	 * @return   array
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	protected function settings() {
 		return array();
@@ -79,8 +79,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Add settings to BB nodes
 	 * @param    array     $form  settings
 	 * @return   array
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function add_node_settings( $form ) {
 
@@ -187,8 +187,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Create a single array of course & membership IDs from a BB node settings object
 	 * @param    obj     $settings  BB Node Settings
 	 * @return   array
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	private function get_related_posts_from_settings( $settings ) {
 
@@ -213,8 +213,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Detemine if a student is enrolled in at least one course or membership
 	 * @param    int     $uid  WP_User ID
 	 * @return   boolean
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	private function is_student_enrollend_in_one_thing( $uid ) {
 
@@ -252,8 +252,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * @param    bool     $visible  default visibility
 	 * @param    obj      $node     BB node object
 	 * @return   boolean
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function is_node_visible( $visible, $node ) {
 
@@ -367,8 +367,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	/**
 	 * Loads LifterLMS modules
 	 * @return   void
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function load_modules() {
 
@@ -383,8 +383,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	/**
 	 * Load LifterLMS layout templates
 	 * @return   void
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function load_templates() {
 
@@ -396,8 +396,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Modify LifterLMS metabox Fields to show the page builder is active
 	 * @param    array     $fields  metabox fields
 	 * @return   array
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function mod_metabox_fields( $fields ) {
 
@@ -431,8 +431,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * @param    array     $results  restrcition results data
 	 * @param    int     $post_id  current post id
 	 * @return   array
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function mod_page_restrictions( $results, $post_id ) {
 
@@ -454,8 +454,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Registers the LifterLMS Module Category
 	 * @param    array     $cats  existing categories
 	 * @return   array
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function register_category( $cats ) {
 		$cats[] = __( 'LifterLMS Modules', 'lifterlms-labs' );
@@ -466,8 +466,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * #wewantallyourmoniesbecausewerejerks
 	 * @param    string     $url  default upgrade url
 	 * @return   string
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.3.0
+	 * @version  1.3.0
 	 */
 	public function upgrade_url( $url ) {
 		return 'https://www.wpbeaverbuilder.com/?fla=968';
