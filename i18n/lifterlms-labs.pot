@@ -120,7 +120,7 @@ msgstr ""
 msgid "Prerequisite Information"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:180
+#: inc/labs/class.llms.lab.action.manager.php:180, inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:20
 msgid "Pricing Table"
 msgstr ""
 
@@ -176,6 +176,84 @@ msgstr ""
 msgid "Difficulty"
 msgstr ""
 
+#: inc/labs/class.llms.lab.beaver.builder.php:27
+msgid "Beaver Builder"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:28
+msgid "Adds LifterLMS elements as pagebuilder modules and enables row and module visibility settings based on student enrollment in courses and memberships. For help and more information click %1$shere%2$s."
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:99
+msgid "LifterLMS"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:106
+msgid "Display to"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:108
+msgid "Everyone"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:109
+msgid "Enrolled Students"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:110
+msgid "Non-Enrolled Students and Visitors"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:127
+msgid "In"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:129
+msgid "Current Course"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:130
+msgid "Any Course(s) or Membership(s)"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:131
+msgid "Specific Course(s) and/or Membership(s)"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:145
+msgid "Match"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:147
+msgid "Any of the following"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:148
+msgid "All of the following"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:160
+msgid "Courses"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:171
+msgid "Memberships"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:414
+msgctxt "The first %s stands for custom branded \"Page Builder\" name. The second %s stands for the post type name."
+msgid "%1$s is currently active for this %2$s."
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:415
+msgctxt "%s stands for custom branded \"Page Builder\" name."
+msgid "Launch %s"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:461, inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:22, inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:22, inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:22, inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:22, inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:22, inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:22, inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:22
+msgid "LifterLMS Modules"
+msgstr ""
+
 #: inc/labs/class.llms.lab.lifti.php:23
 msgid "Lifti: Divi Theme Compatibility"
 msgstr ""
@@ -188,11 +266,11 @@ msgstr ""
 msgid "This editor disabled when Divi Builder is active. %1$sLearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder."
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:357
+#: inc/labs/class.llms.lab.lifti.php:356
 msgid "LifterLMS Course"
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:434
+#: inc/labs/class.llms.lab.lifti.php:433
 msgid "Enable Divi Builder & Layout Settings on the following LifterLMS Post Types"
 msgstr ""
 
@@ -226,4 +304,96 @@ msgstr ""
 
 #: inc/labs/class.llms.lab.super.sidebars.php:72
 msgid "Main Sidebar"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:20
+msgid "Course Author"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:21
+msgid "Displays the name, author, and bio for the author of a course."
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:35, inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:38, inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:47, inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:50, inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:35, inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:38, inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:110, inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:113
+msgid "General"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:45, inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:57, inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:45, inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:120, inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:140
+msgid "Course"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:54
+msgid "Avatar Size"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:62
+msgid "Display Author Bio"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:64
+msgid "No"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:65
+msgid "Yes"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:20
+msgid "Course Continue Button"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:21, inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:21
+msgid "Displays a course progress bar for the current course."
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:20
+msgid "Course Information"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:21
+msgid "Displays course information: length, difficulty, tracks, categories, and tags."
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:20
+msgid "Course Progress Bar"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:20
+msgid "Course Syllabus"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:21
+msgid "Displays a course syllabus current course."
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:20
+msgid "Lesson Mark Complete Button"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:21
+msgid "Displays the mark complete / incomplete button(s) for a lesson"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:21
+msgid "LifterLMS Course / Membership Pricing Table"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:117
+msgid "Product Type"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:119
+msgid "Current Course or Membership"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:121
+msgid "Memebership"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:151
+msgid "Membership"
+msgstr ""
+
+#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/includes/frontend.php:20
+msgid "Mark Complete"
 msgstr ""

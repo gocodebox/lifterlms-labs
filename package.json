@@ -18,9 +18,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-include": "^2.3.1",
-    "gulp-sort": "^2.0.0",
-    "gulp-wp-pot": "^2.0.4",
-    "markdown-html": "0.0.8",
+    "lifterlms-lib-tasks": "^1.5.0",
     "require-dir": "^0.3.1"
   }
 }
