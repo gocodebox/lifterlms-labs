@@ -3,10 +3,10 @@ Contributors: thomasplevy, chrisbadgett, kathy11, lifterlms, codeboxllc
 Donate link: https://lifterlms.com
 Tags: learning management system, LMS, membership, elearning, online courses, quizzes, sell courses, badges, gamification, learning, Lifter, LifterLMS
 Requires at least: 4.7
-Tested up to: 4.7.3
-Stable tag: 1.2.2
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 4.8.1
+Stable tag: 1.3.0
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 A collection of experimental, conceptual, and possibly silly features which improve and enhance the functionality of the LifterLMS core.
 
@@ -24,6 +24,10 @@ Some labs will ultimately find their way into the LifterLMS Core, some may be a 
 **Action Manager**
 
 Quickly remove specific elements like course author, syllabus, and more without having to write any code. [Documentation and more information](https://lifterlms.com/docs/lab-action-manager/?utm_source=readme&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=actionmanager).
+
+** Beaver Builder**
+
+Add LifterLMS elements as pagebuilder modules and enable row and module visibility settings based on student enrollment in courses and memberships. [Documentation and more information](https://lifterlms.com/docs/lab-beaver-builder/?utm_source=readme&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=beaverbuilder).
 
 
 **Lifti: Divi Theme Compatibility**
@@ -53,6 +57,17 @@ Very quickly configure LifterLMS sidebars to work with your theme. [Documentatio
 Because not every LifterLMS user needs (or wants) the features in this plugin.
 
 == Changelog ==
+
+= v1.3.0 - 2017-08-03 =
+-----------------------
+
+### Beaver Builder Integration Lab
+
++ Adds LifterLMS-specific modules for course and lesson construction via Beaver Builder
++ Adds row & module visibility settings to conditionally display elements based on course/membership enrollment status of the current visitor
++ Adds a basic LifterLMS course template for quick course building with a layout similar to the standard LifterLMS course layout
++ Full usage documentation and more details [here](https://lifterlms.com/docs/lab-beaver-builder/)
+
 
 = v1.2.2 - 2017-05-19 =
 -----------------------

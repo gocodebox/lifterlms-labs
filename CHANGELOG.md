@@ -10,6 +10,7 @@
 + Adds a basic LifterLMS course template for quick course building with a layout similar to the standard LifterLMS course layout
 + Full usage documentation and more details [here](https://lifterlms.com/docs/lab-beaver-builder/)
 
+
 = v1.2.2 - 2017-05-19 =
 -----------------------
 
