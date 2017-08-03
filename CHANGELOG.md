@@ -1,5 +1,15 @@
 == Changelog ==
 
+= v1.3.0 - 2017-08-03 =
+-----------------------
+
+### Beaver Builder Integration Lab
+
++ Adds LifterLMS-specific modules for course and lesson construction via Beaver Builder
++ Adds row & module visibility settings to conditionally display elements based on course/membership enrollment status of the current visitor
++ Adds a basic LifterLMS course template for quick course building with a layout similar to the standard LifterLMS course layout
++ Full usage documentation and more details [here](https://lifterlms.com/docs/lab-beaver-builder/)
+
 = v1.2.2 - 2017-05-19 =
 -----------------------
 
