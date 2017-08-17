@@ -184,73 +184,73 @@ msgstr ""
 msgid "Adds LifterLMS elements as pagebuilder modules and enables row and module visibility settings based on student enrollment in courses and memberships. For help and more information click %1$shere%2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:99
+#: inc/labs/class.llms.lab.beaver.builder.php:103
 msgid "LifterLMS"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:106
+#: inc/labs/class.llms.lab.beaver.builder.php:110
 msgid "Display to"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:108
+#: inc/labs/class.llms.lab.beaver.builder.php:112
 msgid "Everyone"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:109
+#: inc/labs/class.llms.lab.beaver.builder.php:113
 msgid "Enrolled Students"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:110
+#: inc/labs/class.llms.lab.beaver.builder.php:114
 msgid "Non-Enrolled Students and Visitors"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:127
+#: inc/labs/class.llms.lab.beaver.builder.php:131
 msgid "In"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:129
+#: inc/labs/class.llms.lab.beaver.builder.php:133
 msgid "Current Course"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:130
+#: inc/labs/class.llms.lab.beaver.builder.php:134
 msgid "Any Course(s) or Membership(s)"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:131
+#: inc/labs/class.llms.lab.beaver.builder.php:135
 msgid "Specific Course(s) and/or Membership(s)"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:145
+#: inc/labs/class.llms.lab.beaver.builder.php:149
 msgid "Match"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:147
+#: inc/labs/class.llms.lab.beaver.builder.php:151
 msgid "Any of the following"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:148
+#: inc/labs/class.llms.lab.beaver.builder.php:152
 msgid "All of the following"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:160
+#: inc/labs/class.llms.lab.beaver.builder.php:164
 msgid "Courses"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:171
+#: inc/labs/class.llms.lab.beaver.builder.php:175
 msgid "Memberships"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:414
+#: inc/labs/class.llms.lab.beaver.builder.php:439
 msgctxt "The first %s stands for custom branded \"Page Builder\" name. The second %s stands for the post type name."
 msgid "%1$s is currently active for this %2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:415
+#: inc/labs/class.llms.lab.beaver.builder.php:440
 msgctxt "%s stands for custom branded \"Page Builder\" name."
 msgid "Launch %s"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:461, inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:22, inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:22, inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:22, inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:22, inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:22, inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:22, inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:22
+#: inc/labs/class.llms.lab.beaver.builder.php:486, inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:22, inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:22, inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:22, inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:22, inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:22, inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:22, inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:22
 msgid "LifterLMS Modules"
 msgstr ""
 
