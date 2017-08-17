@@ -5,7 +5,7 @@
  * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships
  *
  * @since    1.3.0
- * @version  1.3.0
+ * @version  1.3.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -62,6 +62,10 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		// dolla dolla billz
 		add_filter( 'fl_builder_upgrade_url', array( $this, 'upgrade_url' ) );
+
+		// LifterLMS Private Areas
+		add_action( 'llms_pa_before_do_area_content', array( $this, 'llms_pa_before_content' ) );
+		add_action( 'llms_pa_after_do_area_content', array( $this, 'llms_pa_after_content' ) );
 
 	}
 
@@ -390,6 +394,27 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		FLBuilderModel::register_templates( LLMS_LABS_PLUGIN_DIR . 'inc/labs/inc/' . $this->get_id() . '/templates/course-template.dat' );
 
+	}
+
+	/**
+	 * Replace the BB filter after we've rendered our content
+	 * @return   void
+	 * @since    1.3.1
+	 * @version  1.3.1
+	 */
+	public function llms_pa_after_content() {
+		add_filter( 'the_content', 'FLBuilder::render_content' );
+	}
+
+	/**
+	 * BB will replace PA Post content with course/membership pagebuilder content
+	 * so remove the filter and replace when we're done with our output
+	 * @return   void
+	 * @since    1.3.1
+	 * @version  1.3.1
+	 */
+	public function llms_pa_before_content() {
+		remove_filter( 'the_content', 'FLBuilder::render_content' );
 	}
 
 	/**
