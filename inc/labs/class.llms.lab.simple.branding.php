@@ -9,7 +9,7 @@
  * #kimdealwithit
  *
  * @since    1.0.0
- * @version  [version]
+ * @version  1.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -168,7 +168,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * so it doesn't have to be generated dynamically on every page load
 	 * @return   void
 	 * @since    1.0.0
-	 * @version  [version]
+	 * @version  1.4.0
 	 */
 	public function generate_css() {
 
@@ -376,7 +376,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * Define the lab's settings
 	 * @return   array
 	 * @since    1.0.0
-	 * @version  [version]
+	 * @version  1.4.0
 	 */
 	protected function settings() {
 		return array(
