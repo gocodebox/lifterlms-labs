@@ -282,15 +282,15 @@ msgstr ""
 msgid "Customize the default colors of various LifterLMS elements. For help and more information click %1$shere%2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:383
+#: inc/labs/class.llms.lab.simple.branding.php:389
 msgid "Primary Color"
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:397
+#: inc/labs/class.llms.lab.simple.branding.php:404
 msgid "Action Color"
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:411
+#: inc/labs/class.llms.lab.simple.branding.php:419
 msgid "Accent Color"
 msgstr ""
 
