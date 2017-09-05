@@ -6,10 +6,10 @@
  * with three easy color pickers
  *
  * If this isn't enough for you you should go learn some CSS
- * kimdealwithit
+ * #kimdealwithit
  *
  * @since    1.0.0
- * @version  1.2.2
+ * @version  [version]
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -168,21 +168,21 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * so it doesn't have to be generated dynamically on every page load
 	 * @return   void
 	 * @since    1.0.0
-	 * @version  1.0.0
+	 * @version  [version]
 	 */
 	public function generate_css() {
 
-		$primary = $this->get_option( 'color_primary' );
+		$primary = $this->get_option( 'color_primary', '#2295ff' );
 		$primary_dark = $this->adjust_hex( $primary, -0.12 );
 		$primary_light = $this->adjust_hex( $primary, 0.08 );
 		$primary_text = $this->get_luminance( $primary ) > 0.179 ? '#000' : '#fff';
 
-		$action = $this->get_option( 'color_action' );
+		$action = $this->get_option( 'color_action', '#f8954f' );
 		$action_dark = $this->adjust_hex( $action, -0.12 );
 		$action_light = $this->adjust_hex( $action, 0.08 );
 		$action_text = $this->get_luminance( $action ) > 0.179 ? '#000' : '#fff';
 
-		$accent = $this->get_option( 'color_accent' );
+		$accent = $this->get_option( 'color_accent', '#ef476f' );
 
 		ob_start();
 		?>
@@ -262,6 +262,11 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 			.llms-notice {
 				border-color: <?php echo $primary; ?>;
 				background: <?php echo $this->hex_to_rgba( $primary, 0.3 ); ?>;
+			}
+
+			/* notifications */
+			.llms-notification {
+				border-top-color: <?php echo $primary; ?>;
 			}
 
 			/* progress bar */
@@ -371,19 +376,20 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * Define the lab's settings
 	 * @return   array
 	 * @since    1.0.0
-	 * @version  1.0.0
+	 * @version  [version]
 	 */
 	protected function settings() {
 		return array(
 			array(
 				'columns' => 10,
 				'classes' => 'llms-labs-colorpicker',
+				'default' => '#2295ff',
 				'description' => '<br>' . __( 'This primary color is used for mark as complete and continue buttons, borders on the pricing tables and checkout screen, and more.', 'lifterlms' ),
 				'id' => 'llms-lab-branding-primary-color',
 				'label' => __( 'Primary Color', 'lifterlms-labs' ) . '<br>',
 				'last_column' => true,
 				'name' => 'color_primary',
-				'required' => false,
+				'required' => true,
 				'style' => 'max-width:140px;',
 				'type'  => 'text',
 				'value' => $this->get_option( 'color_primary' ),
@@ -392,12 +398,13 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 			array(
 				'columns' => 10,
 				'classes' => 'llms-labs-colorpicker',
+				'default' => '#f8954f',
 				'description' => '<br>' . __( 'This color is used to draw focus to important actions like the buy now and enroll buttons.', 'lifterlms' ),
 				'id' => 'llms-lab-branding-action-color',
 				'label' => __( 'Action Color', 'lifterlms-labs' ) . '<br>',
 				'last_column' => true,
 				'name' => 'color_action',
-				'required' => false,
+				'required' => true,
 				'style' => 'max-width:140px;',
 				'type'  => 'text',
 				'value' => $this->get_option( 'color_action' ),
@@ -406,12 +413,13 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 			array(
 				'columns' => 10,
 				'classes' => 'llms-labs-colorpicker',
+				'default' => '#ef476f',
 				'description' => '<br>' . __( 'This color is used for minor accents like progress bars and icons.', 'lifterlms' ),
 				'id' => 'llms-lab-branding-accent-color',
 				'label' => __( 'Accent Color', 'lifterlms-labs' ) . '<br>',
 				'last_column' => true,
 				'name' => 'color_accent',
-				'required' => false,
+				'required' => true,
 				'style' => 'max-width:140px;',
 				'type'  => 'text',
 				'value' => $this->get_option( 'color_accent' ),

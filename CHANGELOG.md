@@ -1,5 +1,15 @@
 == Changelog ==
 
+= v1.4.0 - 2017-09-05 =
+-----------------------
+
+##### Simple Branding Updates
+
++ Add support for LifterLMS notifications
++ Set default colors for branding options. Fixes issues with invalid CSS when options aren't set after enabling the lab
++ Make all branding color settings required
+
+
 = v1.3.1 - 2017-08-16 =
 -----------------------
 
