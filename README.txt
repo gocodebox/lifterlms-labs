@@ -4,7 +4,7 @@ Donate link: https://lifterlms.com
 Tags: learning management system, LMS, membership, elearning, online courses, quizzes, sell courses, badges, gamification, learning, Lifter, LifterLMS
 Requires at least: 4.7
 Tested up to: 4.8.1
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -57,6 +57,16 @@ Very quickly configure LifterLMS sidebars to work with your theme. [Documentatio
 Because not every LifterLMS user needs (or wants) the features in this plugin.
 
 == Changelog ==
+
+= v1.4.0 - 2017-09-05 =
+-----------------------
+
+##### Simple Branding Updates
+
++ Add support for LifterLMS notifications
++ Set default colors for branding options. Fixes issues with invalid CSS when options aren't set after enabling the lab
++ Make all branding color settings required
+
 
 = v1.3.1 - 2017-08-16 =
 -----------------------
