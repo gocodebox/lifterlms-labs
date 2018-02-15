@@ -3,8 +3,8 @@ Contributors: thomasplevy, chrisbadgett, kathy11, lifterlms, codeboxllc
 Donate link: https://lifterlms.com
 Tags: learning management system, LMS, membership, elearning, online courses, quizzes, sell courses, badges, gamification, learning, Lifter, LifterLMS
 Requires at least: 4.7
-Tested up to: 4.8.1
-Stable tag: 1.4.0
+Tested up to: 4.9.4
+Stable tag: 1.5.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -57,6 +57,16 @@ Very quickly configure LifterLMS sidebars to work with your theme. [Documentatio
 Because not every LifterLMS user needs (or wants) the features in this plugin.
 
 == Changelog ==
+
+= v1.5.0 - 2018-02-15 =
+-----------------------
+
++ Beaver Builder: Updated to support Beaver Builder 2.0 (long over due, I know.)
++ Lifti: Changes to Divi prevent loading programmatically created layouts. The predefined layout for a LifterLMS course can now be downloaded [here](http://lifterlms.com/wp-content/uploads/2017/01/LifterLMS-Divi-Layouts.json).
++ Simple Branding: Add branding overrides for LifterLMS instructor information cards
++ Simple Branding: Add branding overrides for LifterLMS 3.16.0 quiz styles and LifterLMS Advanced Quizzes styles
++ Simple Branding: Save default values in database & generate CSS when the lab is enabled.
+
 
 = v1.4.0 - 2017-09-05 =
 -----------------------
