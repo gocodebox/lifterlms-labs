@@ -3,15 +3,15 @@
  * Plugin Name: LifterLMS Labs
  * Plugin URI: https://lifterlms.com/
  * Description: Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core
- * Version: 1.4.0
+ * Version: 1.5.0
  * Author: Thomas Patrick Levy, codeBOX LLC
  * Author URI: http://gocodebox.com
  * Text Domain: lifterlms-labs
  * Domain Path: /i18n
- * License:     GPLv2
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * License:     GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Requires at least: 4.0
- * Tested up to: 4.8.1
+ * Tested up to: 4.9.4
  */
 
 /**
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 final class LifterLMS_Labs {
 
-	public $version = '1.4.0';
+	public $version = '1.5.0';
 
 	protected static $_instance = null;
 

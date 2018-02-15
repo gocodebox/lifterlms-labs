@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * Lab: Lifti
  * Divi theme compatibility
  * @since    1.1.0
- * @version  [version]
+ * @version  1.5.0
  */
 class LLMS_Lab_Lifti extends LLMS_Lab {
 

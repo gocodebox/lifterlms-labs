@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * #kimdealwithit
  *
  * @since    1.0.0
- * @version  [version]
+ * @version  1.5.0
  */
 class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 
@@ -167,7 +167,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * so it doesn't have to be generated dynamically on every page load
 	 * @return   void
 	 * @since    1.0.0
-	 * @version  [version]
+	 * @version  1.5.0
 	 */
 	public function generate_css() {
 
@@ -404,8 +404,8 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * Set defaults on lab enabling (if they're not already set) & generates the CSS string
 	 * Stub function called when lab is enabled
 	 * @return   void
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.5.0
+	 * @version  1.5.0
 	 */
 	public function on_enable() {
 

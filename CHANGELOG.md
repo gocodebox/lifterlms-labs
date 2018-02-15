@@ -1,6 +1,6 @@
 == Changelog ==
 
-= v1.5.0 - 2018-02-?? =
+= v1.5.0 - 2018-02-15 =
 -----------------------
 
 + Beaver Builder: Updated to support Beaver Builder 2.0 (long over due, I know.)

@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships
  *
  * @since    1.3.0
- * @version  [version]
+ * @version  1.5.0
  */
 class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
@@ -42,7 +42,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Init
 	 * @return   void
 	 * @since    1.3.0
-	 * @version  [version]
+	 * @version  1.5.0
 	 */
 	protected function init() {
 
@@ -75,8 +75,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Add LLMS post types to the enabled builder post types
 	 * Stub function called when lab is enabled
 	 * @return   void
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.5.0
+	 * @version  1.5.0
 	 */
 	public function on_enable() {
 
@@ -101,8 +101,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * @param    array      $form  settings form array
 	 * @param    string     $id    ID of the row/module/col/etc...
 	 * @return   array
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.5.0
+	 * @version  1.5.0
 	 */
 	public function add_visibility_settings( $form, $id ) {
 
@@ -235,7 +235,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * @param    obj      $node     BB node object
 	 * @return   boolean
 	 * @since    1.3.0
-	 * @version  [version]
+	 * @version  1.5.0
 	 */
 	public function is_node_visible( $visible, $node ) {
 
@@ -489,8 +489,8 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Prevent page building of LifterLMS Post Types that can't actually be pagebuilt despite what the settings may assume
 	 * @param    array     $post_types  post type objects as an array
 	 * @return   array
-	 * @since    [version]
-	 * @version  [version]
+	 * @since    1.5.0
+	 * @version  1.5.0
 	 */
 	public function remove_uneditable_post_types( $post_types ) {
 
