@@ -3,6 +3,8 @@
 = v1.5.0 - 2018-02-?? =
 -----------------------
 
++ Beaver Builder: Updated to support Beaver Builder 2.0 (long over due, I know.)
++ Lifti: Changes to Divi prevent loading programmatically created layouts. The predefined layout for a LifterLMS course can now be downloaded [here](http://lifterlms.com/wp-content/uploads/2017/01/LifterLMS-Divi-Layouts.json).
 + Simple Branding: Add branding overrides for LifterLMS instructor information cards
 + Simple Branding: Add branding overrides for LifterLMS 3.16.0 quiz styles and LifterLMS Advanced Quizzes styles
 + Simple Branding: Save default values in database & generate CSS when the lab is enabled.

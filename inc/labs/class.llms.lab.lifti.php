@@ -1,11 +1,12 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
 /**
  * Lab: Lifti
  * Divi theme compatibility
+ * @since    1.1.0
+ * @version  [version]
  */
-
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-
 class LLMS_Lab_Lifti extends LLMS_Lab {
 
 	private $builder_cpts = array( 'course', 'lesson', 'llms_membership' );
@@ -335,49 +336,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		$theme = wp_get_theme();
 		return ( 'Divi' === $theme->get_template() );
-
-	}
-
-	/**
-	 * Create custom page builder predefined layout(s) when enabling the lab
-	 * Stub function called when lab is enabled
-	 * @return   void
-	 * @since    1.2.0
-	 * @version  1.2.0
-	 */
-	public function on_enable() {
-
-		if ( ! $this->is_divi_enabled() ) {
-			return;
-		}
-
-		$layouts = array(
-			array(
-				'name' => esc_html__( 'LifterLMS Course', 'lifterlms-labs' ),
-				'content' => '[et_pb_section bb_built="1" admin_label="LifterLMS Enrolled Section" fullwidth="off" specialty="off" transparent_background="off" allow_player_pause="off" inner_shadow="off" parallax="off" parallax_method="on" make_fullwidth="off" use_custom_width="off" width_unit="on" make_equal="off" use_custom_gutter="off" module_class="llms-enrolled-student-content"][et_pb_row admin_label="Row"][et_pb_column type="2_3"][et_pb_text admin_label="Enrolled Student Text" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"]</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respondeat totidem verbis. Bonum integritas corporis: misera debilitas. Duo Reges: constructio interrete. Hi curatione adhibita levantur in dies, valet alter plus cotidie, alter videt. Nos paucis ad haec additis finem faciamus aliquando; Faceres tu quidem, Torquate, haec omnia;</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respondeat totidem verbis. Bonum integritas corporis: misera debilitas. Duo Reges: constructio interrete. Hi curatione adhibita levantur in dies, valet alter plus cotidie, alter videt. Nos paucis ad haec additis finem faciamus aliquando; Faceres tu quidem, Torquate, haec omnia;</p><p>[/et_pb_text][et_pb_text admin_label="Course Progress &amp; Continue Button" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"]</p><p>[lifterlms_course_continue]</p><p>[/et_pb_text][/et_pb_column][et_pb_column type="1_3"][et_pb_text admin_label="Course Outline" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"]</p><p><strong>Outline</strong></p><p>[lifterlms_course_outline collapse="true" toggles="true"] [/et_pb_text][/et_pb_column][/et_pb_row][/et_pb_section][et_pb_section bb_built="1" admin_label="LifterLMS Non-Enrolled Section" fullwidth="off" specialty="off" transparent_background="off" allow_player_pause="off" inner_shadow="off" parallax="off" parallax_method="on" make_fullwidth="off" use_custom_width="off" width_unit="on" make_equal="off" use_custom_gutter="off" module_class="llms-non-enrolled-student-content"][et_pb_row admin_label="Row"][et_pb_column type="2_3"][et_pb_text admin_label="Non-Enrolled Student Text" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"]</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hoc sic expositum dissimile est superiori. Ut in voluptate sit, qui epuletur, in dolore, qui torqueatur. Idemne potest esse dies saepius, qui semel fuit? Expectoque quid ad id, quod quaerebam, respondeas. Duo Reges: constructio interrete. Sed quid attinet de rebus tam apertis plura requirere?</p><p>Quid enim possumus hoc agere divinius? Itaque hic ipse iam pridem est reiectus; Quid nunc honeste dicit? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali.</p><p>Sint ista Graecorum; Uterque enim summo bono fruitur, id est voluptate. Qua tu etiam inprudens utebare non numquam. Tu autem, si tibi illa probabantur, cur non propriis verbis ea tenebas? Non est igitur voluptas bonum. Etenim semper illud extra est, quod arte comprehenditur. Quia dolori non voluptas contraria est, sed doloris privatio. Poterat autem inpune;</p><p>[/et_pb_text][/et_pb_column][et_pb_column type="1_3"][et_pb_text admin_label="Course Meta Information" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"]</p><p><strong>Course Details</strong></p><p>[lifterlms_course_meta_info] [/et_pb_text][et_pb_text admin_label="Course Author" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"] [lifterlms_course_author avatar_size="64" bio="yes"] [/et_pb_text][/et_pb_column][/et_pb_row][/et_pb_section][et_pb_section bb_built="1" admin_label="LifterLMS Content" transparent_background="off" allow_player_pause="off" inner_shadow="off" parallax="off" parallax_method="on" make_fullwidth="off" use_custom_width="off" width_unit="on" make_equal="off" use_custom_gutter="off"][et_pb_row admin_label="row"][et_pb_column type="4_4"][et_pb_text admin_label="Prerequisites Notice" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"] [lifterlms_course_prerequisites] [/et_pb_text][et_pb_text admin_label="Pricing Table" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"] [lifterlms_pricing_table] [/et_pb_text][et_pb_text admin_label="Course Syllabus" background_layout="light" text_orientation="left" use_border_color="off" border_color="#ffffff" border_style="solid"] [lifterlms_course_syllabus] [/et_pb_text][/et_pb_column][/et_pb_row][/et_pb_section]',
-				'meta' => array(
-					'_et_pb_predefined_layout'   => 'on',
-					'_et_pb_built_for_post_type' => 'course',
-				),
-			),
-		);
-
-		foreach ( $layouts as $layout ) {
-
-			// dupcheck
-			$query = new WP_Query( array(
-				'post_type' => ET_BUILDER_LAYOUT_POST_TYPE,
-				'posts_per_page' => 1,
-				'title' => $layout['name'],
-				'meta_key' => '_et_pb_predefined_layout',
-				'meta_value' => 'on',
-			) );
-
-			if ( ! $query->have_posts() ) {
-				et_pb_create_layout( $layout['name'], $layout['content'], $layout['meta'] );
-			}
-
-		}
 
 	}
 
