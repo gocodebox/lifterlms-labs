@@ -1,5 +1,13 @@
 == Changelog ==
 
+= v1.5.0 - 2018-02-?? =
+-----------------------
+
++ Simple Branding: Add branding overrides for LifterLMS instructor information cards
++ Simple Branding: Add branding overrides for LifterLMS 3.16.0 quiz styles and LifterLMS Advanced Quizzes styles
++ Simple Branding: Save default values in database & generate CSS when the lab is enabled.
+
+
 = v1.4.0 - 2017-09-05 =
 -----------------------
 

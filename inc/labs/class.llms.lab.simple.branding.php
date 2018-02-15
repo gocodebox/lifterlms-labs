@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
 /**
  * Simple branding
  *
@@ -9,11 +11,8 @@
  * #kimdealwithit
  *
  * @since    1.0.0
- * @version  1.4.0
+ * @version  [version]
  */
-
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-
 class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 
 	/**
@@ -168,7 +167,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * so it doesn't have to be generated dynamically on every page load
 	 * @return   void
 	 * @since    1.0.0
-	 * @version  1.4.0
+	 * @version  [version]
 	 */
 	public function generate_css() {
 
@@ -284,6 +283,45 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 			.llms-lesson-preview .llms-icon-free {
 				background: <?php echo $accent; ?>;
 			}
+
+			/* instructors */
+			.llms-instructor-info .llms-instructors .llms-author {
+				border-top-color: <?php echo $primary; ?>;
+			}
+
+			.llms-instructor-info .llms-instructors .llms-author .avatar {
+				background: <?php echo $primary; ?>;
+				border-color: <?php echo $primary; ?>;
+			}
+
+			/* quizzes */
+			.llms-question-wrapper ol.llms-question-choices li.llms-choice input:checked+.llms-marker {
+				background: <?php echo $accent; ?>;
+			}
+
+			/* advanced quizzes */
+			.llms-quiz-ui .llms-aq-scale .llms-aq-scale-range .llms-aq-scale-radio input[type="radio"]:checked + .llms-aq-scale-button {
+				background: <?php echo $accent; ?>;
+			}
+			.llms-quiz-ui input.llms-aq-blank {
+				color: <?php echo $primary; ?>;
+			}
+			.llms-quiz-ui input.llms-aq-blank:focus,
+			.llms-quiz-ui input.llms-aq-blank:valid {
+				border-bottom-color: <?php echo $primary; ?>;
+			}
+			.llms-quiz-ui .llms-aq-uploader.dragover {
+				border-color: <?php echo $primary; ?>;
+			}
+			.llms-quiz-ui ol.llms-question-choices.llms-aq-reorder-list.dragging {
+				box-shadow: 0 0 0 3px <?php echo $accent; ?>;
+			}
+			.llms-quiz-ui ol.llms-question-choices.llms-aq-reorder-list .llms-aq-reorder-item.llms-aq-placeholder {
+				border-color: <?php echo $accent; ?>;
+			}
+    		.llms-quiz-ui ol.llms-question-choices.llms-aq-reorder-list .llms-aq-reorder-item.llms-aq-placeholder:last-child {
+      			border-bottom-color: <?php echo $accent; ?>;
+    		}
 		</style>
 		<?php
 		$css = ob_get_clean();
@@ -359,6 +397,35 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		);
 
 		return $rgb;
+
+	}
+
+	/**
+	 * Set defaults on lab enabling (if they're not already set) & generates the CSS string
+	 * Stub function called when lab is enabled
+	 * @return   void
+	 * @since    [version]
+	 * @version  [version]
+	 */
+	public function on_enable() {
+
+		$settings = array(
+			'color_primary' => '#2295ff',
+			'color_action' =>'#f8954f',
+			'color_accent' => '#ef476f',
+		);
+
+		foreach ( $settings as $setting => $val ) {
+
+			if ( ! $this->get_option( $setting ) ) {
+
+				$this->set_option( $setting, $val );
+
+			}
+
+		}
+
+		$this->generate_css();
 
 	}
 
