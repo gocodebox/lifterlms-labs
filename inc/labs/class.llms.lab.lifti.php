@@ -344,7 +344,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Determine if Divi is the current theme/template
 	 * @return   boolean
 	 * @since    1.2.0
-	 * @version  1.2.0
+	 * @version  1.5.1
 	 */
 	private function is_divi_enabled() {
 
