@@ -246,11 +246,27 @@ msgstr ""
 msgid "Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:124
+#: inc/labs/class.llms.lab.lifti.php:130
 msgid "This editor disabled when Divi Builder is active. %1$sLearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder."
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:391
+#: inc/labs/class.llms.lab.lifti.php:396
+msgid "Layout"
+msgstr ""
+
+#: inc/labs/class.llms.lab.lifti.php:398
+msgid "Fullwidth"
+msgstr ""
+
+#: inc/labs/class.llms.lab.lifti.php:399
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/labs/class.llms.lab.lifti.php:400
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/labs/class.llms.lab.lifti.php:429
 msgid "Enable Divi Builder & Layout Settings on the following LifterLMS Post Types"
 msgstr ""
 
