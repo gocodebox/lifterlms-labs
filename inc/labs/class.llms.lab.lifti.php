@@ -349,7 +349,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	private function is_divi_enabled() {
 
 		$theme = wp_get_theme();
-		return ( 'Divi' === $theme->get_template() );
+		return ( 'divi' === strtolower( $theme->get_template() ) );
 
 	}
 
