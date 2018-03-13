@@ -1,5 +1,11 @@
 == Changelog ==
 
+= v1.5.1 - 2018-03-13 =
+-----------------------
+
++ Lifti: Custom builder classes will now function as expected when used on free lessons
++ Lifti: Add support for LifterLMS Quiz layouts
+
 = v1.5.0 - 2018-02-15 =
 -----------------------
 

@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * Lab: Lifti
  * Divi theme compatibility
  * @since    1.1.0
- * @version  1.5.0
+ * @version  1.5.1
  */
 class LLMS_Lab_Lifti extends LLMS_Lab {
 
@@ -33,7 +33,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Initialize the Lab
 	 * @return   void
 	 * @since    1.1.0
-	 * @version  1.2.0
+	 * @version  1.5.1
 	 */
 	protected function init() {
 
@@ -65,6 +65,12 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		add_filter( 'the_excerpt', array( $this, 'handle_excerpt' ), 777 );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_page_settings' ) );
+
+		if ( ! get_theme_support( 'lifterlms-quizzes' ) ) {
+			add_theme_support( 'lifterlms-quizzes' );
+			add_filter( 'llms_get_quiz_theme_settings', array( $this, 'quiz_settings' ) );
+		}
+
 
 	}
 
@@ -217,7 +223,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * @param    string     $content  post content
 	 * @return   string
 	 * @since    1.2.0
-	 * @version  1.2.0
+	 * @version  1.5.1
 	 */
 	public function handle_content( $content ) {
 
@@ -229,12 +235,20 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		$sections = $this->get_builder_sections( $content );
 
-
 		if ( $sections ) {
 
-			$restrictions = llms_page_restricted( $post->ID );
+			if ( 'lesson' === $post->post_type && 'yes' === get_post_meta( $post->ID, '_llms_free_lesson', true ) ) {
 
-			$class = $restrictions['is_restricted'] ? 'llms-enrolled-student-content' : 'llms-non-enrolled-student-content';
+				$restricted = llms_is_user_enrolled( get_current_user_id(), $post->ID ) ? false : true;
+
+			} else {
+
+				$restrictions = llms_page_restricted( $post->ID );
+				$restricted = $restrictions['is_restricted'];
+
+			}
+
+			$class = $restricted ? 'llms-enrolled-student-content' : 'llms-non-enrolled-student-content';
 
 			$new_content = '';
 			foreach ( $sections as $section ) {
@@ -365,6 +379,30 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 					</div> <!-- #content-area -->
 				</div> <!-- .container -->
 			</div> <!-- #main-content -->';
+	}
+
+	/**
+	 * Add quiz sidebar layout compatibility options to Divi
+	 * @param    array     $settings  quiz settings array
+	 * @return   array
+	 * @since    1.5.1
+	 * @version  1.5.1
+	 */
+	public function quiz_settings( $settings ) {
+
+		$settings['layout'] = array(
+			'id' => 'et_pb_page_layout',
+			'id_prefix' => '_',
+			'name' => __( 'Layout', 'lifterlms-labs' ),
+			'options' => array(
+				'et_full_width_page' => esc_html__( 'Fullwidth', 'lifterlms-labs' ),
+				'et_left_sidebar'    => esc_html__( 'Left Sidebar', 'lifterlms-labs' ),
+				'et_right_sidebar'   => esc_html__( 'Right Sidebar', 'lifterlms-labs' ),
+			),
+			'type' => 'select',
+		);
+
+		return $settings;
 	}
 
 	/**
