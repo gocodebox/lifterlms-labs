@@ -1,11 +1,11 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Lab: Lifti
  * Divi theme compatibility
  * @since    1.1.0
- * @version  1.5.1
+ * @version  1.5.2
  */
 class LLMS_Lab_Lifti extends LLMS_Lab {
 
@@ -119,7 +119,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Output some JS in the admin footer to handle toggling of the ET Builder
 	 * @return   void
 	 * @since    1.2.0
-	 * @version  1.3.0
+	 * @version  1.5.2
 	 */
 	public function admin_footer() {
 		$screen = get_current_screen();
@@ -127,7 +127,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			return;
 		}
 		$msg = sprintf(
-			__( 'This editor disabled when Divi Builder is active. %1$sLearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder.', 'lifterlms-labs' ),
+			__( 'This editor is disabled when the Divi Builder is active. Use a Builder-enabled page and the "Redirect to WordPress Page" option to build a sales page or %1$slearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder.', 'lifterlms-labs' ),
 			'<a href="#">', '</a>'
 		);
 		?>

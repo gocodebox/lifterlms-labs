@@ -1,5 +1,5 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+defined( 'ABSPATH' ) || exit;
 
 /**
  * BeaverBuilder Integration
@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships
  *
  * @since    1.3.0
- * @version  1.5.0
+ * @version  1.5.2
  */
 class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
@@ -432,7 +432,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * @param    array     $fields  metabox fields
 	 * @return   array
 	 * @since    1.3.0
-	 * @version  1.3.0
+	 * @version  1.5.2
 	 */
 	public function mod_metabox_fields( $fields ) {
 
@@ -442,17 +442,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		if ( in_array( $post->post_type, $post_types ) && FLBuilderModel::is_builder_enabled() ) {
 
-			$post_type_obj 	= get_post_type_object( $post->post_type );
-			$post_type_name = strtolower( $post_type_obj->labels->singular_name );
-			$bb_branding = FLBuilderModel::get_branding();
-
-			$lang = '<p>' . sprintf( _x( '%1$s is currently active for this %2$s.', 'The first %s stands for custom branded "Page Builder" name. The second %s stands for the post type name.', 'lifterlms-labs' ), $bb_branding, $post_type_name ) . '</p>';
-			$lang .= '<p><a href="' . FLBuilderModel::get_edit_url() . '" class="fl-launch-builder button button-primary button-large">' . sprintf( _x( 'Launch %s', '%s stands for custom branded "Page Builder" name.', 'lifterlms-labs' ), $bb_branding ). '</a></p>';
-
-			$fields[0]['fields'][0]['type'] = 'custom-html';
-			$fields[0]['fields'][0]['value'] = $lang;
-			$fields[0]['fields'][1]['type'] = 'custom-html';
-			$fields[0]['fields'][1]['value'] = $lang;
+			unset( $fields[0]['fields'][0]['value']['content'] );
 
 		}
 

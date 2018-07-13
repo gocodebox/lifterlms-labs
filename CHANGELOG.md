@@ -1,5 +1,12 @@
 == Changelog ==
 
+= v1.5.2 - 2018-07-12 =
+-----------------------
+
++ Beaver Builder: Minor changes to accommodate changes in LifterLMS 3.20.0
++ Lifti: Minor changes to accommodate changes in LifterLMS 3.20.0
+
+
 = v1.5.1 - 2018-03-13 =
 -----------------------
 
