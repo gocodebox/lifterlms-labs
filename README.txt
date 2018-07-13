@@ -58,6 +58,19 @@ Because not every LifterLMS user needs (or wants) the features in this plugin.
 
 == Changelog ==
 
+= v1.5.2 - 2018-07-12 =
+-----------------------
+
++ Beaver Builder: Minor changes to accommodate changes in LifterLMS 3.20.0
++ Lifti: Minor changes to accommodate changes in LifterLMS 3.20.0
+
+
+= v1.5.1 - 2018-03-13 =
+-----------------------
+
++ Lifti: Custom builder classes will now function as expected when used on free lessons
++ Lifti: Add support for LifterLMS Quiz layouts
+
 = v1.5.0 - 2018-02-15 =
 -----------------------
 
