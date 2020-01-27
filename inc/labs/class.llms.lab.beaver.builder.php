@@ -1,21 +1,31 @@
 <?php
-defined( 'ABSPATH' ) || exit;
-
 /**
  * BeaverBuilder Integration
  *
- * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships
+ * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships.
  *
- * @since    1.3.0
- * @version  1.5.2
+ * @since 1.3.0
+ * @version [version]
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * BeaverBuilder Integration class.
+ *
+ * @since 1.3.0
+ * @since 1.5.0 Unknown.
+ * @since 1.5.2 Unknown.
+ * @since [version] Fixed localization textdomain and visibility conditional logic for `'specific'` enrollment type.
  */
 class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 	/**
-	 * Configure the Lab
-	 * @return   void
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * Configure the Lab.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return void
 	 */
 	protected function configure() {
 
@@ -29,24 +39,27 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	}
 
 	/**
-	 * Determine if the Lab is enabled
-	 * @return   boolean
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * Determine if the Lab is enabled.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return boolean
 	 */
 	public function is_enabled() {
 		return ( parent::is_enabled() && class_exists( 'FLBuilder' ) );
 	}
 
 	/**
-	 * Init
-	 * @return   void
-	 * @since    1.3.0
-	 * @version  1.5.0
+	 * Init.
+	 *
+	 * @since 1.3.0
+	 * @since 1.5.0 Unknown.
+	 *
+	 * @return void
 	 */
 	protected function init() {
 
-		// prevent uneditable llms post types from being enabled for page building
+		// prevent uneditable llms post types from being enabled for page building.
 		add_filter( 'fl_builder_admin_settings_post_types', array( $this, 'remove_uneditable_post_types' ) );
 
 		add_action( 'init', array( $this, 'load_modules' ) );
@@ -58,25 +71,26 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		add_filter( 'fl_builder_is_node_visible', array( $this, 'is_node_visible' ), 10, 2 );
 
-		// // hide editors when builder is enabled for a post
+		// // hide editors when builder is enabled for a post.
 		add_filter( 'llms_metabox_fields_lifterlms_course_options', array( $this, 'mod_metabox_fields' ) );
 		add_filter( 'llms_metabox_fields_lifterlms_membership', array( $this, 'mod_metabox_fields' ) );
 
-		// dolla dolla billz yall
+		// dolla dolla billz yall.
 		add_filter( 'fl_builder_upgrade_url', array( $this, 'upgrade_url' ) );
 
-		// LifterLMS Private Areas
+		// LifterLMS Private Areas.
 		add_action( 'llms_pa_before_do_area_content', array( $this, 'llms_pa_before_content' ) );
 		add_action( 'llms_pa_after_do_area_content', array( $this, 'llms_pa_after_content' ) );
 
 	}
 
 	/**
-	 * Add LLMS post types to the enabled builder post types
-	 * Stub function called when lab is enabled
-	 * @return   void
-	 * @since    1.5.0
-	 * @version  1.5.0
+	 * Add LLMS post types to the enabled builder post types.
+	 * Stub function called when lab is enabled.
+	 *
+	 * @since 1.5.0
+	 *
+	 * @return void
 	 */
 	public function on_enable() {
 
@@ -87,22 +101,25 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	}
 
 	/**
-	 * This function should return array of settings fields
-	 * @return   array
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * This function should return array of settings fields.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return array
 	 */
 	protected function settings() {
 		return array();
 	}
 
 	/**
-	 * Add custom visibility settings for enrollments to the BB "Visibility" section
-	 * @param    array      $form  settings form array
-	 * @param    string     $id    ID of the row/module/col/etc...
-	 * @return   array
-	 * @since    1.5.0
-	 * @version  1.5.0
+	 * Add custom visibility settings for enrollments to the BB "Visibility" section.
+	 *
+	 * @since 1.5.0
+	 * @since [version] Fixed localization textdomain.
+	 *
+	 * @param array  $form Settings form array.
+	 * @param string $id   ID of the row/module/col/etc.
+	 * @return array
 	 */
 	public function add_visibility_settings( $form, $id ) {
 
@@ -134,7 +151,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 						'fields' => array( 'llms_enrollment_match', 'llms_course_ids', 'llms_membership_ids' ),
 					),
 				),
-				'help' => __( 'Select how to check the enrollment status of the current student.', 'lifterlms'  ),
+				'help' => __( 'Select how to check the enrollment status of the current student.', 'lifterlms-labs'  ),
 				'preview' => array(
 					'type' => 'none'
 				)
@@ -146,7 +163,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 					'' => __( 'Any of the following', 'lifterlms-labs' ),
 					'all' => __( 'All of the following', 'lifterlms-labs' ),
 				),
-				'help' => __( 'Select how to check the enrollment status of the current student.', 'lifterlms'  ),
+				'help' => __( 'Select how to check the enrollment status of the current student.', 'lifterlms-labs'  ),
 				'preview' => array(
 					'type' => 'none'
 				)
@@ -157,7 +174,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 				'data' => 'course',
 				// 'matching' => true,
 				'label' => __( 'Courses', 'lifterlms-labs' ),
-				'help' => __( 'Choose which course(s) the student must be enrolled (or not enrolled) in to view this element.', 'lifterlms'  ),
+				'help' => __( 'Choose which course(s) the student must be enrolled (or not enrolled) in to view this element.', 'lifterlms-labs'  ),
 				'preview' => array(
 					'type' => 'none'
 				)
@@ -168,14 +185,14 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 				'data' => 'llms_membership',
 				// 'matching' => true,
 				'label' => __( 'Memberships', 'lifterlms-labs' ),
-				'help' => __( 'Choose which membership(s) the student must be enrolled (or not enrolled) in to view this element.', 'lifterlms'  ),
+				'help' => __( 'Choose which membership(s) the student must be enrolled (or not enrolled) in to view this element.', 'lifterlms-labs'  ),
 				'preview' => array(
 					'type' => 'none'
 				)
 			),
 		);
 
-		// rows
+		// rows.
 		if (
 			isset( $form['tabs'] ) &&
 			isset( $form['tabs']['advanced'] ) &&
@@ -187,7 +204,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 			$form['tabs']['advanced']['sections']['visibility']['fields']['visibility_display']['toggle'] = array_merge( $form['tabs']['advanced']['sections']['visibility']['fields']['visibility_display']['toggle'], $toggle );
 			$form['tabs']['advanced']['sections']['visibility']['fields'] = array_merge( $form['tabs']['advanced']['sections']['visibility']['fields'], $fields );
 
-		// modules
+		// modules.
 		} elseif (
 			isset( $form['sections'] ) &&
 			isset( $form['sections']['visibility'] )
@@ -204,11 +221,12 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	}
 
 	/**
-	 * Create a single array of course & membership IDs from a BB node settings object
-	 * @param    obj     $settings  BB Node Settings
-	 * @return   array
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * Create a single array of course & membership IDs from a BB node settings object.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param obj $settings BB Node Settings.
+	 * @return array
 	 */
 	private function get_related_posts_from_settings( $settings ) {
 
@@ -230,12 +248,15 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	}
 
 	/**
-	 * Determine if a node is visible based on llms enrollments status visibility settings
-	 * @param    bool     $visible  default visibility
-	 * @param    obj      $node     BB node object
-	 * @return   boolean
-	 * @since    1.3.0
-	 * @version  1.5.0
+	 * Determine if a node is visible based on llms enrollments status visibility settings.
+	 *
+	 * @since 1.3.0
+	 * @since 1.5.0 Unknown.
+	 * @since [version] Fixed visibility conditional logic for `'specific'` enrollment type.
+	 *
+	 * @param bool $visible Default visibility.
+	 * @param obj  $node    BB node object.
+	 * @return boolean
 	 */
 	public function is_node_visible( $visible, $node ) {
 
@@ -250,26 +271,26 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 			if ( ! $type || 'any' === $type ) {
 
-				// no type means current course/membership
+				// no type means current course/membership.
 				if ( ! $type ) {
 
 					$current_id = get_the_ID();
-					// cascade up for lessons & quizzes
+					// cascade up for lessons & quizzes.
 					if ( in_array( get_post_type( $current_id ), array( 'lesson', 'llms_quiz' ) ) ) {
 						$course = llms_get_post_parent_course( $current_id );
 						$current_id = $course->get( 'id' );
 					}
 
-					// if the current id isn't a course or membership don't proceed
+					// if the current id isn't a course or membership don't proceed.
 					if ( ! in_array( get_post_type( $current_id ), array( 'course', 'llms_membership' ) ) ) {
 						return $visibility;
 					}
 
-					// get the eonrllment status
+					// get the eonrllment status.
 					$enrollment_status = llms_is_user_enrolled( $uid, $current_id );
 
 				}
-				// check if they're enrolled/not enrolled in anything
+				// check if they're enrolled/not enrolled in anything.
 				elseif ( 'any' === $type ) {
 
 					$enrollment_status = $this->is_student_enrollend_in_one_thing( $uid );
@@ -284,11 +305,15 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 			}
 
-			// check if they're enrolled / not enrolled in the specific courses/memberships
+			// check if they're enrolled / not enrolled in the specific courses/memberships,
 			elseif ( 'specific' === $type ) {
 
 				$match = $node->settings->llms_enrollment_match ? $node->settings->llms_enrollment_match : 'any';
 				$ids = $this->get_related_posts_from_settings( $node->settings );
+
+				if ( empty( $ids ) ) {
+					return true;
+				}
 
 				if ( 'llms_enrolled' === $status ) {
 
@@ -296,19 +321,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 						return false;
 					}
 
-					foreach ( $ids as $id ) {
-						if ( llms_is_user_enrolled( $uid, $id ) ) {
-							if ( 'any' === $match ) {
-								return true;
-							}
-						} else {
-							if ( 'all' === $match ) {
-								return false;
-							}
-						}
-					}
-
-					return true;
+					return llms_is_user_enrolled( $uid, $ids, $match );
 
 				} elseif ( 'llms_not_enrolled' === $status ) {
 
@@ -316,20 +329,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 						return true;
 					}
 
-					foreach ( $ids as $id ) {
-
-						if ( ! llms_is_user_enrolled( $uid, $id ) ) {
-							if ( 'any' === $match ) {
-								return true;
-							}
-						} else {
-							if ( 'all' === $match ) {
-								return false;
-							}
-						}
-					}
-
-					return true;
+					return ! llms_is_user_enrolled( $uid, $ids, $match );
 
 				}
 
@@ -341,11 +341,12 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	}
 
 	/**
-	 * Detemine if a student is enrolled in at least one course or membership
-	 * @param    int     $uid  WP_User ID
-	 * @return   boolean
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * Detemine if a student is enrolled in at least one course or membership.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param int $uid  WP_User ID.
+	 * @return boolean
 	 */
 	private function is_student_enrollend_in_one_thing( $uid ) {
 
@@ -358,11 +359,12 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 			return false;
 		}
 
-		// do we have one course
+		// do we have one course.
 		$courses = $student->get_courses( array(
 			'limit' => 1,
 			'status' => 'enrolled',
 		) );
+
 		if ( $courses['results'] ) {
 			return true;
 		}
@@ -373,16 +375,17 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 			return true;
 		}
 
-		// nope
+		// nope.
 		return false;
 
 	}
 
 	/**
-	 * Replace the BB filter after we've rendered our content
-	 * @return   void
-	 * @since    1.3.1
-	 * @version  1.3.1
+	 * Replace the BB filter after we've rendered our content.
+	 *
+	 * @since 1.3.1
+	 *
+	 * @return void
 	 */
 	public function llms_pa_after_content() {
 		add_filter( 'the_content', 'FLBuilder::render_content' );
@@ -390,20 +393,22 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 	/**
 	 * BB will replace PA Post content with course/membership pagebuilder content
-	 * so remove the filter and replace when we're done with our output
-	 * @return   void
-	 * @since    1.3.1
-	 * @version  1.3.1
+	 * so remove the filter and replace when we're done with our output.
+	 *
+	 * @since 1.3.1
+	 *
+	 * @return void
 	 */
 	public function llms_pa_before_content() {
 		remove_filter( 'the_content', 'FLBuilder::render_content' );
 	}
 
 	/**
-	 * Loads LifterLMS modules
-	 * @return   void
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * Loads LifterLMS modules.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return void
 	 */
 	public function load_modules() {
 
@@ -416,10 +421,11 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	}
 
 	/**
-	 * Load LifterLMS layout templates
-	 * @return   void
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * Load LifterLMS layout templates.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return void
 	 */
 	public function load_templates() {
 
@@ -428,11 +434,13 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	}
 
 	/**
-	 * Modify LifterLMS metabox Fields to show the page builder is active
-	 * @param    array     $fields  metabox fields
-	 * @return   array
-	 * @since    1.3.0
-	 * @version  1.5.2
+	 * Modify LifterLMS metabox Fields to show the page builder is active.
+	 *
+	 * @since 1.3.0
+	 * @since 1.5.2 Unknown.
+	 *
+	 * @param array $fields Metabox fields.
+	 * @return array
 	 */
 	public function mod_metabox_fields( $fields ) {
 
@@ -452,12 +460,13 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 	/**
 	 * Bypass restriction checks for courses and memberships when the builder is active
-	 * Allows the builder to use custom LifterLMS visibility settings when a student is not enrolled
-	 * @param    array     $results  restrcition results data
-	 * @param    int     $post_id  current post id
-	 * @return   array
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * Allows the builder to use custom LifterLMS visibility settings when a student is not enrolled.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param array $results Restrcition results data.
+	 * @param int   $post_id Current post id.
+	 * @return array
 	 */
 	public function mod_page_restrictions( $results, $post_id ) {
 
@@ -476,11 +485,12 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	}
 
 	/**
-	 * Prevent page building of LifterLMS Post Types that can't actually be pagebuilt despite what the settings may assume
-	 * @param    array     $post_types  post type objects as an array
-	 * @return   array
-	 * @since    1.5.0
-	 * @version  1.5.0
+	 * Prevent page building of LifterLMS Post Types that can't actually be pagebuilt despite what the settings may assume.
+	 *
+	 * @since 1.5.0
+	 *
+	 * @param array $post_types Post type objects as an array.
+	 * @return array
 	 */
 	public function remove_uneditable_post_types( $post_types ) {
 
@@ -495,10 +505,11 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 	/**
 	 * #wewantallyourmoniesbecausewerejerks
-	 * @param    string     $url  default upgrade url
-	 * @return   string
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $url Default upgrade url.
+	 * @return string
 	 */
 	public function upgrade_url( $url ) {
 		return 'https://www.wpbeaverbuilder.com/?fla=968';
