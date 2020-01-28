@@ -4,7 +4,7 @@ Donate link: https://lifterlms.com
 Tags: learning management system, LMS, membership, elearning, online courses, quizzes, sell courses, badges, gamification, learning, Lifter, LifterLMS
 Requires at least: 4.7
 Tested up to: 5.3.2
-Stable tag: 1.5.0
+Stable tag: 1.5.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,7 +25,7 @@ Some labs will ultimately find their way into the LifterLMS Core, some may be a 
 
 Quickly remove specific elements like course author, syllabus, and more without having to write any code. [Documentation and more information](https://lifterlms.com/docs/lab-action-manager/?utm_source=readme&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=actionmanager).
 
-** Beaver Builder**
+**Beaver Builder**
 
 Add LifterLMS elements as pagebuilder modules and enable row and module visibility settings based on student enrollment in courses and memberships. [Documentation and more information](https://lifterlms.com/docs/lab-beaver-builder/?utm_source=readme&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=beaverbuilder).
 

@@ -5,7 +5,7 @@
  * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships.
  *
  * @since 1.3.0
- * @version [version]
+ * @version 1.5.3
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.3.0
  * @since 1.5.0 Unknown.
  * @since 1.5.2 Unknown.
- * @since [version] Fixed localization textdomain and visibility conditional logic for `'specific'` enrollment type.
+ * @since 1.5.3 Fixed localization textdomain and visibility conditional logic for `'specific'` enrollment type.
  */
 class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
@@ -115,7 +115,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Add custom visibility settings for enrollments to the BB "Visibility" section.
 	 *
 	 * @since 1.5.0
-	 * @since [version] Fixed localization textdomain.
+	 * @since 1.5.3 Fixed localization textdomain.
 	 *
 	 * @param array  $form Settings form array.
 	 * @param string $id   ID of the row/module/col/etc.
@@ -252,7 +252,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 *
 	 * @since 1.3.0
 	 * @since 1.5.0 Unknown.
-	 * @since [version] Fixed visibility conditional logic for `'specific'` enrollment type.
+	 * @since 1.5.3 Fixed visibility conditional logic for `'specific'` enrollment type.
 	 *
 	 * @param bool $visible Default visibility.
 	 * @param obj  $node    BB node object.

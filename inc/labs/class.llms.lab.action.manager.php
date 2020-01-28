@@ -5,7 +5,7 @@
  * Remove LifterLMS Action Hooks with Checkboxes
  *
  * @since 1.2.0
- * @version [version]
+ * @version 1.5.3
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
  * LLMS_Lab_Action Manager Class
  *
  * @since 1.2.0
- * @since [version] Remove non-functioning course featured video hook.
+ * @since 1.5.3 Remove non-functioning course featured video hook.
  */
 class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
@@ -56,7 +56,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	/**
 	 * Remove user-selcetd actions
 	 *
-	 * @since  [version]
+	 * @since  1.5.3
 	 *
 	 * @return void
 	 */
@@ -132,7 +132,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	 * Setup a list of available hooks.
 	 *
 	 * @since 1.2.0
-	 * @since [version] Remvoe single course featured image since it doesn't work.
+	 * @since 1.5.3 Remvoe single course featured image since it doesn't work.
 	 *
 	 * @return void
 	 */

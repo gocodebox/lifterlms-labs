@@ -4,6 +4,8 @@
 -----------------------
 
 + Tested to WordPress core 5.3.2
++ Beaver Builder: Fix module visibility issue when hiding modules based on enrollment in specific courses or memberships.
++ Action Manager: Remove non-functioning featured image hook. Featured images are output by themes not by LifterLMS.
 
 
 = v1.5.2 - 2018-07-12 =

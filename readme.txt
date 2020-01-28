@@ -3,8 +3,8 @@ Contributors: thomasplevy, chrisbadgett, kathy11, lifterlms, codeboxllc
 Donate link: https://lifterlms.com
 Tags: learning management system, LMS, membership, elearning, online courses, quizzes, sell courses, badges, gamification, learning, Lifter, LifterLMS
 Requires at least: 4.7
-Tested up to: 4.9.4
-Stable tag: 1.5.0
+Tested up to: 5.3.2
+Stable tag: 1.5.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -57,6 +57,14 @@ Very quickly configure LifterLMS sidebars to work with your theme. [Documentatio
 Because not every LifterLMS user needs (or wants) the features in this plugin.
 
 == Changelog ==
+
+= v1.5.3 - 2020-01-28 =
+-----------------------
+
++ Tested to WordPress core 5.3.2
++ Beaver Builder: Fix module visibility issue when hiding modules based on enrollment in specific courses or memberships.
++ Action Manager: Remove non-functioning featured image hook. Featured images are output by themes not by LifterLMS.
+
 
 = v1.5.2 - 2018-07-12 =
 -----------------------
