@@ -55,7 +55,7 @@ FLBuilder::register_module( 'LLMS_Lab_Course_Continue_Button_Module', array(
 						'data' => 'course',
 						'limit' => 1,
 						'label' => __( 'Course', 'lifterlms-labs' ),
-						'help' => __( 'Select the course to display a continue button for. Leave blank for the current course.', 'lifterlms'  ),
+						'help' => __( 'Select the course to display a continue button for. Leave blank for the current course.', 'lifterlms-labs'  ),
 						'preview' => array(
 							'type' => 'none'
 						)

@@ -67,7 +67,7 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 			array(
 				'columns' => 6,
 				'classes' => 'llms-select2',
-				'description' => '<br>' . __( 'Select your theme\'s main sidebar, this is usually the sidebar that displays when viewing a blog post.', 'lifterlms' ),
+				'description' => '<br>' . __( 'Select your theme\'s main sidebar, this is usually the sidebar that displays when viewing a blog post.', 'lifterlms-labs' ),
 				'id' => 'llms-lab-main-sidebar',
 				'label' => __( 'Main Sidebar', 'lifterlms-labs' ) . '<br>',
 				'last_column' => true,

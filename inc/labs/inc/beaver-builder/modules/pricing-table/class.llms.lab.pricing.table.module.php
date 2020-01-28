@@ -138,7 +138,7 @@ FLBuilder::register_module( 'LLMS_Lab_Pricing_Table_Module', array(
 						'data' => 'course',
 						'limit' => 1,
 						'label' => __( 'Course', 'lifterlms-labs' ),
-						'help' => __( 'Choose which course to display a pricing table for.', 'lifterlms'  ),
+						'help' => __( 'Choose which course to display a pricing table for.', 'lifterlms-labs'  ),
 						'preview' => array(
 							'type' => 'none'
 						)
@@ -149,7 +149,7 @@ FLBuilder::register_module( 'LLMS_Lab_Pricing_Table_Module', array(
 						'data' => 'llms_membership',
 						'limit' => 1,
 						'label' => __( 'Membership', 'lifterlms-labs' ),
-						'help' => __( 'Choose which membership to display a pricing table for.', 'lifterlms'  ),
+						'help' => __( 'Choose which membership to display a pricing table for.', 'lifterlms-labs'  ),
 						'preview' => array(
 							'type' => 'none'
 						)

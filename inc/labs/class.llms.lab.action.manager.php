@@ -139,7 +139,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	public function setup_hooks() {
 		$this->hooks = array(
 			array(
-				'title' => __( 'Single Course Actions', 'lifterlms' ),
+				'title' => __( 'Single Course Actions', 'lifterlms-labs' ),
 				'actions' => array(
 					'lifterlms_template_single_video' => array(
 						'action' => 'lifterlms_single_course_before_summary',

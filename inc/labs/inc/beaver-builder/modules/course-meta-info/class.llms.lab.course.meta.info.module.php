@@ -43,7 +43,7 @@ FLBuilder::register_module( 'LLMS_Lab_Course_Meta_Info_Module', array(
 						'data' => 'course',
 						'limit' => 1,
 						'label' => __( 'Course', 'lifterlms-labs' ),
-						'help' => __( 'Select the course to display the course information from. Leave blank for the current course.', 'lifterlms'  ),
+						'help' => __( 'Select the course to display the course information from. Leave blank for the current course.', 'lifterlms-labs'  ),
 						'preview' => array(
 							'type' => 'none'
 						)

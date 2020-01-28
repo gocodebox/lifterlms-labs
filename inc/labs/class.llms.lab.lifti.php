@@ -89,7 +89,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		foreach ( $this->builder_cpts_enabled as $post_type ) {
 
 			$obj = get_post_type_object( $post_type );
-			add_meta_box( 'et_settings_meta_box', sprintf(__('Divi %s Settings', 'Divi'), $obj->labels->singular_name ), 'et_single_settings_meta_box', $post_type, 'side', 'high' );
+			add_meta_box( 'et_settings_meta_box', sprintf(__('Divi %s Settings', 'lifterlms-labs'), $obj->labels->singular_name ), 'et_single_settings_meta_box', $post_type, 'side', 'high' );
 
 		}
 

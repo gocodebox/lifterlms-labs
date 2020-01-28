@@ -161,10 +161,10 @@ class LLMS_Labs_Settings_Page {
 		<table class="wp-list-table widefat fixed striped">
 			<thead>
 				<tr>
-					<th><?php _e( 'Name', 'lifterlms-lab' ); ?></th>
-					<th><?php _e( 'Descrpition', 'lifterlms-lab' ); ?></th>
-					<th><?php _e( 'Status', 'lifterlms-lab' ); ?></th>
-					<th><?php _e( 'Action', 'lifterlms-lab' ); ?></th>
+					<th><?php _e( 'Name', 'lifterlms-labs' ); ?></th>
+					<th><?php _e( 'Descrpition', 'lifterlms-labs' ); ?></th>
+					<th><?php _e( 'Status', 'lifterlms-labs' ); ?></th>
+					<th><?php _e( 'Action', 'lifterlms-labs' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
