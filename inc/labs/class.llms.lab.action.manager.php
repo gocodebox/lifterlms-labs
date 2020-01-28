@@ -22,9 +22,10 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
 	/**
 	 * Configure the Lab
-	 * @return   void
+	 *
 	 * @since    1.2.0
-	 * @version  1.2.0
+	 *
+	 * @return   void
 	 */
 	protected function configure() {
 
@@ -39,9 +40,10 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
 	/**
 	 * Initialize the Lab
-	 * @return   void
+	 *
 	 * @since    1.2.0
-	 * @version  1.2.0
+	 *
+	 * @return   void
 	 */
 	protected function init() {
 
@@ -51,6 +53,13 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
 	}
 
+	/**
+	 * Remove user-selcetd actions
+	 *
+	 * @since  [version]
+	 *
+	 * @return void
+	 */
 	public function remove_actions() {
 
 		if ( is_admin() ) {
@@ -72,10 +81,11 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	}
 
 	/**
-	 * This Lab doesn't have any settings
-	 * @return   array
+	 * Lab settings
+	 *
 	 * @since    1.2.0
-	 * @version  1.2.0
+	 *
+	 * @return   array
 	 */
 	public function settings() {
 		$settings = array();
