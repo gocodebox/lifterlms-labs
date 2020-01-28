@@ -4,9 +4,8 @@
  * Requires all task files
  */
 
-var gulp = require('gulp'),
-	requireDir = require( 'require-dir' );
+var gulp = require('gulp');
 
-requireDir( './tasks' );
+require( './tasks/readme.js' );
 
 require( 'lifterlms-lib-tasks' )( gulp );
