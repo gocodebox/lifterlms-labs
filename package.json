@@ -16,9 +16,8 @@
   },
   "homepage": "https://github.com/gocodebox/lifterlms-labs#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-include": "^2.3.1",
-    "lifterlms-lib-tasks": "^1.6.0",
-    "require-dir": "^0.3.1"
+    "gulp": "^4.0.0",
+    "gulp-include": "^2.4.1",
+    "lifterlms-lib-tasks": "^3.6.2"
   }
 }
