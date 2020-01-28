@@ -1,11 +1,21 @@
 <?php
 /**
  * Lab: Action Manager
- * Remover LifterLMS Action Hooks with Checkboxes
+ *
+ * Remove LifterLMS Action Hooks with Checkboxes
+ *
+ * @since 1.2.0
+ * @version [version]
  */
 
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+defined( 'ABSPATH' ) || exit;
 
+/**
+ * LLMS_Lab_Action Manager Class
+ *
+ * @since 1.2.0
+ * @since [version] Remove non-functioning course featured video hook.
+ */
 class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
 	private $hooks = array();
@@ -108,16 +118,19 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 		return $settings;
 	}
 
+	/**
+	 * Setup a list of available hooks.
+	 *
+	 * @since 1.2.0
+	 * @since [version] Remvoe single course featured image since it doesn't work.
+	 *
+	 * @return void
+	 */
 	public function setup_hooks() {
 		$this->hooks = array(
 			array(
 				'title' => __( 'Single Course Actions', 'lifterlms' ),
 				'actions' => array(
-					'lifterlms_template_single_featured_image' => array(
-						'action' => 'lifterlms_single_course_before_summary',
-						'priority' => 10,
-						'title' => __( 'Featured Image', 'lifterlms-labs' ),
-					),
 					'lifterlms_template_single_video' => array(
 						'action' => 'lifterlms_single_course_before_summary',
 						'priority' => 20,
