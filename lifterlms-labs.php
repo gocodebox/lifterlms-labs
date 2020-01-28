@@ -4,34 +4,47 @@
  * Plugin URI: https://lifterlms.com/
  * Description: Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core
  * Version: 1.5.2
- * Author: Thomas Patrick Levy, codeBOX LLC
- * Author URI: http://gocodebox.com
+ * Author: LifterLMS
+ * Author URI: https://lifterlms.com
  * Text Domain: lifterlms-labs
  * Domain Path: /i18n
- * License:     GPLv3
+ * License: GPLv3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Requires at least: 4.0
- * Tested up to: 4.9.4
+ * Requires at least: 4.7
+ * Tested up to: 5.3.2
  */
+
+defined( 'ABSPATH' ) || exit;
 
 /**
- * Restrict direct access
+ * LifterLMS Labs Main Class
+ *
+ * @since 1.0.0
  */
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-
 final class LifterLMS_Labs {
 
+	/**
+	 * Plugin version
+	 *
+	 * @var string
+	 */
 	public $version = '1.5.2';
 
+	/**
+	 * Singleton Instance
+	 *
+	 * @var null|LifterLMS_Labs
+	 */
 	protected static $_instance = null;
 
 	/**
-	 * Main Instance of LifterLMS_Labs
-	 * Ensures only one instance of LifterLMS_Labs is loaded or can be loaded.
+	 * Main Instance of LifterLMS_Labs class
+	 *
+	 * @since 1.0.0
+	 *
 	 * @see llms_labs()
-	 * @return LifterLMS_Labs - Main instance
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 *
+	 * @return LifterLMS_Labs
 	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
