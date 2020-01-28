@@ -155,8 +155,8 @@ class LLMS_Labs_Settings_Page {
 	private function render_main() {
 		?>
 
-		<h4><?php _e( 'Each lab is an experimental, conceptual, or fun new feature which you can enable to enhance, improve, or alter the core functionality of LifterLMS.' ); ?></h4>
-		<h4><?php _e( 'Some labs are being tested and may be moved into the LifterLMS core, others might remain here forever.' ); ?></h4>
+		<h4><?php _e( 'Each lab is an experimental, conceptual, or fun new feature which you can enable to enhance, improve, or alter the core functionality of LifterLMS.', 'lifterlms-labs' ); ?></h4>
+		<h4><?php _e( 'Some labs are being tested and may be moved into the LifterLMS core, others might remain here forever.', 'lifterlms-labs' ); ?></h4>
 
 		<table class="wp-list-table widefat fixed striped">
 			<thead>
