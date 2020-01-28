@@ -13,7 +13,7 @@ var   gulp  = require( 'gulp' )
 
 gulp.task( 'readme', function() {
 
-	return gulp.src( '_readme/readme.txt' )
+	return gulp.src( '.wordpress-org/readme.txt' )
 		.pipe( include() )
 		.pipe( gulp.dest( './' ) );
 
