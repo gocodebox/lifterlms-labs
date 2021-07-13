@@ -10,9 +10,9 @@
     "LifterLMS"
   ],
   "author": "Team LifterLMS <team@lifterlms.com>",
-  "license": "GPL-2.0",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/gocodebox/lifterlms-labs/issues"
   },
-  "homepage": "https://github.com/gocodebox/lifterlms-labs#readme",
+  "homepage": "https://github.com/gocodebox/lifterlms-labs#readme"
 }
