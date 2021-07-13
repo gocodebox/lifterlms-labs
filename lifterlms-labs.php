@@ -3,15 +3,15 @@
  * Plugin Name: LifterLMS Labs
  * Plugin URI: https://lifterlms.com/
  * Description: Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core
- * Version: 1.5.3
+ * Version: 1.6.0
  * Author: LifterLMS
  * Author URI: https://lifterlms.com
  * Text Domain: lifterlms-labs
  * Domain Path: /i18n
  * License: GPLv3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Requires at least: 4.7
- * Tested up to: 5.3.2
+ * Requires at least: 5.3
+ * Tested up to: 5.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -28,7 +28,7 @@ final class LifterLMS_Labs {
 	 *
 	 * @var string
 	 */
-	public $version = '1.5.3';
+	public $version = '1.6.0';
 
 	/**
 	 * Singleton Instance

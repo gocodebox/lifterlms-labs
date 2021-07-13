@@ -1,10 +1,18 @@
 <?php
 /**
- * The main labs settings page
+ * LLMS_Labs_Settings_Page class file
+ *
+ * @since 1.0.0
+ * @version 1.6.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+defined( 'ABSPATH' ) || exit;
 
+/**
+ * The main labs settings page
+ *
+ * @since 1.0.0
+ */
 class LLMS_Labs_Settings_Page {
 
 	/**
@@ -203,9 +211,12 @@ class LLMS_Labs_Settings_Page {
 
 	/**
 	 * Render content for a specific lab
-	 * @return   void
-	 * @since    1.0.0
-	 * @version  1.1.0
+	 *
+	 * @since 1.0.0
+	 * @since 1.1.0 Unknown.
+	 * @since 1.6.0 Add LifterLMS Core 5.0+ support.
+	 *
+	 * @return void
 	 */
 	private function render_tab() {
 
@@ -219,6 +230,8 @@ class LLMS_Labs_Settings_Page {
 			return;
 		}
 
+		$core_500_compat = class_exists( 'LLMS_Forms' );
+
 		echo '<div class="llms-widget">';
 
 			echo '<h4>' . $lab->get_description() . '</h4>';
@@ -228,6 +241,17 @@ class LLMS_Labs_Settings_Page {
 			if ( $settings = $lab->get_settings() ) {
 
 				foreach ( $settings as $field ) {
+
+					// Switch "selected" to "checked".
+					if ( $core_500_compat && ! empty( $field['type'] ) && 'checkbox' === $field['type'] ) {
+						$field['checked'] = $field['selected'];
+						unset( $field['selected'] );
+					}
+
+					// 5.0 compat, has no effect on < 5.0.
+					$field['data_store']     = false;
+					$field['data_store_key'] = false;
+
 					llms_form_field( $field );
 				}
 
