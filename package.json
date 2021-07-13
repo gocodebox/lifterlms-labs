@@ -9,15 +9,10 @@
   "keywords": [
     "LifterLMS"
   ],
-  "author": "Thomas Patrick Levy <thomas@lifterlms.com>",
+  "author": "Team LifterLMS <team@lifterlms.com>",
   "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/gocodebox/lifterlms-labs/issues"
   },
   "homepage": "https://github.com/gocodebox/lifterlms-labs#readme",
-  "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-include": "^2.4.1",
-    "lifterlms-lib-tasks": "^3.6.2"
-  }
 }
