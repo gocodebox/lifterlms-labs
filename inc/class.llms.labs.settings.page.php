@@ -3,7 +3,7 @@
  * LLMS_Labs_Settings_Page class file
  *
  * @since 1.0.0
- * @version [version]
+ * @version 1.6.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -214,7 +214,7 @@ class LLMS_Labs_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 * @since 1.1.0 Unknown.
-	 * @since [version] Add LifterLMS Core 5.0+ support.
+	 * @since 1.6.0 Add LifterLMS Core 5.0+ support.
 	 *
 	 * @return void
 	 */

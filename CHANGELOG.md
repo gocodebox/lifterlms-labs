@@ -1,6 +1,14 @@
 LifterLMS Labs Changelog
 ========================
 
+v1.6.0 - 2021-07-13
+-------------------
+
++ **Raises the minimum supported WordPress core version to 5.3**.
++ Adds support for LifterLMS Core 5.0+.
++ Fixes issue encountered when activating the Beaver Builder lab.
+
+
 v1.5.3 - 2020-01-28
 -------------------
 

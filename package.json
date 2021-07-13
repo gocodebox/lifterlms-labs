@@ -1,6 +1,6 @@
 {
   "name": "lifterlms-labs",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core",
   "repository": {
     "type": "git",

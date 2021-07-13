@@ -5,7 +5,7 @@
  * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships.
  *
  * @since 1.3.0
- * @version [version]
+ * @version 1.6.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -89,7 +89,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Stub function called when lab is enabled.
 	 *
 	 * @since 1.5.0
-	 * @since [version] Use default value used in Beaver Builder core.
+	 * @since 1.6.0 Use default value used in Beaver Builder core.
 	 *
 	 * @return void
 	 */
