@@ -118,7 +118,7 @@ v1.1.0 - 2017-01-10
 + Automatically load all labs for display on labs setting screen
 
 
-v1.0 - 2016-12-27
------------------
+v1.0.0 - 2016-12-27
+-------------------
 
 + Initial public release
