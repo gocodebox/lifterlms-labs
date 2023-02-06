@@ -142,6 +142,8 @@ class LLMS_Labs_Settings_Page {
 
 		echo '<div class="llms-inside-wrap">';
 
+		echo '<hr class="wp-header-end" />';
+
 		echo '<div class="llms-setting-group top">';
 
 		echo '<p class="llms-label">';
