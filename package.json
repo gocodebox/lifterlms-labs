@@ -9,6 +9,9 @@
   "keywords": [
     "LifterLMS"
   ],
+  "devDependencies": {
+    "@lifterlms/dev": "^0.2.0"
+  },
   "author": "Team LifterLMS <team@lifterlms.com>",
   "license": "GPL-3.0",
   "bugs": {
@@ -16,6 +19,9 @@
   },
   "homepage": "https://github.com/gocodebox/lifterlms-labs#readme",
   "scripts": {
-    "build": "llms-dev pot && llms-dev readme"
+    "dev": "llms-dev",
+    "build": "npm run build:scripts && npm run build:pot",
+    "build:scripts": "wp-scripts build",
+    "build:pot": "llms-dev pot"
   }
 }
