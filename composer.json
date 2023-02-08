@@ -9,6 +9,9 @@
       "email": "team@lifterlms.com"
     }
   ],
+  "require-dev": {
+    "lifterlms/lifterlms-cs": "dev-trunk"
+  },
   "archive": {
     "exclude": [
       ".*",
@@ -30,5 +33,22 @@
       "tmp",
       "wordpress"
     ]
+  },
+  "scripts": {
+    "check-cs": "\"vendor/bin/phpcs\" --colors",
+    "check-cs-errors": "\"vendor/bin/phpcs\" --colors --error-severity=1 --warning-severity=6",
+    "config-cs": [
+      "\"vendor/bin/phpcs\" --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs,../../../vendor/lifterlms/lifterlms-cs,../../../vendor/phpcompatibility/php-compatibility,../../../vendor/phpcompatibility/phpcompatibility-paragonie,../../../vendor/phpcompatibility/phpcompatibility-wp",
+      "\"vendor/bin/phpcs\" --config-set default_standard 'LifterLMS Core'"
+    ],
+    "fix-cs": "\"vendor/bin/phpcbf\"",
+    "post-install-cmd": "@config-cs",
+    "post-update-cmd": "@config-cs",
+    "post-update-install-cmd": "@config-cs"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
