@@ -10,7 +10,8 @@
     "LifterLMS"
   ],
   "devDependencies": {
-    "@lifterlms/dev": "^0.2.0"
+    "@lifterlms/dev": "^0.2.0",
+    "@lifterlms/scripts": "^3.1.0"
   },
   "author": "Team LifterLMS <team@lifterlms.com>",
   "license": "GPL-3.0",
