@@ -1,22 +1,22 @@
-# Copyright (C) 2016-2021 LifterLMS
-# This file is distributed under the same license as the LifterLMS Labs plugin.
+# Copyright (C) 2016-2023 LifterLMS
+# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: LifterLMS Labs 1.6.0\n"
+"Project-Id-Version: LifterLMS Labs 1.6.1\n"
 "Report-Msgid-Bugs-To: https://lifterlms.com/my-account/my-tickets\n"
 "Last-Translator: Team LifterLMS <team@lifterlms.com>\n"
 "Language-Team: Team LifterLMS <team@lifterlms.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-07-13T16:36:06-06:00\n"
+"POT-Creation-Date: 2023-02-17T17:46:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: llms-dev 1.0.0\n"
+"X-Generator: llms/dev 0.2.0\n"
 "X-Domain: lifterlms-labs\n"
 
 #. Plugin Name of the plugin
 #: inc/class.llms.labs.settings.page.php:130
-#: inc/class.llms.labs.settings.page.php:290
+#: inc/class.llms.labs.settings.page.php:141
 msgid "LifterLMS Labs"
 msgstr ""
 
@@ -40,64 +40,72 @@ msgstr ""
 msgid "Labs"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:166
+#: inc/class.llms.labs.settings.page.php:177
 msgid "Each lab is an experimental, conceptual, or fun new feature which you can enable to enhance, improve, or alter the core functionality of LifterLMS."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:167
+#: inc/class.llms.labs.settings.page.php:178
 msgid "Some labs are being tested and may be moved into the LifterLMS core, others might remain here forever."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:172
+#: inc/class.llms.labs.settings.page.php:183
 msgid "Name"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:173
+#: inc/class.llms.labs.settings.page.php:184
 msgid "Descrpition"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:174
+#: inc/class.llms.labs.settings.page.php:185
 msgid "Status"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:175
+#: inc/class.llms.labs.settings.page.php:186
 msgid "Action"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:191
+#: inc/class.llms.labs.settings.page.php:202
 msgid "Enabled"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:193
+#: inc/class.llms.labs.settings.page.php:204
 msgid "Disabled"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:198
+#: inc/class.llms.labs.settings.page.php:209
 msgid "Configure"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:199
+#: inc/class.llms.labs.settings.page.php:210
 msgid "Disable"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:201
+#: inc/class.llms.labs.settings.page.php:212
 msgid "Enable"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:225
+#: inc/class.llms.labs.settings.page.php:236
 msgid "Invalid lab."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:229
+#: inc/class.llms.labs.settings.page.php:240
 msgid "This lab in not enabled, please enable the lab and try again."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:262
+#: inc/class.llms.labs.settings.page.php:271
 msgid "Save"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:270
+#: inc/class.llms.labs.settings.page.php:279
 msgid "This lab doesn't have any settings."
+msgstr ""
+
+#: inc/class.llms.labs.settings.page.php:285
+msgid "View All Labs"
+msgstr ""
+
+#: inc/class.llms.labs.settings.page.php:304
+msgid "Labs Overview"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:33
