@@ -1,6 +1,6 @@
 {
   "name": "lifterlms-labs",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core",
   "repository": {
     "type": "git",
@@ -10,7 +10,8 @@
     "LifterLMS"
   ],
   "devDependencies": {
-    "@lifterlms/dev": "^0.2.0"
+    "@lifterlms/dev": "^0.2.0",
+    "@lifterlms/scripts": "^3.1.0"
   },
   "author": "Team LifterLMS <team@lifterlms.com>",
   "license": "GPL-3.0",

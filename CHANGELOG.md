@@ -1,6 +1,14 @@
 LifterLMS Labs Changelog
 ========================
 
+v1.6.1 - 2023-02-17
+-------------------
+
+##### Deprecations
+
++ Fixed display issues on the Labs settings page.
+
+
 v1.6.0 - 2021-07-13
 -------------------
 
@@ -118,7 +126,7 @@ v1.1.0 - 2017-01-10
 + Automatically load all labs for display on labs setting screen
 
 
-v1.0 - 2016-12-27
------------------
+v1.0.0 - 2016-12-27
+-------------------
 
 + Initial public release
