@@ -1,16 +1,15 @@
 === LifterLMS Labs ===
-Contributors: thomasplevy, chrisbadgett, d4z_c0nf, lifterlms, codeboxllc
+Contributors: chrisbadgett, strangerstudios, thomasplevy, d4z_c0nf, lifterlms, codeboxllc
 Donate link: https://lifterlms.com
 Tags: learning management system, LMS, membership, elearning, online courses, quizzes, sell courses, badges, gamification, learning, Lifter, LifterLMS
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires at least: 5.3
-Tested up to: 5.8
+Tested up to: 6.1.1
 Requires PHP: 7.3
 Stable tag: 1.6.0
 
 A collection of experimental, conceptual, and possibly silly features which improve and enhance the functionality of the LifterLMS core.
-
 
 == Description ==
 
