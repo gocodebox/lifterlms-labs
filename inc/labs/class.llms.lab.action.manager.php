@@ -5,7 +5,7 @@
  * Remove LifterLMS Action Hooks with Checkboxes
  *
  * @since 1.2.0
- * @version 1.5.3
+ * @version [version]
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -132,7 +132,8 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	 * Setup a list of available hooks.
 	 *
 	 * @since 1.2.0
-	 * @since 1.5.3 Remvoe single course featured image since it doesn't work.
+	 * @since 1.5.3 Remove single course featured image since it doesn't work.
+	 * @since [version] Added switch for favorites.
 	 *
 	 * @return void
 	 */
@@ -237,7 +238,6 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 						'priority' => 20,
 						'title' => __( 'Audio Embed', 'lifterlms-labs' ),
 					),
-
 					'lifterlms_template_complete_lesson_link' => array(
 						'action' => 'lifterlms_single_lesson_after_summary',
 						'priority' => 10,
@@ -247,6 +247,11 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 						'action' => 'lifterlms_single_lesson_after_summary',
 						'priority' => 20,
 						'title' => __( 'Course Navigation Tiles', 'lifterlms-labs' ),
+					),
+					'lifterlms_template_single_favorite' => array(
+						'action' => 'lifterlms_single_lesson_before_summary',
+						'priority' => 10,
+						'title' => __( 'Mark Favorite', 'lifterlms-labs' ),
 					),
 				),
 			),
