@@ -5,7 +5,7 @@
  * Lets you do all them sweet BeaverBuilder things to Courses, Lessons, and Memberships.
  *
  * @since 1.3.0
- * @version 1.6.0
+ * @version [version]
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -59,7 +59,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 */
 	protected function init() {
 
-		// prevent uneditable llms post types from being enabled for page building.
+		// Prevent uneditable llms post types from being enabled for page building.
 		add_filter( 'fl_builder_admin_settings_post_types', array( $this, 'remove_uneditable_post_types' ) );
 
 		add_action( 'init', array( $this, 'load_modules' ) );
@@ -71,11 +71,11 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		add_filter( 'fl_builder_is_node_visible', array( $this, 'is_node_visible' ), 10, 2 );
 
-		// // hide editors when builder is enabled for a post.
+		// Hide editors when builder is enabled for a post.
 		add_filter( 'llms_metabox_fields_lifterlms_course_options', array( $this, 'mod_metabox_fields' ) );
 		add_filter( 'llms_metabox_fields_lifterlms_membership', array( $this, 'mod_metabox_fields' ) );
 
-		// dolla dolla billz yall.
+		// Dolla dolla billz yall.
 		add_filter( 'fl_builder_upgrade_url', array( $this, 'upgrade_url' ) );
 
 		// LifterLMS Private Areas.
@@ -489,6 +489,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Prevent page building of LifterLMS Post Types that can't actually be pagebuilt despite what the settings may assume.
 	 *
 	 * @since 1.5.0
+	 * @since [version] Removed unset parameters for `llms_certificate` and `llms_my_certificate` from the filter.
 	 *
 	 * @param array $post_types Post type objects as an array.
 	 * @return array
@@ -497,8 +498,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		unset( $post_types['llms_quiz'] );
 		unset( $post_types['llms_question'] );
-		unset( $post_types['llms_certificate'] );
-		unset( $post_types['llms_my_certificate'] );
 
 		return $post_types;
 
