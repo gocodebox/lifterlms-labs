@@ -12,6 +12,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Requires at least: 5.3
  * Tested up to: 6.1.1
+ * LLMS requires at least: 7.2.0
+ * LLMS tested up to: 7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -54,10 +56,12 @@ final class LifterLMS_Labs {
 	}
 
 	/**
-	 * Constructor
+	 * Constructor.
+	 *
+	 * @since 1.0.0
+	 * @since [version] Added `plugins_loaded` action for initiating the plugin.
+	 *
 	 * @return void
-	 * @since    1.0.0
-	 * @version  1.0.0
 	 */
 	private function __construct() {
 
@@ -65,7 +69,7 @@ final class LifterLMS_Labs {
 
 		$this->define_constants();
 
-		$this->includes();
+		add_action( 'plugins_loaded', array( $this, 'init' ) );
 
 		add_action( 'plugins_loaded', array( $this, 'localize' ) );
 
@@ -91,6 +95,24 @@ final class LifterLMS_Labs {
 
 		if ( ! defined( 'LLMS_LABS_PLUGIN_DIR' ) ) {
 			define( 'LLMS_LABS_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . plugin_basename( dirname( __FILE__ ) ) . '/' );
+		}
+
+	}
+
+	/**
+	 * Include all required files and classes
+	 *
+	 * @since [version]
+	 *
+	 * @return void
+	 */
+	public function init() {
+
+		// Only load if we have the minimum LifterLMS version installed & activated.
+		if ( function_exists( 'llms' ) && version_compare( '7.2.0', llms()->version, '<=' ) ) {
+
+			$this->includes();
+
 		}
 
 	}

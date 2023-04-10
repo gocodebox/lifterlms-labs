@@ -1,0 +1,5 @@
+significance: major
+type: added
+links:
+  - "#34"
+entry: Added Compatibility Check with LifterLMS.
