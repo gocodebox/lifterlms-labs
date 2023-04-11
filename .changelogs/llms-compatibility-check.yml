@@ -1,5 +1,5 @@
-significance: major
-type: added
+significance: minor
+type: changed
 links:
   - "#34"
-entry: Added Compatibility Check with LifterLMS.
+entry: Raised the minimum required version of LifterLMS to 7.2.0.

@@ -13,7 +13,7 @@
  * Requires at least: 5.3
  * Tested up to: 6.1.1
  * LLMS requires at least: 7.2.0
- * LLMS tested up to: 7.0
+ * LLMS tested up to: 7.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -100,7 +100,7 @@ final class LifterLMS_Labs {
 	}
 
 	/**
-	 * Include all required files and classes
+	 * Include all required files and classes.
 	 *
 	 * @since [version]
 	 *
