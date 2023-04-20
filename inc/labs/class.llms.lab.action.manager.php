@@ -71,7 +71,13 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
 				if ( 'yes' === $this->get_option( $func ) ) {
 
-					remove_action( $data['action'], $func, $data['priority'] );
+					if( isset( $data['action'] ) ) {
+						remove_action( $data['action'], $func, $data['priority'] );
+					}
+
+					if( isset( $data['filter'] ) ) {
+						add_filter( $func, '__return_false' );
+					}
 
 				}
 
@@ -152,7 +158,6 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 						'priority' => 30,
 						'title' => __( 'Audio Embed', 'lifterlms-labs' ),
 					),
-
 					'lifterlms_template_single_meta_wrapper_start' => array(
 						'action' => 'lifterlms_single_course_after_summary',
 						'priority' => 5,
@@ -218,6 +223,10 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 						'priority' => 100,
 						'title' => __( 'Reviews', 'lifterlms-labs' ),
 					),
+					'lifterlms_single_course_syllabus_lesson_favorite' => array(
+						'filter' => true,
+						'title' => __( 'Mark Favorite', 'lifterlms-labs' ),
+					),
 				),
 			),
 			array(
@@ -248,7 +257,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 						'priority' => 20,
 						'title' => __( 'Course Navigation Tiles', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_single_favorite' => array(
+					'lifterlms_template_favorite' => array(
 						'action' => 'lifterlms_single_lesson_before_summary',
 						'priority' => 10,
 						'title' => __( 'Mark Favorite', 'lifterlms-labs' ),
