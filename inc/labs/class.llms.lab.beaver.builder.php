@@ -75,7 +75,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		add_filter( 'llms_metabox_fields_lifterlms_course_options', array( $this, 'mod_metabox_fields' ) );
 		add_filter( 'llms_metabox_fields_lifterlms_membership', array( $this, 'mod_metabox_fields' ) );
 
-		// Dolla dolla billz yall.
 		add_filter( 'fl_builder_upgrade_url', array( $this, 'upgrade_url' ) );
 
 		// LifterLMS Private Areas.
