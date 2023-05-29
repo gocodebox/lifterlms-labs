@@ -21,7 +21,7 @@
   "homepage": "https://github.com/gocodebox/lifterlms-labs#readme",
   "scripts": {
     "dev": "llms-dev",
-    "build": "npm run build:scripts && npm run build:pot",
+    "build": "npm run build:scripts && npm run build:pot && llms-dev readme",
     "build:scripts": "wp-scripts build",
     "build:pot": "llms-dev pot"
   }
