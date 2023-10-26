@@ -144,6 +144,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	 * @since 1.2.0
 	 * @since 1.5.3 Remove single course featured image since it doesn't work.
 	 * @since [version] Escaped strings.
+	 *              Added setting to control Lesson Count template on course catalog.
 	 *
 	 * @return void
 	 */
@@ -294,9 +295,20 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 						'priority' => 20,
 						'title'    => esc_html__( 'Difficulty', 'lifterlms-labs' ),
 					),
+					'lifterlms_template_loop_lesson_count' => array(
+						'action'   => 'lifterlms_after_loop_item_title',
+						'priority' => 22,
+						'title'    => esc_html__( 'Lesson Count', 'lifterlms-labs' ),
+					),
 				),
 			),
 		);
+
+		// Remove setting for LifterLMS versions which don't show lesson count on catalogs.
+		if ( ! function_exists( 'lifterlms_template_loop_lesson_count' ) ) {
+			unset( $this->hooks[ count( $this->hooks ) ]['lifterlms_template_loop_lesson_count'] );
+		}
+
 	}
 }
 
