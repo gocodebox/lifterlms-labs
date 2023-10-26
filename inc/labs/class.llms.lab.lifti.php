@@ -463,20 +463,20 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		}
 
 		$builder_fields['quiz']['layout'] = array(
-			'title' => esc_html__( 'Divi Theme Settings', 'lifterlms-labs' ),
+			'title'      => esc_html__( 'Divi Theme Settings', 'lifterlms-labs' ),
 			'toggleable' => true,
-			'fields' => array(
+			'fields'     => array(
 				array(
 					array(
 						'attribute'        => 'et_pb_page_layout',
 						'attribute_prefix' => '_',
-						'label'     => esc_html__( 'Layout', 'lifterlms-labs' ),
-						'options'   => array(
+						'label'            => esc_html__( 'Layout', 'lifterlms-labs' ),
+						'options'          => array(
 							'et_full_width_page' => esc_html__( 'Fullwidth', 'lifterlms-labs' ),
 							'et_left_sidebar'    => esc_html__( 'Left Sidebar', 'lifterlms-labs' ),
 							'et_right_sidebar'   => esc_html__( 'Right Sidebar', 'lifterlms-labs' ),
 						),
-						'type'      => 'select',
+						'type'             => 'select',
 					),
 				),
 			),
