@@ -9,11 +9,17 @@
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
 	</rule>
 
+	<rule ref="LifterLMS.Commenting.FileComment.DuplicateSinceTag">
+		<exclude-pattern>inc/labs/inc/beaver-builder/modules/**/includes/frontend.php</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.FileComment.Missing">
+		<exclude-pattern>inc/labs/inc/beaver-builder/modules/**/js/frontend.js</exclude-pattern>
+	</rule>
+
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array">
-				<element value="lifterlms-labs" />
-			</property>
+			<property name="text_domain" value="lifterlms-labs" />
 		</properties>
 	</rule>
 

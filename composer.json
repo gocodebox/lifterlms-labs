@@ -22,7 +22,6 @@
 
       "CHANGELOG.md",
       "composer.json",
-      "docker-compose.yml",
       "package.json",
       "package-lock.json",
       "README.md",
@@ -31,7 +30,9 @@
       "node_modules",
       "tests",
       "tmp",
-      "wordpress"
+      "wordpress",
+
+      "vendor"
     ]
   },
   "scripts": {

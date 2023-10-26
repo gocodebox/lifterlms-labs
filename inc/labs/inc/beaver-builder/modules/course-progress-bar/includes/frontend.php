@@ -1,15 +1,17 @@
 <?php
 /**
- * LifterLMS Course Progress Bar Module HTML
+ * LifterLMS Course Progress Bar Module HTML.
  *
- * @since    1.3.0
- * @version  1.3.0
+ * @package LifterLMS_Labs/Labs/BeaverBuilder/Modules/CourseProgressBar/Templates
+ *
+ * @since 1.3.0
+ * @since [version] Escaped attributes.
+ * @version [version]
+ *
+ * @param $settings obj Beaver Builder module settings instance.
  */
 
-// Restrict direct access
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; }
-
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <div class="llms-lab-course-progress-bar">
