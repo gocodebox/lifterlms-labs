@@ -62,6 +62,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 *
 	 * @since 1.1.0
 	 * @since 1.5.1 Unknown.
+	 * @since [version] Replace use of deprecated `llms_get_quiz_theme_settings`.
 	 *
 	 * @return void
 	 */
@@ -96,10 +97,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		add_action( 'add_meta_boxes', array( $this, 'add_page_settings' ) );
 
-		if ( ! get_theme_support( 'lifterlms-quizzes' ) ) {
-			add_theme_support( 'lifterlms-quizzes' );
-			add_filter( 'llms_get_quiz_theme_settings', array( $this, 'quiz_settings' ) );
-		}
+		add_filter( 'llms_builder_register_custom_fields', array( $this, 'add_builder_quiz_settings' ) );
 
 	}
 
@@ -453,13 +451,53 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	/**
 	 * Add quiz sidebar layout compatibility options to Divi.
 	 *
+	 * @since [version]
+	 *
+	 * @param array $builder_fields Builder fields.
+	 * @return array
+	 */
+	public function add_builder_quiz_settings( $builder_fields ) {
+
+		if ( ! isset( $builder_fields['quiz'] ) ) {
+			$builder_fields['quiz'] = array();
+		}
+
+		$builder_fields['quiz']['layout'] = array(
+			'title' => esc_html__( 'Divi Theme Settings', 'lifterlms-labs' ),
+			'toggleable' => true,
+			'fields' => array(
+				array(
+					array(
+						'attribute'        => 'et_pb_page_layout',
+						'attribute_prefix' => '_',
+						'label'     => esc_html__( 'Layout', 'lifterlms-labs' ),
+						'options'   => array(
+							'et_full_width_page' => esc_html__( 'Fullwidth', 'lifterlms-labs' ),
+							'et_left_sidebar'    => esc_html__( 'Left Sidebar', 'lifterlms-labs' ),
+							'et_right_sidebar'   => esc_html__( 'Right Sidebar', 'lifterlms-labs' ),
+						),
+						'type'      => 'select',
+					),
+				),
+			),
+		);
+		return $builder_fields;
+	}
+
+	/**
+	 * Add quiz sidebar layout compatibility options to Divi.
+	 *
 	 * @since 1.5.1
 	 * @since [version] Escaped strings.
+	 *
+	 * @deprecated [version]
 	 *
 	 * @param array $settings Quiz settings array.
 	 * @return array
 	 */
 	public function quiz_settings( $settings ) {
+
+		llms_deprecated_function( __METHOD__, '[version]' );
 
 		$settings['layout'] = array(
 			'id'        => 'et_pb_page_layout',
