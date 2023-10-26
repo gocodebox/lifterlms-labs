@@ -10,8 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; }
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Simple branding class.
@@ -140,10 +139,12 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		$rgb     = $this->hex_to_rgb_array( $hex );
 		$new_hex = '#';
 
-		// convert to decimal and change luminosity
+		// Convert to decimal and change luminosity
 		foreach ( $rgb as $part ) {
 			$dec      = min( max( 0, $part + $part * $percent ), 255 );
-			$new_hex .= str_pad( dechex( $dec ), 2, 0, STR_PAD_LEFT );
+			$new_hex .= str_pad(
+				dechex( (int) $dec ), 2, 0, STR_PAD_LEFT
+			);
 		}
 
 		return $new_hex;
@@ -184,7 +185,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 *
 	 * @since 1.0.0
 	 * @since 1.5.0 Unknown.
-	 * @since [version] Escape what comes from and goes into the db.
+	 * @since [version] Escape what comes from the db.
 	 *
 	 * @return void
 	 */
@@ -352,13 +353,13 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		$css = str_replace( array( "\r\n", "\r", "\n", "\t" ), '', $css );
 		$css = preg_replace( ' {2,}', ' ', $css );
 
-		$this->set_option( 'css_string', sanitize_textarea( $css ) );
+		$this->set_option( 'css_string', $css );
 	}
 
 	/**
 	 * Retrieve the relative luminance of a hex code
 	 * used to determine what color should be used on top of the selected colors
-	 * modified from the function and reserach and data found at http://stackoverflow.com/a/3943023/400568
+	 * modified from the function and research and data found at http://stackoverflow.com/a/3943023/400568.
 	 *
 	 * @since 1.0.0
 	 *
@@ -453,19 +454,18 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * Output the generated css in the sites head on the frontend.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Escape string.
 	 *
 	 * @return void
 	 */
 	public function output_css() {
-		echo esc_html( $this->get_option( 'css_string', '' ) );
+		echo $this->get_option( 'css_string', '' );
 	}
 
 	/**
 	 * Define the lab's settings.
 	 *
 	 * @since 1.0.0
-	 * @since  1.4.0 Unknown.
+	 * @since 1.4.0 Unknown.
 	 * @since [version] Escape strings.
 	 *
 	 * @return array
