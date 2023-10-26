@@ -7,4 +7,5 @@
 ###
 Test PHPUnit:
   merge: replace
+  custom:
   include:
