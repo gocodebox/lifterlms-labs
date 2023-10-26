@@ -1,0 +1,10 @@
+###
+#
+# Custom workflow matrix configurations
+#
+# @link https://github.com/gocodebox/.github/tree/trunk/.github/actions/setup-matrix
+#
+###
+Test PHPUnit:
+  WP:
+  PHP:
