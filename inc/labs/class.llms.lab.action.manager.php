@@ -306,7 +306,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
 		// Remove setting for LifterLMS versions which don't show lesson count on catalogs.
 		if ( ! function_exists( 'lifterlms_template_loop_lesson_count' ) ) {
-			unset( $this->hooks[ count( $this->hooks ) ]['lifterlms_template_loop_lesson_count'] );
+			unset( $this->hooks[ count( $this->hooks ) - 1 ]['actions']['lifterlms_template_loop_lesson_count'] );
 		}
 
 	}
