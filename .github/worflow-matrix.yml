@@ -6,5 +6,5 @@
 #
 ###
 Test PHPUnit:
-  WP:
-  PHP:
+  merge: replace
+  include:
