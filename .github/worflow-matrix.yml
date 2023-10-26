@@ -6,6 +6,4 @@
 #
 ###
 Test PHPUnit:
-  merge: replace
-  custom:
-  include:
+  merge: full
