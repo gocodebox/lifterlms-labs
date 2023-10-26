@@ -1,0 +1,3 @@
+significance: minor
+type: deprecated
+entry: Deprecated method `LLMS_Lab_Lifti::quiz_settings`.

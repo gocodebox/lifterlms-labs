@@ -265,32 +265,32 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 			array(
 				'title'   => esc_html__( 'Course and Membership Catalogs', 'lifterlms-labs' ),
 				'actions' => array(
-					'lifterlms_loop_featured_video'      => array(
+					'lifterlms_loop_featured_video'        => array(
 						'action'   => 'lifterlms_before_loop_item',
 						'priority' => 8,
 						'title'    => esc_html__( 'Featured Video', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_thumbnail'  => array(
+					'lifterlms_template_loop_thumbnail'    => array(
 						'action'   => 'lifterlms_before_loop_item_title',
 						'priority' => 10,
 						'title'    => esc_html__( 'Featured Image', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_progress'   => array(
+					'lifterlms_template_loop_progress'     => array(
 						'action'   => 'lifterlms_before_loop_item_title',
 						'priority' => 15,
 						'title'    => esc_html__( 'Progress Bar', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_author'     => array(
+					'lifterlms_template_loop_author'       => array(
 						'action'   => 'lifterlms_after_loop_item_title',
 						'priority' => 10,
 						'title'    => esc_html__( 'Author', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_length'     => array(
+					'lifterlms_template_loop_length'       => array(
 						'action'   => 'lifterlms_after_loop_item_title',
 						'priority' => 15,
 						'title'    => esc_html__( 'Length', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_difficulty' => array(
+					'lifterlms_template_loop_difficulty'   => array(
 						'action'   => 'lifterlms_after_loop_item_title',
 						'priority' => 20,
 						'title'    => esc_html__( 'Difficulty', 'lifterlms-labs' ),
