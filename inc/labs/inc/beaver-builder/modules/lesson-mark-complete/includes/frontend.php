@@ -5,8 +5,8 @@
  * @package LifterLMS_Labs/Labs/BeaverBuilder/Modules/LessonMarkComplete/Templates
  *
  * @since 1.3.0
- * @since [version] Escaped strings.
- * @version [version]
+ * @since 1.7.0 Escaped strings.
+ * @version 1.7.0
  *
  * @param $settings obj Beaver Builder module settings instance.
  */

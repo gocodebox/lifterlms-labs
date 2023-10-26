@@ -5,7 +5,7 @@
  * @package LifterLMS_Labs/Labs/BeaverBuilder/Modules/CourseSyllabus/Classes
  *
  * @since 1.3.0
- * @version [version]
+ * @version 1.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -21,7 +21,7 @@ class LLMS_Lab_Course_Syllabus_Module extends FLBUilderModule {
 	 * Constructor.
 	 *
 	 * @since 1.3.0
-	 * @since [version] Escape strings.
+	 * @since 1.7.0 Escape strings.
 	 *
 	 * @return void
 	 */

@@ -5,7 +5,7 @@
  * @package LifterLMS_Labs/Labs/Classes
  *
  * @since 1.3.0
- * @version [version]
+ * @version 1.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.5.0 Unknown.
  * @since 1.5.2 Unknown.
  * @since 1.5.3 Fixed localization textdomain and visibility conditional logic for `'specific'` enrollment type.
- * @since [version] Escaped strings.
+ * @since 1.7.0 Escaped strings.
  */
 class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
@@ -27,7 +27,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Configure the Lab.
 	 *
 	 * @since 1.3.0
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 *
 	 * @return void
 	 */
@@ -126,7 +126,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 *
 	 * @since 1.5.0
 	 * @since 1.5.3 Fixed localization textdomain.
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 *
 	 * @param array  $form Settings form array.
 	 * @param string $id   ID of the row/module/col/etc.
@@ -261,7 +261,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * @since 1.3.0
 	 * @since 1.5.0 Unknown.
 	 * @since 1.5.3 Fixed visibility conditional logic for `'specific'` enrollment type.
-	 * @since [version] Use `in_array()` strict comparisons.
+	 * @since 1.7.0 Use `in_array()` strict comparisons.
 	 *
 	 * @param bool $visible Default visibility.
 	 * @param obj  $node    BB node object.
@@ -435,7 +435,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 *
 	 * @since 1.3.0
 	 * @since 1.5.2 Unknown.
-	 * @since [version] Use strict comparison for `in_array`.
+	 * @since 1.7.0 Use strict comparison for `in_array`.
 	 *
 	 * @param array $fields Metabox fields.
 	 * @return array
@@ -462,7 +462,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Allows the builder to use custom LifterLMS visibility settings when a student is not enrolled.
 	 *
 	 * @since 1.3.0
-	 * @since [version] Use `in_array` with strict comparison.
+	 * @since 1.7.0 Use `in_array` with strict comparison.
 	 *
 	 * @param array $results Restriction results data.
 	 * @param int   $post_id Current post id.
@@ -487,7 +487,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 * Prevent page building of LifterLMS Post Types that can't actually be pagebuilt despite what the settings may assume.
 	 *
 	 * @since 1.5.0
-	 * @since [version] Removed unset parameters for `llms_certificate` and `llms_my_certificate` from the filter.
+	 * @since 1.7.0 Removed unset parameters for `llms_certificate` and `llms_my_certificate` from the filter.
 	 *
 	 * @param array $post_types Post type objects as an array.
 	 * @return array

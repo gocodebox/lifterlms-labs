@@ -5,7 +5,7 @@
  * @package LifterLMS_Labs/Labs/Classes
  *
  * @since 1.1.0
- * @version [version]
+ * @version 1.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -38,7 +38,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 *
 	 * @since 1.1.0
 	 * @since 1.2.0 Unknown.
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 *
 	 * @return void
 	 */
@@ -60,7 +60,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 *
 	 * @since 1.1.0
 	 * @since 1.5.1 Unknown.
-	 * @since [version] Replace use of deprecated `llms_get_quiz_theme_settings`.
+	 * @since 1.7.0 Replace use of deprecated `llms_get_quiz_theme_settings`.
 	 *
 	 * @return void
 	 */
@@ -105,7 +105,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * @return void
 	 *
 	 * @since 1.2.0
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 */
 	public function add_page_settings() {
 
@@ -137,7 +137,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Enqueue admin scripts and styles.
 	 *
 	 * @since 1.2.0
-	 * @since [version] Use strict comparison for `in_array`.
+	 * @since 1.7.0 Use strict comparison for `in_array`.
 	 *
 	 * @return void
 	 */
@@ -160,7 +160,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 *
 	 * @since 1.2.0
 	 * @since 1.5.2 Unknown.
-	 * @since [version] Escaped strings. User `in_array` with strict type comparison.
+	 * @since 1.7.0 Escaped strings. User `in_array` with strict type comparison.
 	 *
 	 * @return void
 	 */
@@ -234,7 +234,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Remove sidebar classes from the body and add the full-width class.
 	 *
 	 * @since 1.1.0
-	 * @since [version] Use strict comparison for `array_search`.
+	 * @since 1.7.0 Use strict comparison for `array_search`.
 	 *
 	 * @param array $classes Array of body css classes.
 	 * @return array
@@ -379,7 +379,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Determine if the ET Builder is enabled for a post type.
 	 *
 	 * @since 1.2.0
-	 * @since [version] Use strict comparison for `in_array`.
+	 * @since 1.7.0 Use strict comparison for `in_array`.
 	 *
 	 * @param string $post_or_post_type Post instance or post type name.
 	 * @return bool
@@ -449,7 +449,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	/**
 	 * Add quiz sidebar layout compatibility options to Divi.
 	 *
-	 * @since [version]
+	 * @since 1.7.0
 	 *
 	 * @param array $builder_fields Builder fields.
 	 * @return array
@@ -486,16 +486,16 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Add quiz sidebar layout compatibility options to Divi.
 	 *
 	 * @since 1.5.1
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 *
-	 * @deprecated [version]
+	 * @deprecated 1.7.0
 	 *
 	 * @param array $settings Quiz settings array.
 	 * @return array
 	 */
 	public function quiz_settings( $settings ) {
 
-		llms_deprecated_function( __METHOD__, '[version]' );
+		llms_deprecated_function( __METHOD__, '1.7.0' );
 
 		$settings['layout'] = array(
 			'id'        => 'et_pb_page_layout',
@@ -528,7 +528,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 *
 	 * @since 1.1.0
 	 * @since 1.2.0 Unknown.
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 *
 	 * @return array
 	 */

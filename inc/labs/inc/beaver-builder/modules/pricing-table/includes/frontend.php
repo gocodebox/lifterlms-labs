@@ -5,8 +5,8 @@
  * @package LifterLMS_Labs/Labs/BeaverBuilder/Modules/PricingTable/Templates
  *
  * @since 1.3.0
- * @since [version] Escaped attributes.
- * @version [version]
+ * @since 1.7.0 Escaped attributes.
+ * @version 1.7.0
  *
  * @param $settings obj Beaver Builder module settings instance.
  */

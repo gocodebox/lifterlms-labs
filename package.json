@@ -1,6 +1,6 @@
 {
   "name": "lifterlms-labs",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core",
   "repository": {
     "type": "git",
@@ -21,8 +21,7 @@
   "homepage": "https://github.com/gocodebox/lifterlms-labs#readme",
   "scripts": {
     "dev": "llms-dev",
-    "build": "npm run build:scripts && npm run build:pot && llms-dev readme",
-    "build:scripts": "wp-scripts build",
+    "build": "npm run build:pot && llms-dev readme",
     "build:pot": "llms-dev pot"
   }
 }

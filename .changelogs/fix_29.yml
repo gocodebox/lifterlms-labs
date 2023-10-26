@@ -1,8 +1,0 @@
-significance: patch
-type: fixed
-comment: Removed `unset()` parameters for 'LLMS Certificates' and 'LLMS Awarded
-  Certificates' for Beaver Builder Post Types.
-links:
-  - "#29"
-entry: Fixed 'LLMS Certificates' and 'LLMS Awarded Certificates' Post Types not
-  visible in Beaver Builder Post Type settings.

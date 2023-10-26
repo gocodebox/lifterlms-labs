@@ -5,7 +5,7 @@
  * @package LifterLMS_Labs/Labs/Classes
  *
  * @since 1.2.0
- * @version [version]
+ * @version 1.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -24,7 +24,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * Configure the Lab.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 *
 	 * @return void
 	 */
@@ -187,7 +187,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 *
 	 * @since 1.0.0
 	 * @since 1.5.0 Unknown.
-	 * @since [version] Escape what comes from the db.
+	 * @since 1.7.0 Escape what comes from the db.
 	 *
 	 * @return void
 	 */
@@ -468,7 +468,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 *
 	 * @since 1.0.0
 	 * @since 1.4.0 Unknown.
-	 * @since [version] Escape strings.
+	 * @since 1.7.0 Escape strings.
 	 *
 	 * @return array
 	 */
