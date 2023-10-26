@@ -1,6 +1,29 @@
 LifterLMS Labs Changelog
 ========================
 
+v1.7.0 - 2023-10-26
+-------------------
+
+##### New Features
+
++ Added an option to hide the lesson count on course catalogs.
+
+##### Bug Fixes
+
++ Improved compatibility with PHP 8.2 (fixed deprecation warnings).
++ Fix use of deprecated filter `llms_get_quiz_theme_settings` with the Divi Theme Compatibility lab (aka Lifti). [#16](https://github.com/gocodebox/lifterlms-labs/issues/16)
++ Fixed 'LLMS Certificates' and 'LLMS Awarded Certificates' Post Types not visible in Beaver Builder Post Type settings. [#29](https://github.com/gocodebox/lifterlms-labs/issues/29)
+
+##### Deprecations
+
++ Deprecated method `LLMS_Lab_Lifti::quiz_settings`.
+
+##### Developer Notes
+
++ Use strict comparison for `in_array` and `array_search`.
++ Improved docblocks and coding standards.
+
+
 v1.6.1 - 2023-02-17
 -------------------
 

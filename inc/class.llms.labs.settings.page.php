@@ -5,7 +5,7 @@
  * @package LifterLMS_Labs/Classes
  *
  * @since 1.0.0
- * @version [version]
+ * @version 1.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -47,7 +47,7 @@ class LLMS_Labs_Settings_Page {
 	 * Handle form submissions.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Exit after redirection. Unslash `$_POST` data.
+	 * @since 1.7.0 Exit after redirection. Unslash `$_POST` data.
 	 *
 	 * @return void
 	 */
@@ -132,7 +132,7 @@ class LLMS_Labs_Settings_Page {
 	 * Register the labs settings page.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Escape strings.
+	 * @since 1.7.0 Escape strings.
 	 *
 	 * @return void
 	 */
@@ -151,7 +151,7 @@ class LLMS_Labs_Settings_Page {
 	 * Render the page.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Escape strings and URLS.
+	 * @since 1.7.0 Escape strings and URLS.
 	 *
 	 * @return void
 	 */
@@ -189,7 +189,7 @@ class LLMS_Labs_Settings_Page {
 	 * Render the main Labs screen content.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Escape html and urls.
+	 * @since 1.7.0 Escape html and urls.
 	 *
 	 * @return void
 	 */
@@ -250,7 +250,7 @@ class LLMS_Labs_Settings_Page {
 	 * @since 1.0.0
 	 * @since 1.1.0 Unknown.
 	 * @since 1.6.0 Add LifterLMS Core 5.0+ support.
-	 * @since [version] Escaped strings to be printed.
+	 * @since 1.7.0 Escaped strings to be printed.
 	 *
 	 * @return void
 	 */
@@ -320,7 +320,7 @@ class LLMS_Labs_Settings_Page {
 	 * Output HTML for the page title based on current tab.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Escaped strings to be printed.
+	 * @since 1.7.0 Escaped strings to be printed.
 	 *
 	 * @return void
 	 */

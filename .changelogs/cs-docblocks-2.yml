@@ -1,3 +1,0 @@
-significance: minor
-type: dev
-entry: Use strict comparison for `in_array` and `array_search`.

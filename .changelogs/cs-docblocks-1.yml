@@ -1,3 +1,0 @@
-significance: minor
-type: fixed
-entry: Improved compatibility with PHP 8.2 (fixed deprecation warnings).

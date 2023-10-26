@@ -5,7 +5,7 @@
  * @package LifterLMS_Labs/Labs/Classes
  *
  * @since 1.0.0
- * @version [version]
+ * @version 1.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -23,7 +23,7 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	 * Configure the Lab.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 *
 	 * @return void
 	 */
@@ -70,7 +70,7 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	 * Define the lab's settings.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Escaped strings.
+	 * @since 1.7.0 Escaped strings.
 	 *
 	 * @return array
 	 */
