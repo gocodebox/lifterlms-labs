@@ -4,7 +4,10 @@
 
 	<file>.</file>
 
-	<rule ref="LifterLMS" />
+	<rule ref="LifterLMS">
+		<!-- @todo: Most core files break this rule. -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+	</rule>
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>

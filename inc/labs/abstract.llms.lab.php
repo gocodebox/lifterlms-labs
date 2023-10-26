@@ -19,9 +19,9 @@ defined( 'ABSPATH' ) || exit;
  */
 abstract class LLMS_Lab {
 
-	protected $id = '';
-	private $enabled = 'no';
-	protected $title = '';
+	protected $id          = '';
+	private $enabled       = 'no';
+	protected $title       = '';
 	protected $description = '';
 
 	public function __construct() {

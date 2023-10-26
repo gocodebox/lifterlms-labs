@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class LLMS_Lab_Lifti extends LLMS_Lab {
 
-	private $builder_cpts = array( 'course', 'lesson', 'llms_membership' );
+	private $builder_cpts         = array( 'course', 'lesson', 'llms_membership' );
 	private $builder_cpts_enabled = array();
 
 	/**
@@ -35,11 +35,12 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 */
 	protected function configure() {
 
-		$this->id = 'divi-friends'; // leave this so we don't have to rewrite db options
-		$this->title = esc_html__( 'Lifti: Divi Theme Compatibility', 'lifterlms-labs' );
+		$this->id          = 'divi-friends'; // leave this so we don't have to rewrite db options
+		$this->title       = esc_html__( 'Lifti: Divi Theme Compatibility', 'lifterlms-labs' );
 		$this->description = sprintf(
-			__( 'Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s.', 'lifterlms-labs' ),
-			'<a href="https://lifterlms.com/docs/lab-lifti/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=lifti">', '</a>'
+			esc_html__( 'Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s.', 'lifterlms-labs' ),
+			'<a href="https://lifterlms.com/docs/lab-lifti/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=lifti">',
+			'</a>'
 		);
 
 	}
@@ -88,7 +89,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			add_filter( 'llms_get_quiz_theme_settings', array( $this, 'quiz_settings' ) );
 		}
 
-
 	}
 
 	/**
@@ -108,7 +108,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		foreach ( $this->builder_cpts_enabled as $post_type ) {
 
 			$obj = get_post_type_object( $post_type );
-			add_meta_box( 'et_settings_meta_box', sprintf(__('Divi %s Settings', 'lifterlms-labs'), $obj->labels->singular_name ), 'et_single_settings_meta_box', $post_type, 'side', 'high' );
+			add_meta_box( 'et_settings_meta_box', sprintf( esc_html__( 'Divi %s Settings', 'lifterlms-labs' ), $obj->labels->singular_name ), 'et_single_settings_meta_box', $post_type, 'side', 'high' );
 
 		}
 
@@ -140,17 +140,17 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 *
 	 * @since 1.2.0
 	 * @since 1.5.2 Unknown.
-	 * @since [version] Escaped strings.
+	 * @since [version] Escaped strings. User `in_array` with strict type comparison.
 	 *
 	 * @return void
 	 */
 	public function admin_footer() {
 		$screen = get_current_screen();
-		if ( ! in_array( $screen->id, array( 'course', 'llms_membership' ) ) && ! $this->is_builder_enabled( $screen->id ) ) {
+		if ( ! in_array( $screen->id, array( 'course', 'llms_membership' ), true ) && ! $this->is_builder_enabled( $screen->id ) ) {
 			return;
 		}
 		$msg = sprintf(
-			__( 'This editor is disabled when the Divi Builder is active. Use a Builder-enabled page and the "Redirect to WordPress Page" option to build a sales page or %1$slearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder.', 'lifterlms-labs' ),
+			esc_html__( 'This editor is disabled when the Divi Builder is active. Use a Builder-enabled page and the "Redirect to WordPress Page" option to build a sales page or %1$slearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder.', 'lifterlms-labs' ),
 			'<a href="#">',
 			'</a>'
 		);
@@ -278,7 +278,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			} else {
 
 				$restrictions = llms_page_restricted( $post->ID );
-				$restricted = $restrictions['is_restricted'];
+				$restricted   = $restrictions['is_restricted'];
 
 			}
 
@@ -289,7 +289,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 				if ( false === strpos( $section, $class ) ) {
 					$new_content .= $section;
 				}
-
 			}
 			$content = $new_content;
 
@@ -331,7 +330,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	private function get_builder_sections( $content ) {
 
 		$content_parts = explode( '[et_pb_section', $content );
-		$matches = array();
+		$matches       = array();
 		preg_match_all( '/\[et_pb_section.*?\]([^`]*?)\[\/et_pb_section\]/', $content, $matches );
 
 		if ( $matches && isset( $matches[0] ) ) {
@@ -351,7 +350,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * @return void
 	 */
 	public function include_template_functions() {
-		include_once LLMS_PLUGIN_DIR . 'includes/llms.template.functions.php' ;
+		include_once LLMS_PLUGIN_DIR . 'includes/llms.template.functions.php';
 	}
 
 	/**
@@ -365,12 +364,12 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	public function is_builder_enabled( $post_or_post_type ) {
 
 		if ( is_a( $post_or_post_type, 'WP_Post' ) ) {
-			$post = $post_or_post_type;
+			$post      = $post_or_post_type;
 			$post_type = $post->post_type;
-			$meta = ( 'on' === get_post_meta( $post->ID, '_et_pb_use_builder', true ) );
+			$meta      = ( 'on' === get_post_meta( $post->ID, '_et_pb_use_builder', true ) );
 		} else {
 			$post_type = $post_or_post_type;
-			$meta = true;
+			$meta      = true;
 		}
 
 		$enabled = in_array( $post_type, $this->builder_cpts_enabled );
@@ -436,15 +435,15 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	public function quiz_settings( $settings ) {
 
 		$settings['layout'] = array(
-			'id' => 'et_pb_page_layout',
+			'id'        => 'et_pb_page_layout',
 			'id_prefix' => '_',
-			'name' => esc_html__( 'Layout', 'lifterlms-labs' ),
-			'options' => array(
+			'name'      => esc_html__( 'Layout', 'lifterlms-labs' ),
+			'options'   => array(
 				'et_full_width_page' => esc_html__( 'Fullwidth', 'lifterlms-labs' ),
 				'et_left_sidebar'    => esc_html__( 'Left Sidebar', 'lifterlms-labs' ),
 				'et_right_sidebar'   => esc_html__( 'Right Sidebar', 'lifterlms-labs' ),
 			),
-			'type' => 'select',
+			'type'      => 'select',
 		);
 
 		return $settings;
@@ -474,25 +473,25 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		$settings = array(
 			array(
-				'type' => 'html',
+				'type'  => 'html',
 				'value' => '<strong>' . esc_html__( 'Enable Divi Builder & Layout Settings on the following LifterLMS Post Types', 'lifterlms-labs' ) . '</strong>',
 			),
 		);
 
 		foreach ( array( 'course', 'lesson', 'llms_membership' ) as $cpt ) {
-			$object = get_post_type_object( $cpt );
+			$object     = get_post_type_object( $cpt );
 			$settings[] = array(
-				'columns' => 12,
-				'default' => 'no',
-				'id' => 'llms-lab-divi-post-types-' . $cpt,
-				'label' => $object->label,
+				'columns'     => 12,
+				'default'     => 'no',
+				'id'          => 'llms-lab-divi-post-types-' . $cpt,
+				'label'       => $object->label,
 				'last_column' => true,
-				'name' => 'et_builder_' . $cpt,
-				'required' => false,
-				'selected' => ( 'yes' === $this->get_option( 'et_builder_' . $cpt ) ),
-				'style' => 'display:inline-block;margin-bottom:0;',
-				'type'  => 'checkbox',
-				'value' => 'yes',
+				'name'        => 'et_builder_' . $cpt,
+				'required'    => false,
+				'selected'    => ( 'yes' === $this->get_option( 'et_builder_' . $cpt ) ),
+				'style'       => 'display:inline-block;margin-bottom:0;',
+				'type'        => 'checkbox',
+				'value'       => 'yes',
 			);
 		}
 

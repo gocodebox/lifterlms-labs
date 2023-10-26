@@ -10,7 +10,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
 
 /**
  * Simple branding class.
@@ -31,8 +32,8 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * @return void
 	 */
 	protected function configure() {
-		$this->id = 'simple-branding';
-		$this->title = esc_html__( 'Simple Branding', 'lifterlms-labs' );
+		$this->id          = 'simple-branding';
+		$this->title       = esc_html__( 'Simple Branding', 'lifterlms-labs' );
 		$this->description = sprintf(
 			esc_html__( 'Customize the default colors of various LifterLMS elements. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/simple-branding-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=simplebranding" target="blank">',
@@ -136,13 +137,13 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 */
 	private function adjust_hex( $hex, $percent ) {
 
-		$rgb = $this->hex_to_rgb_array( $hex );
+		$rgb     = $this->hex_to_rgb_array( $hex );
 		$new_hex = '#';
 
 		// convert to decimal and change luminosity
-		foreach( $rgb as $part ) {
-			$dec = min( max( 0, $part + $part * $percent ), 255 );
-			$new_hex .= str_pad( dechex( $dec ) , 2, 0, STR_PAD_LEFT );
+		foreach ( $rgb as $part ) {
+			$dec      = min( max( 0, $part + $part * $percent ), 255 );
+			$new_hex .= str_pad( dechex( $dec ), 2, 0, STR_PAD_LEFT );
 		}
 
 		return $new_hex;
@@ -159,18 +160,18 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 */
 	public function email_css( $css ) {
 
-		$primary = $this->get_option( 'color_primary' );
+		$primary      = $this->get_option( 'color_primary' );
 		$primary_text = $this->get_luminance( $primary ) > 0.179 ? '#000' : '#fff';
 
-		$action = $this->get_option( 'color_action' );
+		$action      = $this->get_option( 'color_action' );
 		$action_text = $this->get_luminance( $action ) > 0.179 ? '#000' : '#fff';
 
 		$css['button-background-color'] = $action;
-		$css['button-font-color'] = $action_text;
+		$css['button-font-color']       = $action_text;
 
 		$css['heading-background-color'] = $primary;
-		$css['heading-font-color'] = $primary_text;
-		$css['main-color'] = $primary;
+		$css['heading-font-color']       = $primary_text;
+		$css['main-color']               = $primary;
 
 		return $css;
 
@@ -189,15 +190,15 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 */
 	public function generate_css() {
 
-		$primary = esc_attr( $this->get_option( 'color_primary', '#2295ff' ) );
-		$primary_dark = $this->adjust_hex( $primary, -0.12 );
+		$primary       = esc_attr( $this->get_option( 'color_primary', '#2295ff' ) );
+		$primary_dark  = $this->adjust_hex( $primary, -0.12 );
 		$primary_light = $this->adjust_hex( $primary, 0.08 );
-		$primary_text = $this->get_luminance( $primary ) > 0.179 ? '#000' : '#fff';
+		$primary_text  = $this->get_luminance( $primary ) > 0.179 ? '#000' : '#fff';
 
-		$action = esc_attr( $this->get_option( 'color_action', '#f8954f' ) );
-		$action_dark = $this->adjust_hex( $action, -0.12 );
+		$action       = esc_attr( $this->get_option( 'color_action', '#f8954f' ) );
+		$action_dark  = $this->adjust_hex( $action, -0.12 );
 		$action_light = $this->adjust_hex( $action, 0.08 );
-		$action_text = $this->get_luminance( $action ) > 0.179 ? '#000' : '#fff';
+		$action_text  = $this->get_luminance( $action ) > 0.179 ? '#000' : '#fff';
 
 		$accent = esc_attr( $this->get_option( 'color_accent', '#ef476f' ) );
 
@@ -337,19 +338,19 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 			.llms-quiz-ui ol.llms-question-choices.llms-aq-reorder-list .llms-aq-reorder-item.llms-aq-placeholder {
 				border-color: <?php echo $accent; ?>;
 			}
-    		.llms-quiz-ui ol.llms-question-choices.llms-aq-reorder-list .llms-aq-reorder-item.llms-aq-placeholder:last-child {
-      			border-bottom-color: <?php echo $accent; ?>;
-    		}
+			.llms-quiz-ui ol.llms-question-choices.llms-aq-reorder-list .llms-aq-reorder-item.llms-aq-placeholder:last-child {
+				  border-bottom-color: <?php echo $accent; ?>;
+			}
 		</style>
 		<?php
 		$css = ob_get_clean();
 		// Remove comments.
-		$css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+		$css = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css );
 		// Remove space after colons.
-		$css = str_replace(': ', ':', $css);
+		$css = str_replace( ': ', ':', $css );
 		// Remove whitespace.
-		$css = str_replace(array("\r\n", "\r", "\n", "\t"), '', $css);
-		$css = preg_replace(" {2,}", ' ',$css);
+		$css = str_replace( array( "\r\n", "\r", "\n", "\t" ), '', $css );
+		$css = preg_replace( ' {2,}', ' ', $css );
 
 		$this->set_option( 'css_string', sanitize_textarea( $css ) );
 	}
@@ -434,8 +435,8 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 
 		$settings = array(
 			'color_primary' => '#2295ff',
-			'color_action' =>'#f8954f',
-			'color_accent' => '#ef476f',
+			'color_action'  => '#f8954f',
+			'color_accent'  => '#ef476f',
 		);
 
 		foreach ( $settings as $setting => $val ) {
@@ -472,48 +473,48 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	protected function settings() {
 		return array(
 			array(
-				'columns' => 10,
-				'classes' => 'llms-labs-colorpicker',
-				'default' => '#2295ff',
-				'description' => '<br>' . esc_html__( 'This primary color is used for mark as complete and continue buttons, borders on the pricing tables and checkout screen, and more.', 'lifterlms-labs' ),
-				'id' => 'llms-lab-branding-primary-color',
-				'label' => esc_html__( 'Primary Color', 'lifterlms-labs' ) . '<br>',
-				'last_column' => true,
-				'name' => 'color_primary',
-				'required' => true,
-				'style' => 'max-width:140px;',
-				'type'  => 'text',
-				'value' => $this->get_option( 'color_primary' ),
+				'columns'         => 10,
+				'classes'         => 'llms-labs-colorpicker',
+				'default'         => '#2295ff',
+				'description'     => '<br>' . esc_html__( 'This primary color is used for mark as complete and continue buttons, borders on the pricing tables and checkout screen, and more.', 'lifterlms-labs' ),
+				'id'              => 'llms-lab-branding-primary-color',
+				'label'           => esc_html__( 'Primary Color', 'lifterlms-labs' ) . '<br>',
+				'last_column'     => true,
+				'name'            => 'color_primary',
+				'required'        => true,
+				'style'           => 'max-width:140px;',
+				'type'            => 'text',
+				'value'           => $this->get_option( 'color_primary' ),
 				'wrapper_classes' => 'llms-labs-colorpicker-wrapper',
 			),
 			array(
-				'columns' => 10,
-				'classes' => 'llms-labs-colorpicker',
-				'default' => '#f8954f',
-				'description' => '<br>' . esc_html__( 'This color is used to draw focus to important actions like the buy now and enroll buttons.', 'lifterlms-labs' ),
-				'id' => 'llms-lab-branding-action-color',
-				'label' => esc_html__( 'Action Color', 'lifterlms-labs' ) . '<br>',
-				'last_column' => true,
-				'name' => 'color_action',
-				'required' => true,
-				'style' => 'max-width:140px;',
-				'type'  => 'text',
-				'value' => $this->get_option( 'color_action' ),
+				'columns'         => 10,
+				'classes'         => 'llms-labs-colorpicker',
+				'default'         => '#f8954f',
+				'description'     => '<br>' . esc_html__( 'This color is used to draw focus to important actions like the buy now and enroll buttons.', 'lifterlms-labs' ),
+				'id'              => 'llms-lab-branding-action-color',
+				'label'           => esc_html__( 'Action Color', 'lifterlms-labs' ) . '<br>',
+				'last_column'     => true,
+				'name'            => 'color_action',
+				'required'        => true,
+				'style'           => 'max-width:140px;',
+				'type'            => 'text',
+				'value'           => $this->get_option( 'color_action' ),
 				'wrapper_classes' => 'llms-labs-colorpicker-wrapper',
 			),
 			array(
-				'columns' => 10,
-				'classes' => 'llms-labs-colorpicker',
-				'default' => '#ef476f',
-				'description' => '<br>' . esc_html__( 'This color is used for minor accents like progress bars and icons.', 'lifterlms-labs' ),
-				'id' => 'llms-lab-branding-accent-color',
-				'label' => esc_html__( 'Accent Color', 'lifterlms-labs' ) . '<br>',
-				'last_column' => true,
-				'name' => 'color_accent',
-				'required' => true,
-				'style' => 'max-width:140px;',
-				'type'  => 'text',
-				'value' => $this->get_option( 'color_accent' ),
+				'columns'         => 10,
+				'classes'         => 'llms-labs-colorpicker',
+				'default'         => '#ef476f',
+				'description'     => '<br>' . esc_html__( 'This color is used for minor accents like progress bars and icons.', 'lifterlms-labs' ),
+				'id'              => 'llms-lab-branding-accent-color',
+				'label'           => esc_html__( 'Accent Color', 'lifterlms-labs' ) . '<br>',
+				'last_column'     => true,
+				'name'            => 'color_accent',
+				'required'        => true,
+				'style'           => 'max-width:140px;',
+				'type'            => 'text',
+				'value'           => $this->get_option( 'color_accent' ),
 				'wrapper_classes' => 'llms-labs-colorpicker-wrapper',
 			),
 		);
@@ -521,4 +522,4 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 
 }
 
-return new LLMS_Lab_Simple_Branding;
+return new LLMS_Lab_Simple_Branding();

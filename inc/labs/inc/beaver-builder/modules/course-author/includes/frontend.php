@@ -1,12 +1,14 @@
 <?php
 /**
  * LifterLMS Course Author Module HTML
+ *
  * @since    1.3.0
  * @version  1.3.0
  */
 
 // Restrict direct access
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
 
 $course_id = ! empty( $settings->llms_course_id ) ? $settings->llms_course_id : get_the_ID();
 ?>

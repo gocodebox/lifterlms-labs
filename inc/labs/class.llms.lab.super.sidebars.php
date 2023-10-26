@@ -28,8 +28,8 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	 * @return void
 	 */
 	protected function configure() {
-		$this->id = 'super-sidebars';
-		$this->title = esc_html__( 'Super Sidebars', 'lifterlms-labs' );
+		$this->id          = 'super-sidebars';
+		$this->title       = esc_html__( 'Super Sidebars', 'lifterlms-labs' );
 		$this->description = sprintf(
 			esc_html__( 'Very quickly configure LifterLMS sidebars to work with your theme. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/super-sidebars-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars" target="blank">',
@@ -84,22 +84,22 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 
 		return array(
 			array(
-				'columns' => 6,
-				'classes' => 'llms-select2',
+				'columns'     => 6,
+				'classes'     => 'llms-select2',
 				'description' => '<br>' . esc_html__( 'Select your theme\'s main sidebar, this is usually the sidebar that displays when viewing a blog post.', 'lifterlms-labs' ),
-				'id' => 'llms-lab-main-sidebar',
-				'label' => esc_html__( 'Main Sidebar', 'lifterlms-labs' ) . '<br>',
+				'id'          => 'llms-lab-main-sidebar',
+				'label'       => esc_html__( 'Main Sidebar', 'lifterlms-labs' ) . '<br>',
 				'last_column' => true,
-				'name' => 'main_sidebar',
-				'options' => $sidebars,
-				'required' => false,
-				'selected' => '',
-				'type'  => 'select',
-				'value' => $this->get_option( 'main_sidebar' ),
+				'name'        => 'main_sidebar',
+				'options'     => $sidebars,
+				'required'    => false,
+				'selected'    => '',
+				'type'        => 'select',
+				'value'       => $this->get_option( 'main_sidebar' ),
 			),
 		);
 	}
 
 }
 
-return new LLMS_Lab_Super_Sidebars;
+return new LLMS_Lab_Super_Sidebars();

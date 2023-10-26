@@ -61,19 +61,19 @@ class LLMS_Labs_Settings_Page {
 		if ( ! empty( $_POST['llms-lab-enable'] ) ) {
 
 			$action = 'manage';
-			$id = sanitize_text_field( $_POST['llms-lab-enable'] );
-			$val = 'yes';
+			$id     = sanitize_text_field( $_POST['llms-lab-enable'] );
+			$val    = 'yes';
 
 		} elseif ( ! empty( $_POST['llms-lab-disable'] ) ) {
 
 			$action = 'manage';
-			$id = sanitize_text_field( $_POST['llms-lab-disable'] );
-			$val = 'no';
+			$id     = sanitize_text_field( $_POST['llms-lab-disable'] );
+			$val    = 'no';
 
 		} elseif ( isset( $_POST['llms-lab-settings-save'] ) ) {
 
 			$action = 'settings';
-			$id = sanitize_text_field( $_POST['llms-lab-id'] );
+			$id     = sanitize_text_field( $_POST['llms-lab-id'] );
 
 		} else {
 
@@ -103,7 +103,6 @@ class LLMS_Labs_Settings_Page {
 				do_action( 'llms_lab_' . $lab->get_id() . '_disabled' );
 
 			}
-
 		} elseif ( 'settings' === $action ) {
 
 			foreach ( $lab->get_settings() as $field ) {
@@ -119,7 +118,6 @@ class LLMS_Labs_Settings_Page {
 				} elseif ( 'checkbox' === $field['type'] ) {
 					$lab->set_option( $name, sanitize_text_field( $field['default'] ) );
 				}
-
 			}
 
 			do_action( 'llms_lab_' . $id . '_settings_saved' );
@@ -143,7 +141,7 @@ class LLMS_Labs_Settings_Page {
 			esc_html__( 'Labs', 'lifterlms-labs' ),
 			apply_filters( 'llms_labs_settings_page_capability', 'manage_options' ),
 			'llms-labs',
-			 array( $this, 'render' )
+			array( $this, 'render' )
 		);
 	}
 
@@ -208,10 +206,13 @@ class LLMS_Labs_Settings_Page {
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach( LLMS_Labs_LabTech::get_labs() as $id => $lab ): $enabled = $lab->is_enabled(); ?>
+				<?php
+				foreach ( LLMS_Labs_LabTech::get_labs() as $id => $lab ) :
+					$enabled = $lab->is_enabled();
+					?>
 					<tr>
 						<td>
-							<?php if ( $enabled ) :?>
+							<?php if ( $enabled ) : ?>
 								<a href="<?php echo esc_url( admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ) ); ?>"><?php echo esc_html( $lab->get_title() ); ?></a>
 							<?php else : ?>
 								<?php echo esc_html( $lab->get_title() ); ?>
@@ -219,14 +220,14 @@ class LLMS_Labs_Settings_Page {
 						</td>
 						<td><?php echo $lab->get_description(); ?></td>
 						<td>
-							<?php if ( $enabled ) :?>
+							<?php if ( $enabled ) : ?>
 								<span class="screen-reader-text"><?php esc_html_e( 'Enabled', 'lifterlms-labs' ); ?></span><span class="dashicons dashicons-yes"></span>
 							<?php else : ?>
 								<span class="screen-reader-text"><?php esc_html_e( 'Disabled', 'lifterlms-labs' ); ?></span><span class="dashicons dashicons-no"></span>
 							<?php endif; ?>
 						</td>
 						<td>
-							<?php if ( $enabled ) :?>
+							<?php if ( $enabled ) : ?>
 								<a class="llms-button-primary small" href="<?php echo esc_url( admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ) ); ?>"><?php esc_html_e( 'Configure', 'lifterlms-labs' ); ?></a>
 								<button class="llms-button-danger small" name="llms-lab-disable" type="submit" value="<?php echo esc_attr( $lab->get_id() ); ?>"><?php esc_html_e( 'Disable', 'lifterlms-labs' ); ?></button>
 							<?php else : ?>
@@ -286,15 +287,17 @@ class LLMS_Labs_Settings_Page {
 				llms_form_field( $field );
 			}
 
-			llms_form_field( array(
-				'columns' => 2,
-				'classes' => 'llms-button-primary',
-				'id' => 'llms-lab-settings-save',
-				'value' => esc_attr__( 'Save', 'lifterlms-labs' ),
-				'last_column' => true,
-				'required' => false,
-				'type'  => 'submit',
-			) );
+			llms_form_field(
+				array(
+					'columns'     => 2,
+					'classes'     => 'llms-button-primary',
+					'id'          => 'llms-lab-settings-save',
+					'value'       => esc_attr__( 'Save', 'lifterlms-labs' ),
+					'last_column' => true,
+					'required'    => false,
+					'type'        => 'submit',
+				)
+			);
 
 		} else {
 

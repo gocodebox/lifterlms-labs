@@ -1,12 +1,14 @@
 <?php
 /**
  * LifterLMS Course Syllabus Module HTML
+ *
  * @since    1.3.0
  * @version  1.3.0
  */
 
 // Restrict direct access
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
 
 ?>
 
