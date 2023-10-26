@@ -2,48 +2,58 @@
 /**
  * Lab: Action Manager
  *
- * Remove LifterLMS Action Hooks with Checkboxes
+ * @package LifterLMS_Labs/Labs/Classes
  *
  * @since 1.2.0
- * @version 1.5.3
+ * @version [version]
  */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * LLMS_Lab_Action Manager Class
+ * LLMS_Lab_Action Manager Class.
+ *
+ * Remove LifterLMS Action Hooks with Checkboxes.
  *
  * @since 1.2.0
  * @since 1.5.3 Remove non-functioning course featured video hook.
  */
 class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
+	/**
+	 * Hooks.
+	 *
+	 * @var array
+	 */
 	private $hooks = array();
 
 	/**
-	 * Configure the Lab
+	 * Configure the Lab.
 	 *
-	 * @since    1.2.0
+	 * @since 1.2.0
+	 * @since [version] Escaped strings.
 	 *
-	 * @return   void
+	 * @return void
 	 */
 	protected function configure() {
 
-		$this->id = 'action-manager'; // leave this so we don't have to rewrite db options
-		$this->title = __( 'Action Manager', 'lifterlms-labs' );
+		$this->id          = 'action-manager'; // Leave this so we don't have to rewrite db options.
+		$this->title       = esc_html__( 'Action Manager', 'lifterlms-labs' );
 		$this->description = sprintf(
-			__( 'Quickly remove specific elements like course author, syllabus, and more without having to write any code. Click %1$shere%2$s for more information.', 'lifterlms-labs' ),
-			'<a href="https://lifterlms.com/docs/lab-action-manager/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=actionmanager">', '</a>'
+			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+			esc_html__( 'Quickly remove specific elements like course author, syllabus, and more without having to write any code. Click %1$shere%2$s for more information.', 'lifterlms-labs' ),
+			'<a href="https://lifterlms.com/docs/lab-action-manager/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=actionmanager">',
+			'</a>'
 		);
 
 	}
 
 	/**
-	 * Initialize the Lab
+	 * Initialize the Lab.
 	 *
-	 * @since    1.2.0
+	 * @since 1.2.0
 	 *
-	 * @return   void
+	 * @return void
 	 */
 	protected function init() {
 
@@ -54,9 +64,9 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	}
 
 	/**
-	 * Remove user-selcetd actions
+	 * Remove user-selected actions.
 	 *
-	 * @since  1.5.3
+	 * @since 1.5.3
 	 *
 	 * @return void
 	 */
@@ -74,53 +84,53 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 					remove_action( $data['action'], $func, $data['priority'] );
 
 				}
-
 			}
 		}
 
 	}
 
 	/**
-	 * Lab settings
+	 * Lab settings.
 	 *
-	 * @since    1.2.0
+	 * @since 1.2.0
+	 * @since [version] Escaped strings.
 	 *
-	 * @return   array
+	 * @return array
 	 */
 	public function settings() {
 		$settings = array();
 
 		$settings[] = array(
-			'type' => 'html',
-			'value' => '<em>' . __( 'Check the box next to each action that should be removed.', 'lifterlms-labs' ) . '</em>',
+			'type'  => 'html',
+			'value' => '<em>' . esc_html__( 'Check the box next to each action that should be removed.', 'lifterlms-labs' ) . '</em>',
 		);
 
 		foreach ( $this->hooks as $group ) {
 
 			$settings[] = array(
-				'type' => 'html',
+				'type'  => 'html',
 				'value' => '<strong>' . $group['title'] . '</strong>',
 			);
 
 			foreach ( $group['actions'] as $func => $data ) {
 
 				$settings[] = array(
-					'columns' => 3,
-					'default' => 'no',
-					'id' => $func,
-					'label' => $data['title'],
+					'columns'     => 3,
+					'default'     => 'no',
+					'id'          => $func,
+					'label'       => $data['title'],
 					'last_column' => false,
-					'required' => false,
-					'selected' => ( 'yes' === $this->get_option( $func ) ),
-					'style' => 'display:inline-block;margin-bottom:0;',
-					'type'  => 'checkbox',
-					'value' => 'yes',
+					'required'    => false,
+					'selected'    => ( 'yes' === $this->get_option( $func ) ),
+					'style'       => 'display:inline-block;margin-bottom:0;',
+					'type'        => 'checkbox',
+					'value'       => 'yes',
 				);
 
 			}
 
 			$settings[] = array(
-				'type' => 'html',
+				'type'  => 'html',
 				'value' => '&nbsp;',
 			);
 
@@ -132,156 +142,157 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	 * Setup a list of available hooks.
 	 *
 	 * @since 1.2.0
-	 * @since 1.5.3 Remvoe single course featured image since it doesn't work.
+	 * @since 1.5.3 Remove single course featured image since it doesn't work.
+	 * @since [version] Escaped strings.
 	 *
 	 * @return void
 	 */
 	public function setup_hooks() {
 		$this->hooks = array(
 			array(
-				'title' => __( 'Single Course Actions', 'lifterlms-labs' ),
+				'title'   => esc_html__( 'Single Course Actions', 'lifterlms-labs' ),
 				'actions' => array(
-					'lifterlms_template_single_video' => array(
-						'action' => 'lifterlms_single_course_before_summary',
+					'lifterlms_template_single_video'      => array(
+						'action'   => 'lifterlms_single_course_before_summary',
 						'priority' => 20,
-						'title' => __( 'Video Embed', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Video Embed', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_single_audio' => array(
-						'action' => 'lifterlms_single_course_before_summary',
+					'lifterlms_template_single_audio'      => array(
+						'action'   => 'lifterlms_single_course_before_summary',
 						'priority' => 30,
-						'title' => __( 'Audio Embed', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Audio Embed', 'lifterlms-labs' ),
 					),
 
 					'lifterlms_template_single_meta_wrapper_start' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 5,
-						'title' => __( 'Meta Information Opening Wrapper', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Meta Information Opening Wrapper', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_single_length' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+					'lifterlms_template_single_length'     => array(
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 10,
-						'title' => __( 'Meta Information: Length', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Meta Information: Length', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_difficulty' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 20,
-						'title' => __( 'Meta Information: Difficulty', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Meta Information: Difficulty', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_course_tracks' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 25,
-						'title' => __( 'Meta Information: Tracks', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Meta Information: Tracks', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_course_categories' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 30,
-						'title' => __( 'Meta Information: Categories', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Meta Information: Categories', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_course_tags' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 35,
-						'title' => __( 'Meta Information: Tags', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Meta Information: Tags', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_course_author' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+					'lifterlms_template_course_author'     => array(
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 40,
-						'title' => __( 'Meta Information: Author', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Meta Information: Author', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_meta_wrapper_end' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 50,
-						'title' => __( 'Meta Information Closing Wrapper', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Meta Information Closing Wrapper', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_prerequisites' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 55,
-						'title' => __( 'Prerequisite Information', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Prerequisite Information', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_pricing_table' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+					'lifterlms_template_pricing_table'     => array(
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 60,
-						'title' => __( 'Pricing Table', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Pricing Table', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_course_progress' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 60,
-						'title' => __( 'Progress Bar and "Continue" Button', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Progress Bar and "Continue" Button', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_single_syllabus' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+					'lifterlms_template_single_syllabus'   => array(
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 90,
-						'title' => __( 'Syllabus', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Syllabus', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_single_reviews' => array(
-						'action' => 'lifterlms_single_course_after_summary',
+					'lifterlms_template_single_reviews'    => array(
+						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 100,
-						'title' => __( 'Reviews', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Reviews', 'lifterlms-labs' ),
 					),
 				),
 			),
 			array(
-				'title' => __( 'Single Lesson Actions', 'lifterlms-labs' ),
+				'title'   => esc_html__( 'Single Lesson Actions', 'lifterlms-labs' ),
 				'actions' => array(
 					'lifterlms_template_single_parent_course' => array(
-						'action' => 'lifterlms_single_lesson_before_summary',
+						'action'   => 'lifterlms_single_lesson_before_summary',
 						'priority' => 10,
-						'title' => __( 'Back to Course Link', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Back to Course Link', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_lesson_video' => array(
-						'action' => 'lifterlms_single_lesson_before_summary',
+						'action'   => 'lifterlms_single_lesson_before_summary',
 						'priority' => 20,
-						'title' => __( 'Video Embed', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Video Embed', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_lesson_audio' => array(
-						'action' => 'lifterlms_single_lesson_before_summary',
+						'action'   => 'lifterlms_single_lesson_before_summary',
 						'priority' => 20,
-						'title' => __( 'Audio Embed', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Audio Embed', 'lifterlms-labs' ),
 					),
 
 					'lifterlms_template_complete_lesson_link' => array(
-						'action' => 'lifterlms_single_lesson_after_summary',
+						'action'   => 'lifterlms_single_lesson_after_summary',
 						'priority' => 10,
-						'title' => __( 'Mark Complete / Mark Incomplete / Take Quiz Button(s)', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Mark Complete / Mark Incomplete / Take Quiz Button(s)', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_lesson_navigation' => array(
-						'action' => 'lifterlms_single_lesson_after_summary',
+						'action'   => 'lifterlms_single_lesson_after_summary',
 						'priority' => 20,
-						'title' => __( 'Course Navigation Tiles', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Course Navigation Tiles', 'lifterlms-labs' ),
 					),
 				),
 			),
 			array(
-				'title' => __( 'Course and Membership Catalogs', 'lifterlms-labs' ),
+				'title'   => esc_html__( 'Course and Membership Catalogs', 'lifterlms-labs' ),
 				'actions' => array(
-					'lifterlms_loop_featured_video' => array(
-						'action' => 'lifterlms_before_loop_item',
+					'lifterlms_loop_featured_video'      => array(
+						'action'   => 'lifterlms_before_loop_item',
 						'priority' => 8,
-						'title' => __( 'Featured Video', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Featured Video', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_thumbnail' => array(
-						'action' => 'lifterlms_before_loop_item_title',
+					'lifterlms_template_loop_thumbnail'  => array(
+						'action'   => 'lifterlms_before_loop_item_title',
 						'priority' => 10,
-						'title' => __( 'Featured Image', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Featured Image', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_progress' => array(
-						'action' => 'lifterlms_before_loop_item_title',
+					'lifterlms_template_loop_progress'   => array(
+						'action'   => 'lifterlms_before_loop_item_title',
 						'priority' => 15,
-						'title' => __( 'Progress Bar', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Progress Bar', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_author' => array(
-						'action' => 'lifterlms_after_loop_item_title',
+					'lifterlms_template_loop_author'     => array(
+						'action'   => 'lifterlms_after_loop_item_title',
 						'priority' => 10,
-						'title' => __( 'Author', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Author', 'lifterlms-labs' ),
 					),
-					'lifterlms_template_loop_length' => array(
-						'action' => 'lifterlms_after_loop_item_title',
+					'lifterlms_template_loop_length'     => array(
+						'action'   => 'lifterlms_after_loop_item_title',
 						'priority' => 15,
-						'title' => __( 'Length', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Length', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_loop_difficulty' => array(
-						'action' => 'lifterlms_after_loop_item_title',
+						'action'   => 'lifterlms_after_loop_item_title',
 						'priority' => 20,
-						'title' => __( 'Difficulty', 'lifterlms-labs' ),
+						'title'    => esc_html__( 'Difficulty', 'lifterlms-labs' ),
 					),
 				),
 			),
