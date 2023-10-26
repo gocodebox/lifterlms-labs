@@ -10,7 +10,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-
 /**
  * LifterLMS Course Continue Button Module class.
  *

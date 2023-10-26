@@ -2,14 +2,13 @@
 /**
  * LifterLMS Course/Membership Pricing Table Module HTML
  *
- * @package LifterLMS_Labs/Labs/BeaverBuilder/Modules/CourseContinueButton/Classes
+ * @package LifterLMS_Labs/Labs/BeaverBuilder/Modules/PricingTable/Classes
  *
  * @since 1.3.0
  * @version [version]
  */
 
 defined( 'ABSPATH' ) || exit;
-
 
 /**
  * LifterLMS Course/Membership Pricing Table Module HTML class.
