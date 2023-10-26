@@ -1,44 +1,61 @@
 <?php
 /**
  * Super Sidebars
- * Make LifterLMS Sidebar Theme Compatibility Easy
+ *
+ * @package LifterLMS_Labs/Labs/Classes
+ *
+ * @since 1.0.0
+ * @version [version]
  */
 
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+defined( 'ABSPATH' ) || exit;
 
+/**
+ * Super Sidebars class.
+ *
+ * Make LifterLMS Sidebar Theme Compatibility Easy
+ *
+ * @since 1.0.0
+ */
 class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 
 	/**
-	 * Configure the Lab
-	 * @return   void
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Configure the Lab.
+	 *
+	 * @since 1.0.0
+	 * @since [version] Escaped strings.
+	 *
+	 * @return void
 	 */
 	protected function configure() {
 		$this->id = 'super-sidebars';
-		$this->title = __( 'Super Sidebars', 'lifterlms-labs' );
-		$this->description = sprintf( __( 'Very quickly configure LifterLMS sidebars to work with your theme. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ), '<a href="https://lifterlms.com/docs/super-sidebars-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars" target="blank">', '</a>' );
+		$this->title = esc_html__( 'Super Sidebars', 'lifterlms-labs' );
+		$this->description = sprintf(
+			esc_html__( 'Very quickly configure LifterLMS sidebars to work with your theme. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
+			'<a href="https://lifterlms.com/docs/super-sidebars-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars" target="blank">',
+			'</a>'
+		);
 	}
 
 	/**
-	 * Initialize the Lab
-	 * @return   void
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Initialize the Lab.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
 	 */
 	protected function init() {
-
-		// replace the default sidebar with user selected sidebar
+		// Replace the default sidebar with user selected sidebar.
 		add_filter( 'llms_get_theme_default_sidebar', array( $this, 'replace_sidebar' ) );
-
 	}
 
 	/**
-	 * Replace the default sidebar with user selected sidebar
-	 * @param    string     $id  default sidebar
-	 * @return   string
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Replace the default sidebar with user selected sidebar.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $id Default sidebar
+	 * @return string
 	 */
 	public function replace_sidebar( $id ) {
 		$sidebar = $this->get_option( 'main_sidebar' );
@@ -49,10 +66,12 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	}
 
 	/**
-	 * Define the lab's settings
-	 * @return   array
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Define the lab's settings.
+	 *
+	 * @since 1.0.0
+	 * @since [version] Escaped strings.
+	 *
+	 * @return array
 	 */
 	protected function settings() {
 
@@ -67,9 +86,9 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 			array(
 				'columns' => 6,
 				'classes' => 'llms-select2',
-				'description' => '<br>' . __( 'Select your theme\'s main sidebar, this is usually the sidebar that displays when viewing a blog post.', 'lifterlms-labs' ),
+				'description' => '<br>' . esc_html__( 'Select your theme\'s main sidebar, this is usually the sidebar that displays when viewing a blog post.', 'lifterlms-labs' ),
 				'id' => 'llms-lab-main-sidebar',
-				'label' => __( 'Main Sidebar', 'lifterlms-labs' ) . '<br>',
+				'label' => esc_html__( 'Main Sidebar', 'lifterlms-labs' ) . '<br>',
 				'last_column' => true,
 				'name' => 'main_sidebar',
 				'options' => $sidebars,

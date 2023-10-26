@@ -2,23 +2,27 @@
 /**
  * LLMS_Labs_Settings_Page class file
  *
+ * @package LifterLMS_Labs/Classes
+ *
  * @since 1.0.0
- * @version 1.6.0
+ * @version [version]
  */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * The main labs settings page
+ * The main labs settings page.
  *
  * @since 1.0.0
  */
 class LLMS_Labs_Settings_Page {
 
 	/**
-	 * Constructor
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Constructor.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
 	 */
 	public function __construct() {
 
@@ -28,20 +32,23 @@ class LLMS_Labs_Settings_Page {
 	}
 
 	/**
-	 * Get the current tab (if set)
-	 * @return   string
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Get the current tab (if set).
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string
 	 */
 	private function get_tab() {
 		return isset( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : '';
 	}
 
 	/**
-	 * Handle form submissions
-	 * @return   void
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Handle form submissions.
+	 *
+	 * @since 1.0.0
+	 * @since [version] Exit after redirection.
+	 *
+	 * @return void
 	 */
 	public function handle_form() {
 
@@ -89,6 +96,7 @@ class LLMS_Labs_Settings_Page {
 				do_action( 'llms_lab_' . $lab->get_id() . '_enabled' );
 
 				wp_safe_redirect( admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ) );
+				exit;
 
 			} else {
 
@@ -121,24 +129,35 @@ class LLMS_Labs_Settings_Page {
 	}
 
 	/**
-	 * Register the labs settings page
-	 * @return   void
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Register the labs settings page.
+	 *
+	 * @since 1.0.0
+	 * @since [version] Escape strings.
+	 *
+	 * @return void
 	 */
 	public function register() {
-		add_submenu_page( 'lifterlms', __( 'LifterLMS Labs', 'lifterlms-labs' ), __( 'Labs', 'lifterlms-labs' ), apply_filters( 'llms_labs_settings_page_capability', 'manage_options' ), 'llms-labs', array( $this, 'render' ) );
+		add_submenu_page(
+			'lifterlms',
+			esc_html__( 'LifterLMS Labs', 'lifterlms-labs' ),
+			esc_html__( 'Labs', 'lifterlms-labs' ),
+			apply_filters( 'llms_labs_settings_page_capability', 'manage_options' ),
+			'llms-labs',
+			 array( $this, 'render' )
+		);
 	}
 
 	/**
-	 * Render the page
-	 * @return   void
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Render the page.
+	 *
+	 * @since 1.0.0
+	 * @since [version] Escape strings and URLS.
+	 *
+	 * @return void
 	 */
 	public function render() {
 		echo '<div class="wrap lifterlms lifterlms-settings lifterlms-labs">';
-		echo '<div class="llms-subheader"><h1><a href="' . admin_url( 'admin.php?page=llms-labs' ) . '">' . __( 'LifterLMS Labs', 'lifterlms-labs' ) . '</a></h1></div>';
+		echo '<div class="llms-subheader"><h1><a href="' . esc_url( admin_url( 'admin.php?page=llms-labs' ) ) . '">' . esc_html__( 'LifterLMS Labs', 'lifterlms-labs' ) . '</a></h1></div>';
 
 		echo '<div class="llms-inside-wrap">';
 
@@ -167,23 +186,25 @@ class LLMS_Labs_Settings_Page {
 	}
 
 	/**
-	 * Render the main Labs screen content
-	 * @return   void
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Render the main Labs screen content.
+	 *
+	 * @since 1.0.0
+	 * @since [version] Escape html and urls.
+	 *
+	 * @return void
 	 */
 	private function render_main() {
 		?>
-		<p><?php _e( 'Each lab is an experimental, conceptual, or fun new feature which you can enable to enhance, improve, or alter the core functionality of LifterLMS.', 'lifterlms-labs' ); ?></p>
-		<p><?php _e( 'Some labs are being tested and may be moved into the LifterLMS core, others might remain here forever.', 'lifterlms-labs' ); ?></p>
+		<p><?php esc_html_e( 'Each lab is an experimental, conceptual, or fun new feature which you can enable to enhance, improve, or alter the core functionality of LifterLMS.', 'lifterlms-labs' ); ?></p>
+		<p><?php esc_html_e( 'Some labs are being tested and may be moved into the LifterLMS core, others might remain here forever.', 'lifterlms-labs' ); ?></p>
 
 		<table class="wp-list-table widefat fixed striped">
 			<thead>
 				<tr>
-					<th><?php _e( 'Name', 'lifterlms-labs' ); ?></th>
-					<th><?php _e( 'Descrpition', 'lifterlms-labs' ); ?></th>
-					<th><?php _e( 'Status', 'lifterlms-labs' ); ?></th>
-					<th><?php _e( 'Action', 'lifterlms-labs' ); ?></th>
+					<th><?php esc_html_e( 'Name', 'lifterlms-labs' ); ?></th>
+					<th><?php esc_html_e( 'Description', 'lifterlms-labs' ); ?></th>
+					<th><?php esc_html_e( 'Status', 'lifterlms-labs' ); ?></th>
+					<th><?php esc_html_e( 'Action', 'lifterlms-labs' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -191,25 +212,25 @@ class LLMS_Labs_Settings_Page {
 					<tr>
 						<td>
 							<?php if ( $enabled ) :?>
-								<a href="<?php echo admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ); ?>"><?php echo $lab->get_title(); ?></a>
+								<a href="<?php echo esc_url( admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ) ); ?>"><?php echo esc_html( $lab->get_title() ); ?></a>
 							<?php else : ?>
-								<?php echo $lab->get_title(); ?>
+								<?php echo esc_html( $lab->get_title() ); ?>
 							<?php endif; ?>
 						</td>
 						<td><?php echo $lab->get_description(); ?></td>
 						<td>
 							<?php if ( $enabled ) :?>
-								<span class="screen-reader-text"><?php _e( 'Enabled', 'lifterlms-labs' ); ?></span><span class="dashicons dashicons-yes"></span>
+								<span class="screen-reader-text"><?php esc_html_e( 'Enabled', 'lifterlms-labs' ); ?></span><span class="dashicons dashicons-yes"></span>
 							<?php else : ?>
-								<span class="screen-reader-text"><?php _e( 'Disabled', 'lifterlms-labs' ); ?></span><span class="dashicons dashicons-no"></span>
+								<span class="screen-reader-text"><?php esc_html_e( 'Disabled', 'lifterlms-labs' ); ?></span><span class="dashicons dashicons-no"></span>
 							<?php endif; ?>
 						</td>
 						<td>
 							<?php if ( $enabled ) :?>
-								<a class="llms-button-primary small" href="<?php echo admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ); ?>"><?php _e( 'Configure', 'lifterlms-labs' ); ?></a>
-								<button class="llms-button-danger small" name="llms-lab-disable" type="submit" value="<?php echo $lab->get_id(); ?>"><?php _e( 'Disable', 'lifterlms-labs' ); ?></button>
+								<a class="llms-button-primary small" href="<?php echo esc_url( admin_url( 'admin.php?page=llms-labs&tab=' . $lab->get_id() ) ); ?>"><?php esc_html_e( 'Configure', 'lifterlms-labs' ); ?></a>
+								<button class="llms-button-danger small" name="llms-lab-disable" type="submit" value="<?php echo esc_attr( $lab->get_id() ); ?>"><?php esc_html_e( 'Disable', 'lifterlms-labs' ); ?></button>
 							<?php else : ?>
-								<button class="llms-button-primary small" name="llms-lab-enable" type="submit" value="<?php echo $lab->get_id(); ?>"><?php _e( 'Enable', 'lifterlms-labs' ); ?></button>
+								<button class="llms-button-primary small" name="llms-lab-enable" type="submit" value="<?php echo esc_attr( $lab->get_id() ); ?>"><?php esc_html_e( 'Enable', 'lifterlms-labs' ); ?></button>
 							<?php endif; ?>
 						</td>
 					</tr>
@@ -221,11 +242,12 @@ class LLMS_Labs_Settings_Page {
 	}
 
 	/**
-	 * Render content for a specific lab
+	 * Render content for a specific lab.
 	 *
 	 * @since 1.0.0
 	 * @since 1.1.0 Unknown.
 	 * @since 1.6.0 Add LifterLMS Core 5.0+ support.
+	 * @since [version] Escaped strings to be printed.
 	 *
 	 * @return void
 	 */
@@ -233,11 +255,11 @@ class LLMS_Labs_Settings_Page {
 
 		$lab = LLMS_Labs_LabTech::get_lab( $this->get_tab() );
 		if ( ! $lab ) {
-			_e( 'Invalid lab.', 'lifterlms-labs' );
+			esc_html_e( 'Invalid lab.', 'lifterlms-labs' );
 			return;
 		}
 		if ( ! $lab->is_enabled() ) {
-			_e( 'This lab in not enabled, please enable the lab and try again.', 'lifterlms-labs' );
+			esc_html_e( 'This lab in not enabled, please enable the lab and try again.', 'lifterlms-labs' );
 			return;
 		}
 
@@ -268,7 +290,7 @@ class LLMS_Labs_Settings_Page {
 				'columns' => 2,
 				'classes' => 'llms-button-primary',
 				'id' => 'llms-lab-settings-save',
-				'value' => __( 'Save', 'lifterlms-labs' ),
+				'value' => esc_attr__( 'Save', 'lifterlms-labs' ),
 				'last_column' => true,
 				'required' => false,
 				'type'  => 'submit',
@@ -276,32 +298,34 @@ class LLMS_Labs_Settings_Page {
 
 		} else {
 
-			_e( 'This lab doesn\'t have any settings.', 'lifterlms-labs' );
+			esc_html_e( 'This lab doesn\'t have any settings.', 'lifterlms-labs' );
 
 		}
 
-		echo '<input name="llms-lab-id" type="hidden" value="' . $lab->get_id() . '">';
-		
-		echo '<div class="llms-form-field"><p><a href="' . admin_url( 'admin.php?page=llms-labs' ) . '">' . __( 'View All Labs', 'lifterlms-labs' ) . '</a></p></div>';
+		echo '<input name="llms-lab-id" type="hidden" value="' . esc_attr( $lab->get_id() ) . '">';
+
+		echo '<div class="llms-form-field"><p><a href="' . esc_url( admin_url( 'admin.php?page=llms-labs' ) ) . '">' . esc_html__( 'View All Labs', 'lifterlms-labs' ) . '</a></p></div>';
 
 		echo '</div>';
 
 	}
 
 	/**
-	 * Output HTML for the page title based on current tab
-	 * @return   void
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Output HTML for the page title based on current tab.
+	 *
+	 * @since 1.0.0
+	 * @since [version] Escaped strings to be printed.
+	 *
+	 * @return void
 	 */
 	private function render_title() {
 		if ( $id = $this->get_tab() ) {
 			$lab = LLMS_Labs_LabTech::get_lab( $id );
 			if ( $lab ) {
-				printf( '%s', $lab->get_title() );
+				printf( '%s', esc_html( $lab->get_title() ) );
 			}
 		} else {
-			_e( 'Labs Overview', 'lifterlms-labs' );
+			esc_html_e( 'Labs Overview', 'lifterlms-labs' );
 		}
 	}
 

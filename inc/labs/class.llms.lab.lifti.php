@@ -1,11 +1,23 @@
 <?php
+/**
+ * Lab: Lifti
+ *
+ * @package LifterLMS_Labs/Labs/Classes
+ *
+ * @since 1.1.0
+ * @version [version]
+ */
+
+defined( 'ABSPATH' ) || exit;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Lab: Lifti
- * Divi theme compatibility
- * @since    1.1.0
- * @version  1.5.2
+ * Lab: Lifti.
+ *
+ * Divi theme compatibility.
+ *
+ * @since 1.1.0
  */
 class LLMS_Lab_Lifti extends LLMS_Lab {
 
@@ -13,15 +25,18 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	private $builder_cpts_enabled = array();
 
 	/**
-	 * Configure the Lab
-	 * @return   void
-	 * @since    1.1.0
-	 * @version  1.2.0
+	 * Configure the Lab.
+	 *
+	 * @since 1.1.0
+	 * @since 1.2.0 Unknown.
+	 * @since [version] Escaped strings.
+	 *
+	 * @return void
 	 */
 	protected function configure() {
 
 		$this->id = 'divi-friends'; // leave this so we don't have to rewrite db options
-		$this->title = __( 'Lifti: Divi Theme Compatibility', 'lifterlms-labs' );
+		$this->title = esc_html__( 'Lifti: Divi Theme Compatibility', 'lifterlms-labs' );
 		$this->description = sprintf(
 			__( 'Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/lab-lifti/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=lifti">', '</a>'
@@ -30,10 +45,12 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Initialize the Lab
-	 * @return   void
-	 * @since    1.1.0
-	 * @version  1.5.1
+	 * Initialize the Lab.
+	 *
+	 * @since 1.1.0
+	 * @since 1.5.1 Unknown.
+	 *
+	 * @return void
 	 */
 	protected function init() {
 
@@ -75,10 +92,12 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Add Divi page settings to LifterLMS enabled post types
-	 * @return   void
-	 * @since    1.2.0
-	 * @version  1.2.0
+	 * Add Divi page settings to LifterLMS enabled post types.
+	 *
+	 * @return void
+	 *
+	 * @since 1.2.0
+	 * @since [version] Escaped strings.
 	 */
 	public function add_page_settings() {
 
@@ -96,10 +115,11 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Enqueue admin scripts and styles
-	 * @return   void
-	 * @since    1.2.0
-	 * @version  1.2.0
+	 * Enqueue admin scripts and styles.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @return void
 	 */
 	public function admin_enqueue() {
 
@@ -107,7 +127,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		if ( in_array( $screen->id, array( 'course', 'llms_membership' ) ) && $this->is_builder_enabled( $screen->id ) ) {
 
-			// i think that the hidden editor Divi utilizes messes with the editor buttons and causes our custom WYSIWYG editors to
+			// I think that the hidden editor Divi utilizes messes with the editor buttons and causes our custom WYSIWYG editors to
 			// show without the associated css... maybe...
 			wp_enqueue_style( 'editor-buttons' );
 
@@ -116,10 +136,13 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Output some JS in the admin footer to handle toggling of the ET Builder
-	 * @return   void
-	 * @since    1.2.0
-	 * @version  1.5.2
+	 * Output some JS in the admin footer to handle toggling of the ET Builder.
+	 *
+	 * @since 1.2.0
+	 * @since 1.5.2 Unknown.
+	 * @since [version] Escaped strings.
+	 *
+	 * @return void
 	 */
 	public function admin_footer() {
 		$screen = get_current_screen();
@@ -128,23 +151,30 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		}
 		$msg = sprintf(
 			__( 'This editor is disabled when the Divi Builder is active. Use a Builder-enabled page and the "Redirect to WordPress Page" option to build a sales page or %1$slearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder.', 'lifterlms-labs' ),
-			'<a href="#">', '</a>'
+			'<a href="#">',
+			'</a>'
 		);
 		?>
 		<script type="text/javascript">
 		;( function( $ ) {
 
 			/**
-			 * Determine if the et builder is currently enabled
-			 * @return   bool
+			 * Determine if the et builder is currently enabled.
+			 *
+			 * @since Unknown.
+			 *
+			 * @return bool
 			 */
 			function is_builder_enabled() {
 				return $( '#et_pb_toggle_builder' ).hasClass( 'et_pb_builder_is_used' );
 			}
 
 			/**
-			 * Toggle the visibilty of the default editors based on the status of the et builder
-			 * @return   void
+			 * Toggle the visibility of the default editors based on the status of the et builder.
+			 *
+			 * @since Unknown.
+			 *
+			 * @return void
 			 */
 			function toggle_editors( status ) {
 				$eds = $( '#wp-content-wrap, #wp-excerpt-wrap' );
@@ -159,14 +189,14 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 				}
 			}
 
-			// when enabling the et builder, hide default editors
+			// When enabling the et builder, hide default editors.
 			$( '#et_pb_toggle_builder' ).on( 'click', function() {
 				if ( ! is_builder_enabled() ) {
 					toggle_editors( 'hide' );
 				}
 			} );
 
-			// when disabling the et builder, show default editors
+			// When disabling the et builder, show default editors.
 			$( 'body' ).on( 'click', '[data-action="deactivate_builder"] .et_pb_prompt_proceed', function() {
 				toggle_editors( 'show' );
 			} );
@@ -180,17 +210,18 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Remove sidebar classes from the body and add the full-width class
-	 * @param    array     $classes  array of body css classes
-	 * @return   array
-	 * @since    1.1.0
-	 * @version  1.1.0
+	 * Remove sidebar classes from the body and add the full-width class.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param array $classes Array of body css classes.
+	 * @return array
 	 */
 	public function body_class( $classes ) {
 
 		if ( is_courses() || is_memberships() ) {
 
-			// remove all layouts
+			// Remove all layouts.
 			foreach ( array( 'et_right_sidebar', 'et_left_sidebar', 'et_full_width_page' ) as $class ) {
 				$key = array_search( $class, $classes );
 				if ( false !== $key ) {
@@ -198,7 +229,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 				}
 			}
 
-			// add the layout we want / settings with default to full width
+			// Add the layout we want / settings with default to full width.
 			$classes[] = 'et_full_width_page';
 
 		}
@@ -208,22 +239,25 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Add our custom post types to the array of post types the ET builder is enabled on
-	 * @param    array     $post_types  array of default post types
-	 * @return   array
-	 * @since    1.2.0
-	 * @version  1.2.0
+	 * Add our custom post types to the array of post types the ET builder is enabled on.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param array $post_types Array of default post types.
+	 * @return array
 	 */
 	public function builder_post_types( $post_types ) {
 		return array_merge( $post_types, $this->builder_cpts_enabled );
 	}
 
 	/**
-	 * Remove Builder Sections from post content if section class doesn't match current user's enrollment
-	 * @param    string     $content  post content
-	 * @return   string
-	 * @since    1.2.0
-	 * @version  1.5.1
+	 * Remove Builder Sections from post content if section class doesn't match current user's enrollment.
+	 *
+	 * @since 1.2.0
+	 * @since 1.5.1 Unknown.
+	 *
+	 * @param string $content Post content.
+	 * @return string
 	 */
 	public function handle_content( $content ) {
 
@@ -266,11 +300,13 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Remove Builder Sections from post excerpt if section class doesn't match current user's enrollment
-	 * @param    string     $excerpt  post excerpt
-	 * @return   string
-	 * @since    1.2.0
-	 * @version  1.2.1
+	 * Remove Builder Sections from post excerpt if section class doesn't match current user's enrollment.
+	 *
+	 * @since 1.2.0
+	 * @since 1.2.1 Unknown.
+	 *
+	 * @param string $excerpt Post excerpt.
+	 * @return string
 	 */
 	public function handle_excerpt( $excerpt ) {
 
@@ -285,11 +321,12 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Parse post content into an array of page builder sections
-	 * @param    string     $content  post content
-	 * @return   array|false
-	 * @since    1.2.0
-	 * @version  1.2.0
+	 * Parse post content into an array of page builder sections.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param string $content Post content.
+	 * @return array|false
 	 */
 	private function get_builder_sections( $content ) {
 
@@ -307,21 +344,23 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 	/**
 	 * Include LifterLMS Template Functions on the admin panel so widgets and shortcodes can be used
-	 * within the Divi builder
-	 * @return   void
-	 * @since    1.1.2
-	 * @version  1.1.2
+	 * within the Divi builder.
+	 *
+	 * @since 1.1.2
+	 *
+	 * @return void
 	 */
 	public function include_template_functions() {
 		include_once LLMS_PLUGIN_DIR . 'includes/llms.template.functions.php' ;
 	}
 
 	/**
-	 * Determine if the ET Builder is enabled for a post type
-	 * @param    string     $post_type  post type name
-	 * @return   boolean
-	 * @since    1.2.0
-	 * @version  1.2.0
+	 * Determine if the ET Builder is enabled for a post type.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param string $post_type Post type name.
+	 * @return bool
 	 */
 	public function is_builder_enabled( $post_or_post_type ) {
 
@@ -341,10 +380,12 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Determine if Divi is the current theme/template
-	 * @return   boolean
-	 * @since    1.2.0
-	 * @version  1.5.1
+	 * Determine if Divi is the current theme/template.
+	 *
+	 * @since 1.2.0
+	 * @since 1.5.1 Unknown.
+	 *
+	 * @return bool
 	 */
 	private function is_divi_enabled() {
 
@@ -354,10 +395,11 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Output the opening Divi content wrapper tags
-	 * @return   void
-	 * @since    1.1.0
-	 * @version  1.1.0
+	 * Output the opening Divi content wrapper tags.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return void
 	 */
 	public function output_content_wrapper_start() {
 		echo '
@@ -368,10 +410,11 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Output the closing Divi content wrapper tags
-	 * @return   void
-	 * @since    1.1.0
-	 * @version  1.1.0
+	 * Output the closing Divi content wrapper tags.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return void
 	 */
 	public function output_content_wrapper_end() {
 		echo '</div><!-- #left-area -->';
@@ -382,18 +425,20 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Add quiz sidebar layout compatibility options to Divi
-	 * @param    array     $settings  quiz settings array
-	 * @return   array
-	 * @since    1.5.1
-	 * @version  1.5.1
+	 * Add quiz sidebar layout compatibility options to Divi.
+	 *
+	 * @since 1.5.1
+	 * @since [version] Escaped strings.
+	 *
+	 * @param array $settings Quiz settings array.
+	 * @return array
 	 */
 	public function quiz_settings( $settings ) {
 
 		$settings['layout'] = array(
 			'id' => 'et_pb_page_layout',
 			'id_prefix' => '_',
-			'name' => __( 'Layout', 'lifterlms-labs' ),
+			'name' => esc_html__( 'Layout', 'lifterlms-labs' ),
 			'options' => array(
 				'et_full_width_page' => esc_html__( 'Fullwidth', 'lifterlms-labs' ),
 				'et_left_sidebar'    => esc_html__( 'Left Sidebar', 'lifterlms-labs' ),
@@ -406,27 +451,31 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Late initialization for removal of lifterlms sidebars
-	 * @return    void
-	 * @since     1.1.0
-	 * @version   1.1.1
+	 * Late initialization for removal of lifterlms sidebars.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return void
 	 */
 	public function remove_llms_sidebars() {
 		remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar', 10 );
 	}
 
 	/**
-	 * Get lab settings
-	 * @return   array
-	 * @since    1.1.0
-	 * @version  1.2.0
+	 * Get lab settings.
+	 *
+	 * @since 1.1.0
+	 * @since 1.2.0 Unknown.
+	 * @since [version] Escaped strings.
+	 *
+	 * @return array
 	 */
 	public function settings() {
 
 		$settings = array(
 			array(
 				'type' => 'html',
-				'value' => '<strong>' . __( 'Enable Divi Builder & Layout Settings on the following LifterLMS Post Types', 'lifterlms-labs' ) . '</strong>',
+				'value' => '<strong>' . esc_html__( 'Enable Divi Builder & Layout Settings on the following LifterLMS Post Types', 'lifterlms-labs' ) . '</strong>',
 			),
 		);
 
