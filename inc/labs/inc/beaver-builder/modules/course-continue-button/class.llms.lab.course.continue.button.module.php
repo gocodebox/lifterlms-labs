@@ -2,28 +2,36 @@
 /**
  * LifterLMS Course Continue Button Module
  *
- * @since    1.3.0
- * @version  1.3.0
+ * @package LifterLMS_Labs/Labs/BeaverBuilder/Modules/CourseContinueButton/Classes
+ *
+ * @since 1.3.0
+ * @version [version]
  */
 
-// Restrict direct access
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; }
+defined( 'ABSPATH' ) || exit;
 
+
+/**
+ * LifterLMS Course Continue Button Module class.
+ *
+ * @since 1.3.0
+ */
 class LLMS_Lab_Course_Continue_Button_Module extends FLBUilderModule {
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 *
-	 * @since    1.3.0
-	 * @version  1.3.0
+	 * @since 1.3.0
+	 * @since [version] Escape strings.
+	 *
+	 * @return void
 	 */
 	public function __construct() {
 		parent::__construct(
 			array(
-				'name'          => __( 'Course Continue Button', 'lifterlms-labs' ),
-				'description'   => __( 'Displays a course progress bar for the current course.', 'lifterlms-labs' ),
-				'category'      => __( 'LifterLMS Modules', 'lifterlms-labs' ),
+				'name'          => esc_html__( 'Course Continue Button', 'lifterlms-labs' ),
+				'description'   => esc_html__( 'Displays a course progress bar for the current course.', 'lifterlms-labs' ),
+				'category'      => esc_html__( 'LifterLMS Modules', 'lifterlms-labs' ),
 				'dir'           => LLMS_LABS_BB_MODULES_DIR . 'course-continue-button/',
 				'url'           => LLMS_LABS_BB_MODULES_URL . 'course-continue-button/',
 				'editor_export' => false,
@@ -35,6 +43,14 @@ class LLMS_Lab_Course_Continue_Button_Module extends FLBUilderModule {
 
 	}
 
+	/**
+	 * Force display.
+	 *
+	 * @since [version]
+	 *
+	 * @param int $lesson_id WP_Post ID of the lesson.
+	 * @return int
+	 */
 	public function force_display( $lesson_id ) {
 
 		if ( ! $lesson_id && FLBuilderModel::is_builder_active() ) {
@@ -51,18 +67,18 @@ FLBuilder::register_module(
 	'LLMS_Lab_Course_Continue_Button_Module',
 	array(
 		'general' => array(
-			'title'    => __( 'General', 'lifterlms-labs' ),
+			'title'    => esc_html__( 'General', 'lifterlms-labs' ),
 			'sections' => array(
 				'general' => array(
-					'title'  => __( 'General', 'lifterlms-labs' ),
+					'title'  => esc_html__( 'General', 'lifterlms-labs' ),
 					'fields' => array(
 						'llms_course_id' => array(
 							'type'    => 'suggest',
 							'action'  => 'fl_as_posts',
 							'data'    => 'course',
 							'limit'   => 1,
-							'label'   => __( 'Course', 'lifterlms-labs' ),
-							'help'    => __( 'Select the course to display a continue button for. Leave blank for the current course.', 'lifterlms-labs' ),
+							'label'   => esc_html__( 'Course', 'lifterlms-labs' ),
+							'help'    => esc_html__( 'Select the course to display a continue button for. Leave blank for the current course.', 'lifterlms-labs' ),
 							'preview' => array(
 								'type' => 'none',
 							),
