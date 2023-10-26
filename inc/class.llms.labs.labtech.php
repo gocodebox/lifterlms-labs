@@ -10,6 +10,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Utility functions class.
+ *
+ * @since 1.0.0
+ */
 class LLMS_Labs_LabTech {
 
 	/**

@@ -31,6 +31,7 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 		$this->id          = 'super-sidebars';
 		$this->title       = esc_html__( 'Super Sidebars', 'lifterlms-labs' );
 		$this->description = sprintf(
+			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
 			esc_html__( 'Very quickly configure LifterLMS sidebars to work with your theme. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/super-sidebars-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars" target="blank">',
 			'</a>'
@@ -54,7 +55,7 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $id Default sidebar
+	 * @param string $id Default sidebar ID.
 	 * @return string
 	 */
 	public function replace_sidebar( $id ) {

@@ -39,6 +39,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		$this->id          = 'beaver-builder';
 		$this->title       = esc_html__( 'Beaver Builder', 'lifterlms-labs' );
 		$this->description = sprintf(
+			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
 			esc_html__( 'Adds LifterLMS elements as pagebuilder modules and enables row and module visibility settings based on student enrollment in courses and memberships. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/lab-beaver-builder?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=beaverbuilder" target="blank">',
 			'</a>'
@@ -182,7 +183,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 				'type'    => 'suggest',
 				'action'  => 'fl_as_posts',
 				'data'    => 'course',
-				// 'matching' => true,
 				'label'   => esc_html__( 'Courses', 'lifterlms-labs' ),
 				'help'    => esc_html__( 'Choose which course(s) the student must be enrolled (or not enrolled) in to view this element.', 'lifterlms-labs' ),
 				'preview' => array(
@@ -193,7 +193,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 				'type'    => 'suggest',
 				'action'  => 'fl_as_posts',
 				'data'    => 'llms_membership',
-				// 'matching' => true,
 				'label'   => esc_html__( 'Memberships', 'lifterlms-labs' ),
 				'help'    => esc_html__( 'Choose which membership(s) the student must be enrolled (or not enrolled) in to view this element.', 'lifterlms-labs' ),
 				'preview' => array(
@@ -202,7 +201,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 			),
 		);
 
-		// rows.
+		// Rows.
 		if (
 			isset( $form['tabs'] ) &&
 			isset( $form['tabs']['advanced'] ) &&
@@ -214,7 +213,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 			$form['tabs']['advanced']['sections']['visibility']['fields']['visibility_display']['toggle']  = array_merge( $form['tabs']['advanced']['sections']['visibility']['fields']['visibility_display']['toggle'], $toggle );
 			$form['tabs']['advanced']['sections']['visibility']['fields']                                  = array_merge( $form['tabs']['advanced']['sections']['visibility']['fields'], $fields );
 
-			// modules.
+			// Modules.
 		} elseif (
 			isset( $form['sections'] ) &&
 			isset( $form['sections']['visibility'] )
@@ -296,15 +295,10 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 						return $visibility;
 					}
 
-					// Get the eonrllment status.
+					// Get the enrollment status.
 					$enrollment_status = llms_is_user_enrolled( $uid, $current_id );
-
-				}
-				// Check if they're enrolled/not enrolled in anything.
-				elseif ( 'any' === $type ) {
-
+				} elseif ( 'any' === $type ) { // Check if they're enrolled/not enrolled in anything.
 					$enrollment_status = $this->is_student_enrolled_in_one_thing( $uid );
-
 				}
 
 				if ( 'llms_enrolled' === $status ) {
@@ -312,10 +306,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 				} elseif ( 'llms_not_enrolled' === $status ) {
 					return ( ! $enrollment_status );
 				}
-			}
-
-			// Check if they're enrolled / not enrolled in the specific courses/memberships,
-			elseif ( 'specific' === $type ) {
+			} elseif ( 'specific' === $type ) { // Check if they're enrolled / not enrolled in the specific courses/memberships.
 
 				$match = $node->settings->llms_enrollment_match ? $node->settings->llms_enrollment_match : 'any';
 				$ids   = $this->get_related_posts_from_settings( $node->settings );
@@ -444,6 +435,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	 *
 	 * @since 1.3.0
 	 * @since 1.5.2 Unknown.
+	 * @since [version] Use strict comparison for `in_array`.
 	 *
 	 * @param array $fields Metabox fields.
 	 * @return array
@@ -454,7 +446,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		$post_types = array( 'course', 'lesson', 'llms_membership' );
 
-		if ( in_array( $post->post_type, $post_types ) && FLBuilderModel::is_builder_enabled() ) {
+		if ( in_array( $post->post_type, $post_types, true ) && FLBuilderModel::is_builder_enabled() ) {
 
 			unset( $fields[0]['fields'][0]['value']['content'] );
 

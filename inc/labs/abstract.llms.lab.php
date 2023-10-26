@@ -19,11 +19,41 @@ defined( 'ABSPATH' ) || exit;
  */
 abstract class LLMS_Lab {
 
-	protected $id          = '';
-	private $enabled       = 'no';
-	protected $title       = '';
+	/**
+	 * ID.
+	 *
+	 * @var string
+	 */
+	protected $id = '';
+
+	/**
+	 * Enabled lab.
+	 *
+	 * @var string
+	 */
+	private $enabled = 'no';
+
+	/**
+	 * Lab's title.
+	 *
+	 * @var string
+	 */
+	protected $title = '';
+
+	/**
+	 * Lab's description.
+	 *
+	 * @var string
+	 */
 	protected $description = '';
 
+	/**
+	 * Constructor.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
 	public function __construct() {
 
 		// Run configuration.
@@ -32,10 +62,10 @@ abstract class LLMS_Lab {
 		// Register the lab with the lab technician.
 		add_filter( 'llms_labs_registered_labs', array( $this, 'register' ) );
 
-		// call a function on lab activation
+		// Call a function on lab activation.
 		add_action( 'llms_lab_' . $this->get_id() . '_enabled', array( $this, 'on_enable' ) );
 
-		// call a function on lab deactivation
+		// Call a function on lab deactivation.
 		add_action( 'llms_lab_' . $this->get_id() . '_disabled', array( $this, 'on_disable' ) );
 
 		if ( $this->is_enabled() ) {
@@ -197,8 +227,9 @@ abstract class LLMS_Lab {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $key     Unprefixed option key.
-	 * @param mixed  $default Default value for the option.
+	 * @param string $key      Unprefixed option key.
+	 * @param mixed  $val      Value of the option.
+	 * @param bool   $autoload Whether or not to autoload the option.
 	 * @return mixed
 	 */
 	public function set_option( $key, $val, $autoload = false ) {

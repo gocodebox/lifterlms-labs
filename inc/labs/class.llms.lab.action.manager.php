@@ -20,6 +20,11 @@ defined( 'ABSPATH' ) || exit;
  */
 class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
+	/**
+	 * Hooks.
+	 *
+	 * @var array
+	 */
 	private $hooks = array();
 
 	/**
@@ -35,6 +40,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 		$this->id          = 'action-manager'; // Leave this so we don't have to rewrite db options.
 		$this->title       = esc_html__( 'Action Manager', 'lifterlms-labs' );
 		$this->description = sprintf(
+			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
 			esc_html__( 'Quickly remove specific elements like course author, syllabus, and more without having to write any code. Click %1$shere%2$s for more information.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/lab-action-manager/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=actionmanager">',
 			'</a>'

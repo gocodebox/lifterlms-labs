@@ -21,7 +21,18 @@ defined( 'ABSPATH' ) || exit;
  */
 class LLMS_Lab_Lifti extends LLMS_Lab {
 
-	private $builder_cpts         = array( 'course', 'lesson', 'llms_membership' );
+	/**
+	 * Custom Post Types for the builder.
+	 *
+	 * @var array
+	 */
+	private $builder_cpts = array( 'course', 'lesson', 'llms_membership' );
+
+	/**
+	 * Custom Post Types for which the builder is enabled.
+	 *
+	 * @var array
+	 */
 	private $builder_cpts_enabled = array();
 
 	/**
@@ -35,9 +46,10 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 */
 	protected function configure() {
 
-		$this->id          = 'divi-friends'; // leave this so we don't have to rewrite db options
+		$this->id          = 'divi-friends'; // Leave this so we don't have to rewrite db options.
 		$this->title       = esc_html__( 'Lifti: Divi Theme Compatibility', 'lifterlms-labs' );
 		$this->description = sprintf(
+			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
 			esc_html__( 'Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/lab-lifti/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=lifti">',
 			'</a>'
@@ -73,7 +85,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		add_filter( 'body_class', array( $this, 'body_class' ), 777 );
 
-		// enable the divi builder for lifterlms cpts
+		// Enable the divi builder for lifterlms cpts.
 		add_filter( 'et_builder_post_types', array( $this, 'builder_post_types' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue' ) );
@@ -108,7 +120,18 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		foreach ( $this->builder_cpts_enabled as $post_type ) {
 
 			$obj = get_post_type_object( $post_type );
-			add_meta_box( 'et_settings_meta_box', sprintf( esc_html__( 'Divi %s Settings', 'lifterlms-labs' ), $obj->labels->singular_name ), 'et_single_settings_meta_box', $post_type, 'side', 'high' );
+			add_meta_box(
+				'et_settings_meta_box',
+				sprintf(
+					// Translators: %s Is the singular post type name.
+					esc_html__( 'Divi %s Settings', 'lifterlms-labs' ),
+					$obj->labels->singular_name
+				),
+				'et_single_settings_meta_box',
+				$post_type,
+				'side',
+				'high'
+			);
 
 		}
 
@@ -118,6 +141,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Enqueue admin scripts and styles.
 	 *
 	 * @since 1.2.0
+	 * @since [version] Use strict comparison for `in_array`.
 	 *
 	 * @return void
 	 */
@@ -125,7 +149,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, array( 'course', 'llms_membership' ) ) && $this->is_builder_enabled( $screen->id ) ) {
+		if ( in_array( $screen->id, array( 'course', 'llms_membership' ), true ) && $this->is_builder_enabled( $screen->id ) ) {
 
 			// I think that the hidden editor Divi utilizes messes with the editor buttons and causes our custom WYSIWYG editors to
 			// show without the associated css... maybe...
@@ -150,6 +174,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			return;
 		}
 		$msg = sprintf(
+			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
 			esc_html__( 'This editor is disabled when the Divi Builder is active. Use a Builder-enabled page and the "Redirect to WordPress Page" option to build a sales page or %1$slearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder.', 'lifterlms-labs' ),
 			'<a href="#">',
 			'</a>'
@@ -213,6 +238,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Remove sidebar classes from the body and add the full-width class.
 	 *
 	 * @since 1.1.0
+	 * @since [version] Use strict comparison for `array_search`.
 	 *
 	 * @param array $classes Array of body css classes.
 	 * @return array
@@ -223,7 +249,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 			// Remove all layouts.
 			foreach ( array( 'et_right_sidebar', 'et_left_sidebar', 'et_full_width_page' ) as $class ) {
-				$key = array_search( $class, $classes );
+				$key = array_search( $class, $classes, true );
 				if ( false !== $key ) {
 					unset( $key );
 				}
@@ -357,8 +383,9 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * Determine if the ET Builder is enabled for a post type.
 	 *
 	 * @since 1.2.0
+	 * @since [version] Use strict comparison for `in_array`.
 	 *
-	 * @param string $post_type Post type name.
+	 * @param string $post_or_post_type Post instance or post type name.
 	 * @return bool
 	 */
 	public function is_builder_enabled( $post_or_post_type ) {
@@ -372,7 +399,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			$meta      = true;
 		}
 
-		$enabled = in_array( $post_type, $this->builder_cpts_enabled );
+		$enabled = in_array( $post_type, $this->builder_cpts_enabled, true );
 
 		return ( $enabled && $meta );
 

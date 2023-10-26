@@ -39,6 +39,7 @@ class LLMS_Labs_Settings_Page {
 	 * @return string
 	 */
 	private function get_tab() {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.MissingUnslash -- no need to check the nonce or unslash
 		return isset( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : '';
 	}
 
@@ -46,12 +47,13 @@ class LLMS_Labs_Settings_Page {
 	 * Handle form submissions.
 	 *
 	 * @since 1.0.0
-	 * @since [version] Exit after redirection.
+	 * @since [version] Exit after redirection. Unslash `$_POST` data.
 	 *
 	 * @return void
 	 */
 	public function handle_form() {
 
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- unslash and sanitize later.
 		if ( empty( $_POST['llms_labs_manager_nonce'] ) || ! wp_verify_nonce( $_POST['llms_labs_manager_nonce'], 'llms_labs_manager' ) ) {
 			return;
 		}
@@ -61,19 +63,19 @@ class LLMS_Labs_Settings_Page {
 		if ( ! empty( $_POST['llms-lab-enable'] ) ) {
 
 			$action = 'manage';
-			$id     = sanitize_text_field( $_POST['llms-lab-enable'] );
+			$id     = sanitize_text_field( wp_unslash( $_POST['llms-lab-enable'] ) );
 			$val    = 'yes';
 
 		} elseif ( ! empty( $_POST['llms-lab-disable'] ) ) {
 
 			$action = 'manage';
-			$id     = sanitize_text_field( $_POST['llms-lab-disable'] );
+			$id     = sanitize_text_field( wp_unslash( $_POST['llms-lab-disable'] ) );
 			$val    = 'no';
 
 		} elseif ( isset( $_POST['llms-lab-settings-save'] ) ) {
 
 			$action = 'settings';
-			$id     = sanitize_text_field( $_POST['llms-lab-id'] );
+			$id     = sanitize_text_field( wp_unslash( $_POST['llms-lab-id'] ?? '' ) );
 
 		} else {
 
@@ -112,9 +114,9 @@ class LLMS_Labs_Settings_Page {
 				}
 
 				$name = ! empty( $field['name'] ) ? $field['name'] : $field['id'];
-
+				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- unslash and sanitize later.
 				if ( isset( $_POST[ $name ] ) ) {
-					$lab->set_option( $name, sanitize_text_field( $_POST[ $name ] ) );
+					$lab->set_option( $name, sanitize_text_field( wp_unslash( $_POST[ $name ] ) ) );
 				} elseif ( 'checkbox' === $field['type'] ) {
 					$lab->set_option( $name, sanitize_text_field( $field['default'] ) );
 				}
@@ -270,7 +272,8 @@ class LLMS_Labs_Settings_Page {
 
 		echo '<div class="llms-form-fields">';
 
-		if ( $settings = $lab->get_settings() ) {
+		$settings = $lab->get_settings();
+		if ( $settings ) {
 
 			foreach ( $settings as $field ) {
 
@@ -322,7 +325,8 @@ class LLMS_Labs_Settings_Page {
 	 * @return void
 	 */
 	private function render_title() {
-		if ( $id = $this->get_tab() ) {
+		$id = $this->get_tab();
+		if ( $id ) {
 			$lab = LLMS_Labs_LabTech::get_lab( $id );
 			if ( $lab ) {
 				printf( '%s', esc_html( $lab->get_title() ) );

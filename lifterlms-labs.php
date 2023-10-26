@@ -1,5 +1,12 @@
 <?php
 /**
+ * Main LifterLMS Labs file
+ *
+ * @package LifterLMS_Labs
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ *
  * Plugin Name: LifterLMS Labs
  * Plugin URI: https://lifterlms.com/
  * Description: Experimental, conceptual, and possibly silly new features to improve and enhance the functionality of the LifterLMS core
@@ -17,28 +24,28 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * LifterLMS Labs Main Class
+ * LifterLMS Labs Main Class.
  *
  * @since 1.0.0
  */
 final class LifterLMS_Labs {
 
 	/**
-	 * Plugin version
+	 * Plugin version.
 	 *
 	 * @var string
 	 */
 	public $version = '1.6.1';
 
 	/**
-	 * Singleton Instance
+	 * Singleton Instance.
 	 *
 	 * @var null|LifterLMS_Labs
 	 */
-	protected static $_instance = null;
+	protected static $_instance = null; // phpcs:ignore.
 
 	/**
-	 * Main Instance of LifterLMS_Labs class
+	 * Main Instance of LifterLMS_Labs class.
 	 *
 	 * @since 1.0.0
 	 *

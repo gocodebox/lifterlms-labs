@@ -10,8 +10,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-defined( 'ABSPATH' ) || exit;
-
 /**
  * Simple branding class.
  *
@@ -34,6 +32,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		$this->id          = 'simple-branding';
 		$this->title       = esc_html__( 'Simple Branding', 'lifterlms-labs' );
 		$this->description = sprintf(
+			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
 			esc_html__( 'Customize the default colors of various LifterLMS elements. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
 			'<a href="https://lifterlms.com/docs/simple-branding-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=simplebranding" target="blank">',
 			'</a>'
@@ -139,11 +138,14 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		$rgb     = $this->hex_to_rgb_array( $hex );
 		$new_hex = '#';
 
-		// Convert to decimal and change luminosity
+		// Convert to decimal and change luminosity.
 		foreach ( $rgb as $part ) {
 			$dec      = min( max( 0, $part + $part * $percent ), 255 );
 			$new_hex .= str_pad(
-				dechex( (int) $dec ), 2, 0, STR_PAD_LEFT
+				dechex( (int) $dec ),
+				2,
+				0,
+				STR_PAD_LEFT
 			);
 		}
 
@@ -340,7 +342,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 				border-color: <?php echo $accent; ?>;
 			}
 			.llms-quiz-ui ol.llms-question-choices.llms-aq-reorder-list .llms-aq-reorder-item.llms-aq-placeholder:last-child {
-				  border-bottom-color: <?php echo $accent; ?>;
+				border-bottom-color: <?php echo $accent; ?>;
 			}
 		</style>
 		<?php
