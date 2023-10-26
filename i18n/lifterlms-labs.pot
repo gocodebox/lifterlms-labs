@@ -2,21 +2,21 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: LifterLMS Labs 1.6.1\n"
+"Project-Id-Version: LifterLMS Labs 1.7.0\n"
 "Report-Msgid-Bugs-To: https://lifterlms.com/my-account/my-tickets\n"
 "Last-Translator: Team LifterLMS <team@lifterlms.com>\n"
 "Language-Team: Team LifterLMS <team@lifterlms.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-02-17T17:46:03+00:00\n"
+"POT-Creation-Date: 2023-10-26T15:19:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: llms/dev 0.2.0\n"
 "X-Domain: lifterlms-labs\n"
 
 #. Plugin Name of the plugin
-#: inc/class.llms.labs.settings.page.php:130
-#: inc/class.llms.labs.settings.page.php:141
+#: inc/class.llms.labs.settings.page.php:142
+#: inc/class.llms.labs.settings.page.php:160
 msgid "LifterLMS Labs"
 msgstr ""
 
@@ -36,477 +36,496 @@ msgstr ""
 msgid "https://lifterlms.com"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:130
+#: inc/class.llms.labs.settings.page.php:143
 msgid "Labs"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:177
+#: inc/class.llms.labs.settings.page.php:198
 msgid "Each lab is an experimental, conceptual, or fun new feature which you can enable to enhance, improve, or alter the core functionality of LifterLMS."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:178
+#: inc/class.llms.labs.settings.page.php:199
 msgid "Some labs are being tested and may be moved into the LifterLMS core, others might remain here forever."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:183
+#: inc/class.llms.labs.settings.page.php:204
 msgid "Name"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:184
-msgid "Descrpition"
+#: inc/class.llms.labs.settings.page.php:205
+msgid "Description"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:185
+#: inc/class.llms.labs.settings.page.php:206
 msgid "Status"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:186
+#: inc/class.llms.labs.settings.page.php:207
 msgid "Action"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:202
+#: inc/class.llms.labs.settings.page.php:226
 msgid "Enabled"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:204
+#: inc/class.llms.labs.settings.page.php:228
 msgid "Disabled"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:209
+#: inc/class.llms.labs.settings.page.php:233
 msgid "Configure"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:210
+#: inc/class.llms.labs.settings.page.php:234
 msgid "Disable"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:212
+#: inc/class.llms.labs.settings.page.php:236
 msgid "Enable"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:236
+#: inc/class.llms.labs.settings.page.php:261
 msgid "Invalid lab."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:240
+#: inc/class.llms.labs.settings.page.php:265
 msgid "This lab in not enabled, please enable the lab and try again."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:271
+#: inc/class.llms.labs.settings.page.php:298
 msgid "Save"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:279
+#: inc/class.llms.labs.settings.page.php:307
 msgid "This lab doesn't have any settings."
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:285
+#: inc/class.llms.labs.settings.page.php:313
 msgid "View All Labs"
 msgstr ""
 
-#: inc/class.llms.labs.settings.page.php:304
+#: inc/class.llms.labs.settings.page.php:335
 msgid "Labs Overview"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:33
+#: inc/labs/class.llms.lab.action.manager.php:41
 msgid "Action Manager"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:35
+#. Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+#: inc/labs/class.llms.lab.action.manager.php:44
 msgid "Quickly remove specific elements like course author, syllabus, and more without having to write any code. Click %1$shere%2$s for more information."
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:95
+#: inc/labs/class.llms.lab.action.manager.php:105
 msgid "Check the box next to each action that should be removed."
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:142
+#: inc/labs/class.llms.lab.action.manager.php:154
 msgid "Single Course Actions"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:147
-#: inc/labs/class.llms.lab.action.manager.php:233
+#: inc/labs/class.llms.lab.action.manager.php:159
+#: inc/labs/class.llms.lab.action.manager.php:245
 msgid "Video Embed"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:152
-#: inc/labs/class.llms.lab.action.manager.php:238
+#: inc/labs/class.llms.lab.action.manager.php:164
+#: inc/labs/class.llms.lab.action.manager.php:250
 msgid "Audio Embed"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:158
+#: inc/labs/class.llms.lab.action.manager.php:170
 msgid "Meta Information Opening Wrapper"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:163
+#: inc/labs/class.llms.lab.action.manager.php:175
 msgid "Meta Information: Length"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:168
+#: inc/labs/class.llms.lab.action.manager.php:180
 msgid "Meta Information: Difficulty"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:173
+#: inc/labs/class.llms.lab.action.manager.php:185
 msgid "Meta Information: Tracks"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:178
+#: inc/labs/class.llms.lab.action.manager.php:190
 msgid "Meta Information: Categories"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:183
+#: inc/labs/class.llms.lab.action.manager.php:195
 msgid "Meta Information: Tags"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:188
+#: inc/labs/class.llms.lab.action.manager.php:200
 msgid "Meta Information: Author"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:193
+#: inc/labs/class.llms.lab.action.manager.php:205
 msgid "Meta Information Closing Wrapper"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:198
+#: inc/labs/class.llms.lab.action.manager.php:210
 msgid "Prerequisite Information"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:203
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:20
+#: inc/labs/class.llms.lab.action.manager.php:215
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:31
 msgid "Pricing Table"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:208
+#: inc/labs/class.llms.lab.action.manager.php:220
 msgid "Progress Bar and \"Continue\" Button"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:213
+#: inc/labs/class.llms.lab.action.manager.php:225
 msgid "Syllabus"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:218
+#: inc/labs/class.llms.lab.action.manager.php:230
 msgid "Reviews"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:223
+#: inc/labs/class.llms.lab.action.manager.php:235
 msgid "Single Lesson Actions"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:228
+#: inc/labs/class.llms.lab.action.manager.php:240
 msgid "Back to Course Link"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:244
+#: inc/labs/class.llms.lab.action.manager.php:256
 msgid "Mark Complete / Mark Incomplete / Take Quiz Button(s)"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:249
+#: inc/labs/class.llms.lab.action.manager.php:261
 msgid "Course Navigation Tiles"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:254
+#: inc/labs/class.llms.lab.action.manager.php:266
 msgid "Course and Membership Catalogs"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:259
+#: inc/labs/class.llms.lab.action.manager.php:271
 msgid "Featured Video"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:264
+#: inc/labs/class.llms.lab.action.manager.php:276
 msgid "Featured Image"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:269
+#: inc/labs/class.llms.lab.action.manager.php:281
 msgid "Progress Bar"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:274
+#: inc/labs/class.llms.lab.action.manager.php:286
 msgid "Author"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:279
+#: inc/labs/class.llms.lab.action.manager.php:291
 msgid "Length"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:284
+#: inc/labs/class.llms.lab.action.manager.php:296
 msgid "Difficulty"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:36
+#: inc/labs/class.llms.lab.action.manager.php:301
+msgid "Lesson Count"
+msgstr ""
+
+#: inc/labs/class.llms.lab.beaver.builder.php:40
 msgid "Beaver Builder"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:37
+#. Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+#: inc/labs/class.llms.lab.beaver.builder.php:43
 msgid "Adds LifterLMS elements as pagebuilder modules and enables row and module visibility settings based on student enrollment in courses and memberships. For help and more information click %1$shere%2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:128
+#: inc/labs/class.llms.lab.beaver.builder.php:138
 msgid "Enrolled Students"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:129
+#: inc/labs/class.llms.lab.beaver.builder.php:139
 msgid "Non-Enrolled Students and Visitors"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:144
+#: inc/labs/class.llms.lab.beaver.builder.php:154
 msgid "In"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:146
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:119
+#: inc/labs/class.llms.lab.beaver.builder.php:156
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:138
 msgid "Current Course or Membership"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:147
+#: inc/labs/class.llms.lab.beaver.builder.php:157
 msgid "Any Course(s) or Membership(s)"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:148
+#: inc/labs/class.llms.lab.beaver.builder.php:158
 msgid "Specific Course(s) and/or Membership(s)"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:155
-#: inc/labs/class.llms.lab.beaver.builder.php:167
+#: inc/labs/class.llms.lab.beaver.builder.php:165
+#: inc/labs/class.llms.lab.beaver.builder.php:177
 msgid "Select how to check the enrollment status of the current student."
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:162
+#: inc/labs/class.llms.lab.beaver.builder.php:172
 msgid "Match"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:164
+#: inc/labs/class.llms.lab.beaver.builder.php:174
 msgid "Any of the following"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:165
+#: inc/labs/class.llms.lab.beaver.builder.php:175
 msgid "All of the following"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:177
+#: inc/labs/class.llms.lab.beaver.builder.php:186
 msgid "Courses"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:178
+#: inc/labs/class.llms.lab.beaver.builder.php:187
 msgid "Choose which course(s) the student must be enrolled (or not enrolled) in to view this element."
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:188
+#: inc/labs/class.llms.lab.beaver.builder.php:196
 msgid "Memberships"
 msgstr ""
 
-#: inc/labs/class.llms.lab.beaver.builder.php:189
+#: inc/labs/class.llms.lab.beaver.builder.php:197
 msgid "Choose which membership(s) the student must be enrolled (or not enrolled) in to view this element."
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:24
+#: inc/labs/class.llms.lab.lifti.php:48
 msgid "Lifti: Divi Theme Compatibility"
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:26
+#. Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+#: inc/labs/class.llms.lab.lifti.php:51
 msgid "Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:92
+#. Translators: %s Is the singular post type name.
+#: inc/labs/class.llms.lab.lifti.php:123
 msgid "Divi %s Settings"
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:130
+#. Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+#: inc/labs/class.llms.lab.lifti.php:174
 msgid "This editor is disabled when the Divi Builder is active. Use a Builder-enabled page and the \"Redirect to WordPress Page\" option to build a sales page or %1$slearn how%2$s to show different content to enrolled and non-enrolled students when using the Divi Builder."
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:396
+#: inc/labs/class.llms.lab.lifti.php:464
+msgid "Divi Theme Settings"
+msgstr ""
+
+#: inc/labs/class.llms.lab.lifti.php:471
+#: inc/labs/class.llms.lab.lifti.php:503
 msgid "Layout"
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:398
+#: inc/labs/class.llms.lab.lifti.php:473
+#: inc/labs/class.llms.lab.lifti.php:505
 msgid "Fullwidth"
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:399
+#: inc/labs/class.llms.lab.lifti.php:474
+#: inc/labs/class.llms.lab.lifti.php:506
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:400
+#: inc/labs/class.llms.lab.lifti.php:475
+#: inc/labs/class.llms.lab.lifti.php:507
 msgid "Right Sidebar"
 msgstr ""
 
-#: inc/labs/class.llms.lab.lifti.php:429
+#: inc/labs/class.llms.lab.lifti.php:540
 msgid "Enable Divi Builder & Layout Settings on the following LifterLMS Post Types"
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:26
+#: inc/labs/class.llms.lab.simple.branding.php:33
 msgid "Simple Branding"
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:27
+#. Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+#: inc/labs/class.llms.lab.simple.branding.php:36
 msgid "Customize the default colors of various LifterLMS elements. For help and more information click %1$shere%2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:454
+#: inc/labs/class.llms.lab.simple.branding.php:481
 msgid "This primary color is used for mark as complete and continue buttons, borders on the pricing tables and checkout screen, and more."
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:456
+#: inc/labs/class.llms.lab.simple.branding.php:483
 msgid "Primary Color"
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:469
+#: inc/labs/class.llms.lab.simple.branding.php:496
 msgid "This color is used to draw focus to important actions like the buy now and enroll buttons."
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:471
+#: inc/labs/class.llms.lab.simple.branding.php:498
 msgid "Action Color"
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:484
+#: inc/labs/class.llms.lab.simple.branding.php:511
 msgid "This color is used for minor accents like progress bars and icons."
 msgstr ""
 
-#: inc/labs/class.llms.lab.simple.branding.php:486
+#: inc/labs/class.llms.lab.simple.branding.php:513
 msgid "Accent Color"
 msgstr ""
 
-#: inc/labs/class.llms.lab.super.sidebars.php:19
+#: inc/labs/class.llms.lab.super.sidebars.php:32
 msgid "Super Sidebars"
 msgstr ""
 
-#: inc/labs/class.llms.lab.super.sidebars.php:20
+#. Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+#: inc/labs/class.llms.lab.super.sidebars.php:35
 msgid "Very quickly configure LifterLMS sidebars to work with your theme. For help and more information click %1$shere%2$s."
 msgstr ""
 
-#: inc/labs/class.llms.lab.super.sidebars.php:70
+#: inc/labs/class.llms.lab.super.sidebars.php:90
 msgid "Select your theme's main sidebar, this is usually the sidebar that displays when viewing a blog post."
 msgstr ""
 
-#: inc/labs/class.llms.lab.super.sidebars.php:72
+#: inc/labs/class.llms.lab.super.sidebars.php:92
 msgid "Main Sidebar"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:20
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:31
 msgid "Course Author"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:21
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:32
 msgid "Displays the name, author, and bio for the author of a course."
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:22
-#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:22
-#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:22
-#: inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:22
-#: inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:22
-#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:22
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:22
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:33
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:33
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:33
+#: inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:33
+#: inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:33
+#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:33
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:33
 msgid "LifterLMS Modules"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:35
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:38
-#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:47
-#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:50
-#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:35
-#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:38
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:110
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:113
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:49
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:52
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:69
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:72
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:49
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:52
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:129
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:132
 msgid "General"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:45
-#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:57
-#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:45
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:120
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:140
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:59
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:79
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:59
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:139
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:159
 msgid "Course"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:46
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:60
 msgid "Select the course to display the author from. Leave blank for the current course."
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:54
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:68
 msgid "Avatar Size"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:62
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:76
 msgid "Display Author Bio"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:64
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:78
 msgid "No"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:65
+#: inc/labs/inc/beaver-builder/modules/course-author/class.llms.lab.course.author.module.php:79
 msgid "Yes"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:20
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:31
 msgid "Course Continue Button"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:21
-#: inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:21
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:32
+#: inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:32
 msgid "Displays a course progress bar for the current course."
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:58
+#: inc/labs/inc/beaver-builder/modules/course-continue-button/class.llms.lab.course.continue.button.module.php:80
 msgid "Select the course to display a continue button for. Leave blank for the current course."
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:20
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:31
 msgid "Course Information"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:21
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:32
 msgid "Displays course information: length, difficulty, tracks, categories, and tags."
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:46
+#: inc/labs/inc/beaver-builder/modules/course-meta-info/class.llms.lab.course.meta.info.module.php:60
 msgid "Select the course to display the course information from. Leave blank for the current course."
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:20
+#: inc/labs/inc/beaver-builder/modules/course-progress-bar/class.llms.lab.course.progress.bar.module.php:31
 msgid "Course Progress Bar"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:20
+#: inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:31
 msgid "Course Syllabus"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:21
+#: inc/labs/inc/beaver-builder/modules/course-syllabus/class.llms.lab.course.syllabus.module.php:32
 msgid "Displays a course syllabus current course."
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:20
+#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:31
 msgid "Lesson Mark Complete Button"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:21
+#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/class.llms.lab.lesson.mark.complete.module.php:32
 msgid "Displays the mark complete / incomplete button(s) for a lesson"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/includes/frontend.php:20
+#: inc/labs/inc/beaver-builder/modules/lesson-mark-complete/includes/frontend.php:27
 msgid "Mark Complete"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:21
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:32
 msgid "LifterLMS Course / Membership Pricing Table"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:117
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:136
 msgid "Product Type"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:121
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:140
 msgid "Memebership"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:141
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:160
 msgid "Choose which course to display a pricing table for."
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:151
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:170
 msgid "Membership"
 msgstr ""
 
-#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:152
+#: inc/labs/inc/beaver-builder/modules/pricing-table/class.llms.lab.pricing.table.module.php:171
 msgid "Choose which membership to display a pricing table for."
 msgstr ""

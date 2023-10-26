@@ -1,18 +1,29 @@
 <?php
 /**
- * Utility functions
+ * Utility functions.
+ *
+ * @package LifterLMS_Labs/Classes
+ *
+ * @since 1.0.0
+ * @version 1.6.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+defined( 'ABSPATH' ) || exit;
 
+/**
+ * Utility functions class.
+ *
+ * @since 1.0.0
+ */
 class LLMS_Labs_LabTech {
 
 	/**
-	 * Retrieve an instance of a specific lab by id
-	 * @param    string     $id  lab id
-	 * @return   false|obj
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Retrieve an instance of a specific lab by id.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $id Lab id.
+	 * @return false|obj
 	 */
 	public static function get_lab( $id ) {
 		$labs = self::get_labs();
@@ -24,10 +35,11 @@ class LLMS_Labs_LabTech {
 	}
 
 	/**
-	 * Return an array of all the labs registered with the technician
-	 * @return   array
-	 * @since    1.0.0
-	 * @version  1.0.0
+	 * Return an array of all the labs registered with the technician.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array
 	 */
 	public static function get_labs() {
 		return apply_filters( 'llms_labs_registered_labs', array() );
