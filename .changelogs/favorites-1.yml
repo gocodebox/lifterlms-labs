@@ -1,0 +1,3 @@
+significance: minor
+type: dev
+entry: Changed priority of the action manager settings loading.
