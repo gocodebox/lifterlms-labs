@@ -5,7 +5,7 @@
  * @package LifterLMS_Labs/Labs/Classes
  *
  * @since 1.2.0
- * @version [version]
+ * @version 1.8.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -52,7 +52,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	 * Initialize the Lab.
 	 *
 	 * @since 1.2.0
-	 * @since [version] Postpone settings creation and actions removal.
+	 * @since 1.8.0 Postpone settings creation and actions removal.
 	 *
 	 * @return void
 	 */
