@@ -1,6 +1,18 @@
 LifterLMS Labs Changelog
 ========================
 
+v1.8.0 - 2023-11-02
+-------------------
+
+##### New Features
+
++ Added settings for the lessons favorite button visibility.
+
+##### Developer Notes
+
++ Changed priority of the action manager settings loading.
+
+
 v1.7.0 - 2023-10-26
 -------------------
 

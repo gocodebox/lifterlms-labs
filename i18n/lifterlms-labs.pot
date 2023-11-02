@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: LifterLMS Labs 1.7.0\n"
+"Project-Id-Version: LifterLMS Labs 1.8.0\n"
 "Report-Msgid-Bugs-To: https://lifterlms.com/my-account/my-tickets\n"
 "Last-Translator: Team LifterLMS <team@lifterlms.com>\n"
 "Language-Team: Team LifterLMS <team@lifterlms.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-10-26T15:19:01+00:00\n"
+"POT-Creation-Date: 2023-11-02T09:31:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: llms/dev 0.2.0\n"
 "X-Domain: lifterlms-labs\n"
@@ -121,17 +121,17 @@ msgstr ""
 msgid "Check the box next to each action that should be removed."
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:154
+#: inc/labs/class.llms.lab.action.manager.php:155
 msgid "Single Course Actions"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:159
-#: inc/labs/class.llms.lab.action.manager.php:245
+#: inc/labs/class.llms.lab.action.manager.php:160
+#: inc/labs/class.llms.lab.action.manager.php:260
 msgid "Video Embed"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:164
-#: inc/labs/class.llms.lab.action.manager.php:250
+#: inc/labs/class.llms.lab.action.manager.php:165
+#: inc/labs/class.llms.lab.action.manager.php:265
 msgid "Audio Embed"
 msgstr ""
 
@@ -189,50 +189,62 @@ msgid "Reviews"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:235
-msgid "Single Lesson Actions"
+msgid "Course Syllabus Actions"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:240
+msgid "Mark Favorite / Unfavorite Lesson button on Lesson preview"
+msgstr ""
+
+#: inc/labs/class.llms.lab.action.manager.php:245
+msgid "Single Lesson Actions"
+msgstr ""
+
+#: inc/labs/class.llms.lab.action.manager.php:250
 msgid "Back to Course Link"
 msgstr ""
 
-#: inc/labs/class.llms.lab.action.manager.php:256
-msgid "Mark Complete / Mark Incomplete / Take Quiz Button(s)"
-msgstr ""
-
-#: inc/labs/class.llms.lab.action.manager.php:261
-msgid "Course Navigation Tiles"
-msgstr ""
-
-#: inc/labs/class.llms.lab.action.manager.php:266
-msgid "Course and Membership Catalogs"
+#: inc/labs/class.llms.lab.action.manager.php:255
+msgid "Mark Favorite / Unfavorite Lesson button"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:271
-msgid "Featured Video"
+msgid "Mark Complete / Mark Incomplete / Take Quiz Button(s)"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:276
-msgid "Featured Image"
+msgid "Course Navigation Tiles"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:281
-msgid "Progress Bar"
+msgid "Course and Membership Catalogs"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:286
-msgid "Author"
+msgid "Featured Video"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:291
-msgid "Length"
+msgid "Featured Image"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:296
-msgid "Difficulty"
+msgid "Progress Bar"
 msgstr ""
 
 #: inc/labs/class.llms.lab.action.manager.php:301
+msgid "Author"
+msgstr ""
+
+#: inc/labs/class.llms.lab.action.manager.php:306
+msgid "Length"
+msgstr ""
+
+#: inc/labs/class.llms.lab.action.manager.php:311
+msgid "Difficulty"
+msgstr ""
+
+#: inc/labs/class.llms.lab.action.manager.php:316
 msgid "Lesson Count"
 msgstr ""
 
