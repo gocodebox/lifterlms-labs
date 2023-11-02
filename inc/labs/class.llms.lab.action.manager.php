@@ -5,7 +5,7 @@
  * @package LifterLMS_Labs/Labs/Classes
  *
  * @since 1.2.0
- * @version 1.7.0
+ * @version 1.8.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -52,14 +52,14 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	 * Initialize the Lab.
 	 *
 	 * @since 1.2.0
+	 * @since 1.8.0 Postpone settings creation and actions removal.
 	 *
 	 * @return void
 	 */
 	protected function init() {
 
-		$this->setup_hooks();
-
-		add_action( 'plugins_loaded', array( $this, 'remove_actions' ), 777 );
+		add_action( 'init', array( $this, 'setup_hooks' ), 11 );
+		add_action( 'init', array( $this, 'remove_actions' ), 11 );
 
 	}
 
@@ -149,6 +149,7 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 	 * @return void
 	 */
 	public function setup_hooks() {
+
 		$this->hooks = array(
 			array(
 				'title'   => esc_html__( 'Single Course Actions', 'lifterlms-labs' ),
@@ -163,7 +164,6 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 						'priority' => 30,
 						'title'    => esc_html__( 'Audio Embed', 'lifterlms-labs' ),
 					),
-
 					'lifterlms_template_single_meta_wrapper_start' => array(
 						'action'   => 'lifterlms_single_course_after_summary',
 						'priority' => 5,
@@ -232,12 +232,27 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 				),
 			),
 			array(
+				'title'   => esc_html__( 'Course Syllabus Actions', 'lifterlms-labs' ),
+				'actions' => array(
+					'llms_template_syllabus_favorite_lesson_preview' => array(
+						'action'   => 'llms_lesson_preview_after_title',
+						'priority' => 10,
+						'title'    => esc_html__( 'Mark Favorite / Unfavorite Lesson button on Lesson preview', 'lifterlms-labs' ),
+					),
+				),
+			),
+			array(
 				'title'   => esc_html__( 'Single Lesson Actions', 'lifterlms-labs' ),
 				'actions' => array(
 					'lifterlms_template_single_parent_course' => array(
 						'action'   => 'lifterlms_single_lesson_before_summary',
 						'priority' => 10,
 						'title'    => esc_html__( 'Back to Course Link', 'lifterlms-labs' ),
+					),
+					'llms_template_favorite' => array(
+						'action'   => 'lifterlms_single_lesson_before_summary',
+						'priority' => 10,
+						'title'    => esc_html__( 'Mark Favorite / Unfavorite Lesson button', 'lifterlms-labs' ),
 					),
 					'lifterlms_template_single_lesson_video' => array(
 						'action'   => 'lifterlms_single_lesson_before_summary',
@@ -309,6 +324,13 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 			unset( $this->hooks[ count( $this->hooks ) - 1 ]['actions']['lifterlms_template_loop_lesson_count'] );
 		}
 
+		// Remove setting when the favorites feature is disabled.
+		if ( ! function_exists( 'llms_is_favorites_enabled' ) || ! llms_is_favorites_enabled() ) {
+			unset(
+				$this->hooks[1], // Unset the whole Course Syllabus section since it only contains the favorite setting.
+				$this->hooks[2]['actions']['llms_template_favorite']
+			);
+		}
 	}
 }
 
