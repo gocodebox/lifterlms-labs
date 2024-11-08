@@ -18,7 +18,7 @@
  * License: GPLv3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Requires at least: 5.3
- * Tested up to: 6.4
+ * Tested up to: 6.7
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -78,7 +78,6 @@ final class LifterLMS_Labs {
 		add_action( 'plugins_loaded', array( $this, 'localize' ) );
 
 		do_action( 'llms_labs_load_after' );
-
 	}
 
 	/**
@@ -101,7 +100,6 @@ final class LifterLMS_Labs {
 		if ( ! defined( 'LLMS_LABS_PLUGIN_DIR' ) ) {
 			define( 'LLMS_LABS_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . plugin_basename( __DIR__ ) . '/' );
 		}
-
 	}
 
 	/**
@@ -122,7 +120,6 @@ final class LifterLMS_Labs {
 		foreach ( glob( LLMS_LABS_PLUGIN_DIR . 'inc/labs/class.llms.lab.*.php', GLOB_NOSORT ) as $lab ) {
 			require_once $lab;
 		}
-
 	}
 
 	/**
@@ -143,9 +140,7 @@ final class LifterLMS_Labs {
 
 		// Load localization files.
 		load_plugin_textdomain( 'lifterlms', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n' );
-
 	}
-
 }
 
 /**
