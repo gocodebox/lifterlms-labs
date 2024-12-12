@@ -47,7 +47,6 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		add_action( 'wp_head', array( $this, 'output_css' ), 777 );
 		add_action( 'llms_lab_' . $this->id . '_settings_saved', array( $this, 'generate_css' ) );
 		add_filter( 'llms_email_css', array( $this, 'email_css' ), 777, 1 );
-		add_action( 'init', array( $this, 'set_title_and_description' ) );
 	}
 
 	public function set_title_and_description() {

@@ -57,6 +57,7 @@ abstract class LLMS_Lab {
 	public function __construct() {
 
 		// Run configuration.
+		add_action( 'init', array( $this, 'set_title_and_description' ) );
 		$this->configure();
 
 		// Register the lab with the lab technician.
@@ -73,8 +74,14 @@ abstract class LLMS_Lab {
 			$this->init();
 
 		}
-
 	}
+
+	/**
+	 * This function should set the title and description of the lab, on init when translations are loaded.
+	 *
+	 * @return void
+	 */
+	abstract protected function set_title_and_description();
 
 	/**
 	 * This function should define lab vars.
@@ -235,5 +242,4 @@ abstract class LLMS_Lab {
 	public function set_option( $key, $val, $autoload = false ) {
 		return apply_filters( 'llms_lab_' . $this->get_id() . '_set_option', update_option( $this->get_option_name( $key ), $val, $autoload ), $key, $val, $autoload, $this );
 	}
-
 }

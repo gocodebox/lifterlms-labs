@@ -1,8 +1,8 @@
-LifterLMS Labs is a collection of experimental, conceptual, and possibly silly features which improve and enhance the functionality of the LifterLMS core.
+LifterLMS Labs is a collection of experimental features to improve and enhance the functionality of the LifterLMS core
 
-We've created this free LifterLMS add-on in order to provide these optional features to the LifterLMS community which may or may not be useful to everyone.
+We've created this free LifterLMS add-on plugin in order to provide these optional features to the LifterLMS community which may or may not be useful to everyone.
 
-Some labs will ultimately find their way into the LifterLMS Core, some may be a lab forever.
+Some labs will ultimately find their way into the LifterLMS Core, some may remain in LifterLMS Labs.
 
 
 ### Current Labs

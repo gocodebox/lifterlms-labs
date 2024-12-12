@@ -41,7 +41,6 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	protected function init() {
 		// Replace the default sidebar with user selected sidebar.
 		add_filter( 'llms_get_theme_default_sidebar', array( $this, 'replace_sidebar' ) );
-		add_action( 'init', array( $this, 'set_title_and_description' ) );
 	}
 
 	public function set_title_and_description() {

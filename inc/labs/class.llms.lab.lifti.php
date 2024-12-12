@@ -72,7 +72,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		add_action( 'lifterlms_after_main_content', array( $this, 'output_content_wrapper_end' ), 10 );
 
 		add_action( 'init', array( $this, 'remove_llms_sidebars' ), 15 );
-		add_action( 'init', array( $this, 'set_title_and_description' ) );
 		add_action( 'admin_init', array( $this, 'include_template_functions' ) );
 
 		add_filter( 'body_class', array( $this, 'body_class' ), 777 );

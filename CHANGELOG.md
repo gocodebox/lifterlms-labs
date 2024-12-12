@@ -1,6 +1,14 @@
 LifterLMS Labs Changelog
 ========================
 
+v1.8.1 - 2024-12-12
+-------------------
+
+##### Bug Fixes
+
++ Fixing translation warnings, which break translations. [#58](https://github.com/gocodebox/lifterlms-labs/issues/58)
+
+
 v1.8.0 - 2023-11-02
 -------------------
 

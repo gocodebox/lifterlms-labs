@@ -65,7 +65,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		add_action( 'init', array( $this, 'load_modules' ) );
 		add_action( 'init', array( $this, 'load_templates' ) );
-		add_action( 'init', array( $this, 'set_title_and_description' ) );
 
 		add_filter( 'llms_page_restricted', array( $this, 'mod_page_restrictions' ), 999, 2 );
 

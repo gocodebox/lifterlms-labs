@@ -52,7 +52,6 @@ class LLMS_Lab_Action_Manager extends LLMS_Lab {
 
 		add_action( 'init', array( $this, 'setup_hooks' ), 11 );
 		add_action( 'init', array( $this, 'remove_actions' ), 11 );
-		add_action( 'init', array( $this, 'set_title_and_description' ) );
 	}
 
 	public function set_title_and_description() {
