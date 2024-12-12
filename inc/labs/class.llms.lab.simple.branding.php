@@ -29,14 +29,7 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 	 * @return void
 	 */
 	protected function configure() {
-		$this->id          = 'simple-branding';
-		$this->title       = esc_html__( 'Simple Branding', 'lifterlms-labs' );
-		$this->description = sprintf(
-			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
-			esc_html__( 'Customize the default colors of various LifterLMS elements. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
-			'<a href="https://lifterlms.com/docs/simple-branding-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=simplebranding" target="blank">',
-			'</a>'
-		);
+		$this->id = 'simple-branding';
 	}
 
 	/**
@@ -54,7 +47,16 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		add_action( 'wp_head', array( $this, 'output_css' ), 777 );
 		add_action( 'llms_lab_' . $this->id . '_settings_saved', array( $this, 'generate_css' ) );
 		add_filter( 'llms_email_css', array( $this, 'email_css' ), 777, 1 );
+	}
 
+	public function set_title_and_description() {
+		$this->title       = esc_html__( 'Simple Branding', 'lifterlms-labs' );
+		$this->description = sprintf(
+		// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+			esc_html__( 'Customize the default colors of various LifterLMS elements. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
+			'<a href="https://lifterlms.com/docs/simple-branding-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=simplebranding" target="blank">',
+			'</a>'
+		);
 	}
 
 	/**
@@ -150,7 +152,6 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		}
 
 		return $new_hex;
-
 	}
 
 	/**
@@ -177,7 +178,6 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		$css['main-color']               = $primary;
 
 		return $css;
-
 	}
 
 	/**
@@ -382,7 +382,6 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		}
 
 		return ( 0.2126 * $rgb[0] ) + ( 0.7152 * $rgb[1] ) + ( 0.0722 * $rgb[2] );
-
 	}
 
 	/**
@@ -422,7 +421,6 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		);
 
 		return $rgb;
-
 	}
 
 	/**
@@ -449,7 +447,6 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 		}
 
 		$this->generate_css();
-
 	}
 
 	/**
@@ -521,7 +518,6 @@ class LLMS_Lab_Simple_Branding extends LLMS_Lab {
 			),
 		);
 	}
-
 }
 
 return new LLMS_Lab_Simple_Branding();

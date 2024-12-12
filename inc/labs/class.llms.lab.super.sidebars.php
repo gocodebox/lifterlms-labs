@@ -28,14 +28,7 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	 * @return void
 	 */
 	protected function configure() {
-		$this->id          = 'super-sidebars';
-		$this->title       = esc_html__( 'Super Sidebars', 'lifterlms-labs' );
-		$this->description = sprintf(
-			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
-			esc_html__( 'Very quickly configure LifterLMS sidebars to work with your theme. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
-			'<a href="https://lifterlms.com/docs/super-sidebars-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars" target="blank">',
-			'</a>'
-		);
+		$this->id = 'super-sidebars';
 	}
 
 	/**
@@ -48,6 +41,16 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 	protected function init() {
 		// Replace the default sidebar with user selected sidebar.
 		add_filter( 'llms_get_theme_default_sidebar', array( $this, 'replace_sidebar' ) );
+	}
+
+	public function set_title_and_description() {
+		$this->title       = esc_html__( 'Super Sidebars', 'lifterlms-labs' );
+		$this->description = sprintf(
+		// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+			esc_html__( 'Very quickly configure LifterLMS sidebars to work with your theme. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
+			'<a href="https://lifterlms.com/docs/super-sidebars-lab?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=supersidebars" target="blank">',
+			'</a>'
+		);
 	}
 
 	/**
@@ -100,7 +103,6 @@ class LLMS_Lab_Super_Sidebars extends LLMS_Lab {
 			),
 		);
 	}
-
 }
 
 return new LLMS_Lab_Super_Sidebars();
