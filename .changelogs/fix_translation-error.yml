@@ -1,0 +1,5 @@
+significance: patch
+type: fixed
+links:
+  - "#58"
+entry: Fixing translation warnings, which break translations.

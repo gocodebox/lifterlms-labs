@@ -36,15 +36,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		define( 'LLMS_LABS_BB_MODULES_DIR', plugin_dir_path( __FILE__ ) . 'inc/beaver-builder/modules/' );
 		define( 'LLMS_LABS_BB_MODULES_URL', plugins_url( '/', __FILE__ ) . 'inc/beaver-builder/modules/' );
 
-		$this->id          = 'beaver-builder';
-		$this->title       = esc_html__( 'Beaver Builder', 'lifterlms-labs' );
-		$this->description = sprintf(
-			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
-			esc_html__( 'Adds LifterLMS elements as pagebuilder modules and enables row and module visibility settings based on student enrollment in courses and memberships. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
-			'<a href="https://lifterlms.com/docs/lab-beaver-builder?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=beaverbuilder" target="blank">',
-			'</a>'
-		);
-
+		$this->id = 'beaver-builder';
 	}
 
 	/**
@@ -73,6 +65,7 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 
 		add_action( 'init', array( $this, 'load_modules' ) );
 		add_action( 'init', array( $this, 'load_templates' ) );
+		add_action( 'init', array( $this, 'set_title_and_description' ) );
 
 		add_filter( 'llms_page_restricted', array( $this, 'mod_page_restrictions' ), 999, 2 );
 
@@ -89,7 +82,16 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		// LifterLMS Private Areas.
 		add_action( 'llms_pa_before_do_area_content', array( $this, 'llms_pa_before_content' ) );
 		add_action( 'llms_pa_after_do_area_content', array( $this, 'llms_pa_after_content' ) );
+	}
 
+	public function set_title_and_description() {
+		$this->title       = esc_html__( 'Beaver Builder', 'lifterlms-labs' );
+		$this->description = sprintf(
+		// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+			esc_html__( 'Adds LifterLMS elements as pagebuilder modules and enables row and module visibility settings based on student enrollment in courses and memberships. For help and more information click %1$shere%2$s.', 'lifterlms-labs' ),
+			'<a href="https://lifterlms.com/docs/lab-beaver-builder?utm_source=settings&utm_campaign=lifterlmslabsplugin&utm_medium=product&utm_content=beaverbuilder" target="blank">',
+			'</a>'
+		);
 	}
 
 	/**
@@ -107,7 +109,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		$existing = get_option( '_fl_builder_post_types', array( 'page' ) );
 		$types    = array_unique( array_merge( $existing, array( 'course', 'lesson', 'llms_membership' ) ) );
 		update_option( '_fl_builder_post_types', $types );
-
 	}
 
 	/**
@@ -226,7 +227,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		}
 
 		return $form;
-
 	}
 
 	/**
@@ -252,7 +252,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		}
 
 		return $post_ids;
-
 	}
 
 	/**
@@ -374,7 +373,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		}
 
 		return false;
-
 	}
 
 	/**
@@ -414,7 +412,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 				require_once $file;
 			}
 		}
-
 	}
 
 	/**
@@ -427,7 +424,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	public function load_templates() {
 
 		FLBuilderModel::register_templates( LLMS_LABS_PLUGIN_DIR . 'inc/labs/inc/' . $this->get_id() . '/templates/course-template.dat' );
-
 	}
 
 	/**
@@ -453,7 +449,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		}
 
 		return $fields;
-
 	}
 
 	/**
@@ -480,7 +475,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		}
 
 		return $results;
-
 	}
 
 	/**
@@ -498,7 +492,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 		unset( $post_types['llms_question'] );
 
 		return $post_types;
-
 	}
 
 	/**
@@ -512,8 +505,6 @@ class LLMS_Lab_Beaver_Builder extends LLMS_Lab {
 	public function upgrade_url( $url ) {
 		return 'https://www.wpbeaverbuilder.com/?fla=968';
 	}
-
-
 }
 
 return new LLMS_Lab_Beaver_Builder();

@@ -44,15 +44,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 */
 	protected function configure() {
 
-		$this->id          = 'divi-friends'; // Leave this so we don't have to rewrite db options.
-		$this->title       = esc_html__( 'Lifti: Divi Theme Compatibility', 'lifterlms-labs' );
-		$this->description = sprintf(
-			// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
-			esc_html__( 'Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s.', 'lifterlms-labs' ),
-			'<a href="https://lifterlms.com/docs/lab-lifti/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=lifti">',
-			'</a>'
-		);
-
+		$this->id = 'divi-friends'; // Leave this so we don't have to rewrite db options.
 	}
 
 	/**
@@ -80,6 +72,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		add_action( 'lifterlms_after_main_content', array( $this, 'output_content_wrapper_end' ), 10 );
 
 		add_action( 'init', array( $this, 'remove_llms_sidebars' ), 15 );
+		add_action( 'init', array( $this, 'set_title_and_description' ) );
 		add_action( 'admin_init', array( $this, 'include_template_functions' ) );
 
 		add_filter( 'body_class', array( $this, 'body_class' ), 777 );
@@ -96,7 +89,16 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		add_action( 'add_meta_boxes', array( $this, 'add_page_settings' ) );
 
 		add_filter( 'llms_builder_register_custom_fields', array( $this, 'add_builder_quiz_settings' ) );
+	}
 
+	public function set_title_and_description() {
+		$this->title       = esc_html__( 'Lifti: Divi Theme Compatibility', 'lifterlms-labs' );
+		$this->description = sprintf(
+		// Translators: %1$s = Opening anchor tag; %2$s = Closing anchor tag.
+			esc_html__( 'Enable LifterLMS compatibility with the Divi Theme and Page Builder. For more information click %1$shere%2$s.', 'lifterlms-labs' ),
+			'<a href="https://lifterlms.com/docs/lab-lifti/?utm_source=settings&utm_medium=product&utm_campaign=lifterlmslabsplugin&utm_content=lifti">',
+			'</a>'
+		);
 	}
 
 	/**
@@ -130,7 +132,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			);
 
 		}
-
 	}
 
 	/**
@@ -152,7 +153,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			wp_enqueue_style( 'editor-buttons' );
 
 		}
-
 	}
 
 	/**
@@ -257,7 +257,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		}
 
 		return $classes;
-
 	}
 
 	/**
@@ -317,7 +316,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		}
 
 		return wpautop( $content );
-
 	}
 
 	/**
@@ -338,7 +336,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		}
 
 		return $this->handle_content( $post->post_content );
-
 	}
 
 	/**
@@ -360,7 +357,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		}
 
 		return false;
-
 	}
 
 	/**
@@ -398,7 +394,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		$enabled = in_array( $post_type, $this->builder_cpts_enabled, true );
 
 		return ( $enabled && $meta );
-
 	}
 
 	/**
@@ -413,7 +408,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		$theme = wp_get_theme();
 		return ( 'divi' === strtolower( $theme->get_template() ) );
-
 	}
 
 	/**
@@ -560,7 +554,6 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		return $settings;
 	}
-
 }
 
 return new LLMS_Lab_Lifti();
