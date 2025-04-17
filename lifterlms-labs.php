@@ -18,7 +18,7 @@
  * License: GPLv3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Requires at least: 5.3
- * Tested up to: 6.7
+ * Tested up to: 6.8
  */
 
 defined( 'ABSPATH' ) || exit;
