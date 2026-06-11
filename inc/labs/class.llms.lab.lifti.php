@@ -34,6 +34,13 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	private $builder_cpts_enabled = array();
 
 	/**
+	 * Cache of the enrollment-based class to strip, keyed by post ID.
+	 *
+	 * @var array
+	 */
+	private $restricted_class_cache = array();
+
+	/**
 	 * Configure the Lab.
 	 *
 	 * @since 1.1.0
@@ -84,6 +91,9 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		add_filter( 'the_content', array( $this, 'handle_content' ), 1 );
 		add_filter( 'the_excerpt', array( $this, 'handle_excerpt' ), 777 );
+
+		// Divi 5 stores layouts as blocks, so hook the per-module render filter instead of the shortcode-based content filter.
+		add_filter( 'divi_module_library_register_module_render_block', array( $this, 'maybe_hide_d5_module' ), 10, 3 );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_page_settings' ) );
 
@@ -291,18 +301,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		if ( $sections ) {
 
-			if ( 'lesson' === $post->post_type && 'yes' === get_post_meta( $post->ID, '_llms_free_lesson', true ) ) {
-
-				$restricted = llms_is_user_enrolled( get_current_user_id(), $post->ID ) ? false : true;
-
-			} else {
-
-				$restrictions = llms_page_restricted( $post->ID );
-				$restricted   = $restrictions['is_restricted'];
-
-			}
-
-			$class = $restricted ? 'llms-enrolled-student-content' : 'llms-non-enrolled-student-content';
+			$class = $this->get_restricted_class( $post );
 
 			$new_content = '';
 			foreach ( $sections as $section ) {
@@ -359,6 +358,86 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
+	 * Determine the enrollment-based CSS class that should be stripped for the current user.
+	 *
+	 * When a user is restricted from (not enrolled in) the post, sections flagged for enrolled
+	 * students are removed. Otherwise, sections flagged for non-enrolled students are removed.
+	 *
+	 * @since [version]
+	 *
+	 * @param WP_Post $post Post object.
+	 * @return string The CSS class to strip: `llms-enrolled-student-content` or `llms-non-enrolled-student-content`.
+	 */
+	private function get_restricted_class( $post ) {
+
+		if ( isset( $this->restricted_class_cache[ $post->ID ] ) ) {
+			return $this->restricted_class_cache[ $post->ID ];
+		}
+
+		if ( 'lesson' === $post->post_type && 'yes' === get_post_meta( $post->ID, '_llms_free_lesson', true ) ) {
+
+			$restricted = llms_is_user_enrolled( get_current_user_id(), $post->ID ) ? false : true;
+
+		} else {
+
+			$restrictions = llms_page_restricted( $post->ID );
+			$restricted   = $restrictions['is_restricted'];
+
+		}
+
+		$class = $restricted ? 'llms-enrolled-student-content' : 'llms-non-enrolled-student-content';
+
+		$this->restricted_class_cache[ $post->ID ] = $class;
+
+		return $class;
+	}
+
+	/**
+	 * Hide a Divi 5 module from output when its CSS class doesn't match the current user's enrollment.
+	 *
+	 * Divi 5 stores layouts as `wp:divi/*` blocks rendered via `do_blocks()`, so the shortcode-based
+	 * `handle_content()` filter no longer applies. This hooks Divi 5's per-module render filter and
+	 * suppresses any module flagged with the enrollment class that should be hidden for the current user.
+	 *
+	 * @since [version]
+	 *
+	 * @param bool     $display Whether the module should be rendered.
+	 * @param WP_Block $block   The block instance being rendered.
+	 * @param array    $attrs   The module's merged attributes.
+	 * @return bool
+	 */
+	public function maybe_hide_d5_module( $display, $block, $attrs ) {
+
+		if ( ! $display ) {
+			return $display;
+		}
+
+		$post = get_queried_object();
+
+		if ( ! $post instanceof WP_Post
+			|| ! is_singular()
+			|| 'on' !== get_post_meta( $post->ID, '_et_pb_use_divi_5', true )
+			|| ! $this->is_builder_enabled( $post ) ) {
+			return $display;
+		}
+
+		$html_attrs = isset( $attrs['module']['advanced']['htmlAttributes'] ) ? $attrs['module']['advanced']['htmlAttributes'] : array();
+		$css        = isset( $html_attrs['desktop']['value']['class'] ) ? $html_attrs['desktop']['value']['class'] : '';
+
+		if ( '' === $css ) {
+			return $display;
+		}
+
+		$class_to_remove = $this->get_restricted_class( $post );
+
+		if ( in_array( $class_to_remove, preg_split( '/\s+/', trim( $css ) ), true ) ) {
+			return false;
+		}
+
+		return $display;
+	}
+
+	/**
 	 * Include LifterLMS Template Functions on the admin panel so widgets and shortcodes can be used
 	 * within the Divi builder.
 	 *
@@ -406,7 +485,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	private function is_divi_enabled() {
 
 		$theme = wp_get_theme();
-		return ( 'divi' === strtolower( $theme->get_template() ) );
+		return ( 'divi' === strtolower( $theme->get_template() ) ) || function_exists( 'et_builder_d5_enabled' );
 	}
 
 	/**
