@@ -297,6 +297,13 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			return $content;
 		}
 
+		// Divi 5 renders content as blocks via do_blocks() and enrollment filtering is handled in
+		// maybe_hide_d5_module(). Bail before the shortcode/wpautop flow, which would mangle block
+		// markup and inject stray <p></p> tags.
+		if ( $this->is_divi_5_post( $post ) ) {
+			return $content;
+		}
+
 		$sections = $this->get_builder_sections( $content );
 
 		if ( $sections ) {
@@ -329,7 +336,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		global $post;
 
-		if ( 'lesson' === $post->post_type || ! $this->is_builder_enabled( $post ) ) {
+		if ( 'lesson' === $post->post_type || ! $this->is_builder_enabled( $post ) || $this->is_divi_5_post( $post ) ) {
 			return $excerpt;
 		}
 
@@ -393,6 +400,18 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
+	 * Determine whether a post was built with the Divi 5 (block-based) builder.
+	 *
+	 * @since [version]
+	 *
+	 * @param WP_Post|mixed $post Post object (or other value, e.g. from get_queried_object()).
+	 * @return bool
+	 */
+	private function is_divi_5_post( $post ) {
+		return $post instanceof WP_Post && 'on' === get_post_meta( $post->ID, '_et_pb_use_divi_5', true );
+	}
+
+	/**
 	 * Hide a Divi 5 module from output when its CSS class doesn't match the current user's enrollment.
 	 *
 	 * Divi 5 stores layouts as `wp:divi/*` blocks rendered via `do_blocks()`, so the shortcode-based
@@ -414,9 +433,8 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		$post = get_queried_object();
 
-		if ( ! $post instanceof WP_Post
-			|| ! is_singular()
-			|| 'on' !== get_post_meta( $post->ID, '_et_pb_use_divi_5', true )
+		if ( ! is_singular()
+			|| ! $this->is_divi_5_post( $post )
 			|| ! $this->is_builder_enabled( $post ) ) {
 			return $display;
 		}
