@@ -300,7 +300,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		// Divi 5 renders content as blocks via do_blocks() and enrollment filtering is handled in
 		// maybe_hide_d5_module(). Bail before the shortcode/wpautop flow, which would mangle block
 		// markup and inject stray <p></p> tags.
-		if ( $this->is_divi_5_post( $post ) ) {
+		if ( $this->is_divi_5_content( $post, $content ) ) {
 			return $content;
 		}
 
@@ -336,7 +336,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		global $post;
 
-		if ( 'lesson' === $post->post_type || ! $this->is_builder_enabled( $post ) || $this->is_divi_5_post( $post ) ) {
+		if ( 'lesson' === $post->post_type || ! $this->is_builder_enabled( $post ) || $this->is_divi_5_content( $post, $post->post_content ) ) {
 			return $excerpt;
 		}
 
@@ -400,15 +400,74 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	}
 
 	/**
-	 * Determine whether a post was built with the Divi 5 (block-based) builder.
+	 * Determine whether content is built with the Divi 5 (block-based) builder.
+	 *
+	 * Checks the `_et_pb_use_divi_5` post meta (set on Divi 5 Visual Builder saves) and, as a
+	 * fallback, sniffs the content for Divi block markup since that meta is not set by every
+	 * Divi 5 builder activation path.
 	 *
 	 * @since [version]
 	 *
-	 * @param WP_Post|mixed $post Post object (or other value, e.g. from get_queried_object()).
+	 * @param WP_Post|mixed $post    Post object (or other value, e.g. from get_queried_object()).
+	 * @param string        $content Content to inspect.
 	 * @return bool
 	 */
-	private function is_divi_5_post( $post ) {
-		return $post instanceof WP_Post && 'on' === get_post_meta( $post->ID, '_et_pb_use_divi_5', true );
+	private function is_divi_5_content( $post, $content ) {
+
+		if ( $post instanceof WP_Post && 'on' === get_post_meta( $post->ID, '_et_pb_use_divi_5', true ) ) {
+			return true;
+		}
+
+		return is_string( $content ) && false !== strpos( $content, '<!-- wp:divi/' );
+	}
+
+	/**
+	 * Collect the user-entered CSS classes from a Divi 5 module's attributes.
+	 *
+	 * A class can be added in two different places in the Divi 5 editor, stored in different
+	 * attribute groups:
+	 *
+	 * - Advanced > CSS ID & Classes > "CSS Class" field: `module.advanced.htmlAttributes.{device}.value.class`.
+	 * - Advanced > Attributes (custom HTML attributes), adding a `class` attribute:
+	 *   `module.decoration.attributes.{device}.value.attributes[]` (a list of `name`/`value` pairs).
+	 *
+	 * @since [version]
+	 *
+	 * @param array $attrs The module's merged attributes.
+	 * @return string Space-separated list of CSS classes (may be empty).
+	 */
+	private function get_module_css_classes( $attrs ) {
+
+		$classes = array();
+
+		// "CSS Class" field. Collect across all breakpoints (desktop/tablet/phone).
+		$html_attrs = isset( $attrs['module']['advanced']['htmlAttributes'] ) ? $attrs['module']['advanced']['htmlAttributes'] : array();
+		foreach ( (array) $html_attrs as $breakpoint ) {
+			if ( isset( $breakpoint['value']['class'] ) && is_string( $breakpoint['value']['class'] ) ) {
+				$classes[] = $breakpoint['value']['class'];
+			}
+		}
+
+		// Custom "Attributes" feature. Pull out any attribute named `class`.
+		$custom_attrs = isset( $attrs['module']['decoration']['attributes'] ) ? $attrs['module']['decoration']['attributes'] : array();
+		foreach ( (array) $custom_attrs as $key => $breakpoint ) {
+
+			// Supports both the responsive (`{device}.value.attributes`) and flat (`attributes`) shapes.
+			if ( 'attributes' === $key ) {
+				$attributes_list = $breakpoint;
+			} else {
+				$attributes_list = isset( $breakpoint['value']['attributes'] ) ? $breakpoint['value']['attributes'] : array();
+			}
+
+			foreach ( (array) $attributes_list as $attribute ) {
+				$attribute = (array) $attribute;
+				if ( isset( $attribute['name'], $attribute['value'] ) && 'class' === $attribute['name'] ) {
+					$classes[] = $attribute['value'];
+				}
+			}
+		}
+
+		return trim( implode( ' ', $classes ) );
 	}
 
 	/**
@@ -433,14 +492,13 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		$post = get_queried_object();
 
-		if ( ! is_singular()
-			|| ! $this->is_divi_5_post( $post )
-			|| ! $this->is_builder_enabled( $post ) ) {
+		// This filter only fires while Divi 5 is rendering its blocks, so no separate Divi 5 detection
+		// is needed here. Limit to singular LifterLMS builder-enabled posts.
+		if ( ! is_singular() || ! $this->is_builder_enabled( $post ) ) {
 			return $display;
 		}
 
-		$html_attrs = isset( $attrs['module']['advanced']['htmlAttributes'] ) ? $attrs['module']['advanced']['htmlAttributes'] : array();
-		$css        = isset( $html_attrs['desktop']['value']['class'] ) ? $html_attrs['desktop']['value']['class'] : '';
+		$css = $this->get_module_css_classes( $attrs );
 
 		if ( '' === $css ) {
 			return $display;
@@ -448,7 +506,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		$class_to_remove = $this->get_restricted_class( $post );
 
-		if ( in_array( $class_to_remove, preg_split( '/\s+/', trim( $css ) ), true ) ) {
+		if ( in_array( $class_to_remove, preg_split( '/\s+/', $css ), true ) ) {
 			return false;
 		}
 
@@ -502,8 +560,17 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 */
 	private function is_divi_enabled() {
 
-		$theme = wp_get_theme();
-		return ( 'divi' === strtolower( $theme->get_template() ) ) || function_exists( 'et_builder_d5_enabled' );
+		// The template slug matches the theme directory name, which is `Divi` for a standard install.
+		if ( 'divi' === strtolower( (string) get_template() ) ) {
+			return true;
+		}
+
+		// The Divi 5 theme directory may be renamed (e.g. "Divi 5"). This method runs at plugin load,
+		// before the theme (and Divi's functions/constants) is loaded, so fall back to the parent
+		// theme's "Theme Name" header, which remains "Divi".
+		$theme = wp_get_theme( get_template() );
+
+		return $theme->exists() && 'divi' === strtolower( (string) $theme->get( 'Name' ) );
 	}
 
 	/**
