@@ -93,7 +93,9 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		add_filter( 'the_excerpt', array( $this, 'handle_excerpt' ), 777 );
 
 		// Divi 5 stores layouts as blocks, so hook the per-module render filter instead of the shortcode-based content filter.
-		add_filter( 'divi_module_library_register_module_render_block', array( $this, 'maybe_hide_d5_module' ), 10, 3 );
+		// Use a priority later than 10 so this runs after Divi's own ConditionsRenderer::should_render(), which resets the
+		// displayable value to true and would otherwise override our result.
+		add_filter( 'divi_module_library_register_module_render_block', array( $this, 'maybe_hide_d5_module' ), 20, 3 );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_page_settings' ) );
 
