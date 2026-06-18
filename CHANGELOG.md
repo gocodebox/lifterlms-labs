@@ -1,18 +1,6 @@
 LifterLMS Labs Changelog
 ========================
 
-v1.9.0 - 2026-06-18
--------------------
-
-##### New Features
-
-+ Added Divi 5 support to the Lifti lab so the `llms-enrolled-student-content` and `llms-non-enrolled-student-content` CSS classes show or hide builder content based on the current user's enrollment.
-
-##### Bug Fixes
-
-+ Fixed stray empty paragraph tags being output on Divi 5 course, lesson, and membership pages built with the Lifti lab enabled.
-
-
 v1.8.1 - 2024-12-12
 -------------------
 

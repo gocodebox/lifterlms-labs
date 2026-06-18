@@ -372,7 +372,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * When a user is restricted from (not enrolled in) the post, sections flagged for enrolled
 	 * students are removed. Otherwise, sections flagged for non-enrolled students are removed.
 	 *
-	 * @since 1.9.0
+	 * @since [version]
 	 *
 	 * @param WP_Post $post Post object.
 	 * @return string The CSS class to strip: `llms-enrolled-student-content` or `llms-non-enrolled-student-content`.
@@ -408,7 +408,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * fallback, sniffs the content for Divi block markup since that meta is not set by every
 	 * Divi 5 builder activation path.
 	 *
-	 * @since 1.9.0
+	 * @since [version]
 	 *
 	 * @param WP_Post|mixed $post    Post object (or other value, e.g. from get_queried_object()).
 	 * @param string        $content Content to inspect.
@@ -433,7 +433,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * - Advanced > Attributes (custom HTML attributes), adding a `class` attribute:
 	 *   `module.decoration.attributes.{device}.value.attributes[]` (a list of `name`/`value` pairs).
 	 *
-	 * @since 1.9.0
+	 * @since [version]
 	 *
 	 * @param array $attrs The module's merged attributes.
 	 * @return string Space-separated list of CSS classes (may be empty).
@@ -479,7 +479,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 * `handle_content()` filter no longer applies. This hooks Divi 5's per-module render filter and
 	 * suppresses any module flagged with the enrollment class that should be hidden for the current user.
 	 *
-	 * @since 1.9.0
+	 * @since [version]
 	 *
 	 * @param bool     $display Whether the module should be rendered.
 	 * @param WP_Block $block   The block instance being rendered.

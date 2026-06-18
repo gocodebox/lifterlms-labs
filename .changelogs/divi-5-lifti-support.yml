@@ -1,0 +1,3 @@
+significance: minor
+type: added
+entry: "Added Divi 5 support to the Lifti lab so the `llms-enrolled-student-content` and `llms-non-enrolled-student-content` CSS classes show or hide builder content based on the current user's enrollment."
