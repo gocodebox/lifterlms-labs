@@ -1,3 +1,0 @@
-significance: patch
-type: fixed
-entry: "Fixed stray empty paragraph tags being output on Divi 5 course, lesson, and membership pages built with the Lifti lab enabled."
