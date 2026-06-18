@@ -34,6 +34,13 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	private $builder_cpts_enabled = array();
 
 	/**
+	 * Cache of the enrollment-based class to strip, keyed by post ID.
+	 *
+	 * @var array
+	 */
+	private $restricted_class_cache = array();
+
+	/**
 	 * Configure the Lab.
 	 *
 	 * @since 1.1.0
@@ -84,6 +91,11 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		add_filter( 'the_content', array( $this, 'handle_content' ), 1 );
 		add_filter( 'the_excerpt', array( $this, 'handle_excerpt' ), 777 );
+
+		// Divi 5 stores layouts as blocks, so hook the per-module render filter instead of the shortcode-based content filter.
+		// Use a priority later than 10 so this runs after Divi's own ConditionsRenderer::should_render(), which resets the
+		// displayable value to true and would otherwise override our result.
+		add_filter( 'divi_module_library_register_module_render_block', array( $this, 'maybe_hide_d5_module' ), 20, 3 );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_page_settings' ) );
 
@@ -287,22 +299,18 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 			return $content;
 		}
 
+		// Divi 5 renders content as blocks via do_blocks() and enrollment filtering is handled in
+		// maybe_hide_d5_module(). Bail before the shortcode/wpautop flow, which would mangle block
+		// markup and inject stray <p></p> tags.
+		if ( $this->is_divi_5_content( $post, $content ) ) {
+			return $content;
+		}
+
 		$sections = $this->get_builder_sections( $content );
 
 		if ( $sections ) {
 
-			if ( 'lesson' === $post->post_type && 'yes' === get_post_meta( $post->ID, '_llms_free_lesson', true ) ) {
-
-				$restricted = llms_is_user_enrolled( get_current_user_id(), $post->ID ) ? false : true;
-
-			} else {
-
-				$restrictions = llms_page_restricted( $post->ID );
-				$restricted   = $restrictions['is_restricted'];
-
-			}
-
-			$class = $restricted ? 'llms-enrolled-student-content' : 'llms-non-enrolled-student-content';
+			$class = $this->get_restricted_class( $post );
 
 			$new_content = '';
 			foreach ( $sections as $section ) {
@@ -330,7 +338,7 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 
 		global $post;
 
-		if ( 'lesson' === $post->post_type || ! $this->is_builder_enabled( $post ) ) {
+		if ( 'lesson' === $post->post_type || ! $this->is_builder_enabled( $post ) || $this->is_divi_5_content( $post, $post->post_content ) ) {
 			return $excerpt;
 		}
 
@@ -356,6 +364,155 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Determine the enrollment-based CSS class that should be stripped for the current user.
+	 *
+	 * When a user is restricted from (not enrolled in) the post, sections flagged for enrolled
+	 * students are removed. Otherwise, sections flagged for non-enrolled students are removed.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @param WP_Post $post Post object.
+	 * @return string The CSS class to strip: `llms-enrolled-student-content` or `llms-non-enrolled-student-content`.
+	 */
+	private function get_restricted_class( $post ) {
+
+		if ( isset( $this->restricted_class_cache[ $post->ID ] ) ) {
+			return $this->restricted_class_cache[ $post->ID ];
+		}
+
+		if ( 'lesson' === $post->post_type && 'yes' === get_post_meta( $post->ID, '_llms_free_lesson', true ) ) {
+
+			$restricted = llms_is_user_enrolled( get_current_user_id(), $post->ID ) ? false : true;
+
+		} else {
+
+			$restrictions = llms_page_restricted( $post->ID );
+			$restricted   = $restrictions['is_restricted'];
+
+		}
+
+		$class = $restricted ? 'llms-enrolled-student-content' : 'llms-non-enrolled-student-content';
+
+		$this->restricted_class_cache[ $post->ID ] = $class;
+
+		return $class;
+	}
+
+	/**
+	 * Determine whether content is built with the Divi 5 (block-based) builder.
+	 *
+	 * Checks the `_et_pb_use_divi_5` post meta (set on Divi 5 Visual Builder saves) and, as a
+	 * fallback, sniffs the content for Divi block markup since that meta is not set by every
+	 * Divi 5 builder activation path.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @param WP_Post|mixed $post    Post object (or other value, e.g. from get_queried_object()).
+	 * @param string        $content Content to inspect.
+	 * @return bool
+	 */
+	private function is_divi_5_content( $post, $content ) {
+
+		if ( $post instanceof WP_Post && 'on' === get_post_meta( $post->ID, '_et_pb_use_divi_5', true ) ) {
+			return true;
+		}
+
+		return is_string( $content ) && false !== strpos( $content, '<!-- wp:divi/' );
+	}
+
+	/**
+	 * Collect the user-entered CSS classes from a Divi 5 module's attributes.
+	 *
+	 * A class can be added in two different places in the Divi 5 editor, stored in different
+	 * attribute groups:
+	 *
+	 * - Advanced > CSS ID & Classes > "CSS Class" field: `module.advanced.htmlAttributes.{device}.value.class`.
+	 * - Advanced > Attributes (custom HTML attributes), adding a `class` attribute:
+	 *   `module.decoration.attributes.{device}.value.attributes[]` (a list of `name`/`value` pairs).
+	 *
+	 * @since 1.9.0
+	 *
+	 * @param array $attrs The module's merged attributes.
+	 * @return string Space-separated list of CSS classes (may be empty).
+	 */
+	private function get_module_css_classes( $attrs ) {
+
+		$classes = array();
+
+		// "CSS Class" field. Collect across all breakpoints (desktop/tablet/phone).
+		$html_attrs = isset( $attrs['module']['advanced']['htmlAttributes'] ) ? $attrs['module']['advanced']['htmlAttributes'] : array();
+		foreach ( (array) $html_attrs as $breakpoint ) {
+			if ( isset( $breakpoint['value']['class'] ) && is_string( $breakpoint['value']['class'] ) ) {
+				$classes[] = $breakpoint['value']['class'];
+			}
+		}
+
+		// Custom "Attributes" feature. Pull out any attribute named `class`.
+		$custom_attrs = isset( $attrs['module']['decoration']['attributes'] ) ? $attrs['module']['decoration']['attributes'] : array();
+		foreach ( (array) $custom_attrs as $key => $breakpoint ) {
+
+			// Supports both the responsive (`{device}.value.attributes`) and flat (`attributes`) shapes.
+			if ( 'attributes' === $key ) {
+				$attributes_list = $breakpoint;
+			} else {
+				$attributes_list = isset( $breakpoint['value']['attributes'] ) ? $breakpoint['value']['attributes'] : array();
+			}
+
+			foreach ( (array) $attributes_list as $attribute ) {
+				$attribute = (array) $attribute;
+				if ( isset( $attribute['name'], $attribute['value'] ) && 'class' === $attribute['name'] ) {
+					$classes[] = $attribute['value'];
+				}
+			}
+		}
+
+		return trim( implode( ' ', $classes ) );
+	}
+
+	/**
+	 * Hide a Divi 5 module from output when its CSS class doesn't match the current user's enrollment.
+	 *
+	 * Divi 5 stores layouts as `wp:divi/*` blocks rendered via `do_blocks()`, so the shortcode-based
+	 * `handle_content()` filter no longer applies. This hooks Divi 5's per-module render filter and
+	 * suppresses any module flagged with the enrollment class that should be hidden for the current user.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @param bool     $display Whether the module should be rendered.
+	 * @param WP_Block $block   The block instance being rendered.
+	 * @param array    $attrs   The module's merged attributes.
+	 * @return bool
+	 */
+	public function maybe_hide_d5_module( $display, $block, $attrs ) {
+
+		if ( ! $display ) {
+			return $display;
+		}
+
+		$post = get_queried_object();
+
+		// This filter only fires while Divi 5 is rendering its blocks, so no separate Divi 5 detection
+		// is needed here. Limit to singular LifterLMS builder-enabled posts.
+		if ( ! is_singular() || ! $this->is_builder_enabled( $post ) ) {
+			return $display;
+		}
+
+		$css = $this->get_module_css_classes( $attrs );
+
+		if ( '' === $css ) {
+			return $display;
+		}
+
+		$class_to_remove = $this->get_restricted_class( $post );
+
+		if ( in_array( $class_to_remove, preg_split( '/\s+/', $css ), true ) ) {
+			return false;
+		}
+
+		return $display;
 	}
 
 	/**
@@ -405,8 +562,17 @@ class LLMS_Lab_Lifti extends LLMS_Lab {
 	 */
 	private function is_divi_enabled() {
 
-		$theme = wp_get_theme();
-		return ( 'divi' === strtolower( $theme->get_template() ) );
+		// The template slug matches the theme directory name, which is `Divi` for a standard install.
+		if ( 'divi' === strtolower( (string) get_template() ) ) {
+			return true;
+		}
+
+		// The Divi 5 theme directory may be renamed (e.g. "Divi 5"). This method runs at plugin load,
+		// before the theme (and Divi's functions/constants) is loaded, so fall back to the parent
+		// theme's "Theme Name" header, which remains "Divi".
+		$theme = wp_get_theme( get_template() );
+
+		return $theme->exists() && 'divi' === strtolower( (string) $theme->get( 'Name' ) );
 	}
 
 	/**
