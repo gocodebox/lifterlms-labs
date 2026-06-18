@@ -10,7 +10,7 @@
  * Plugin Name: LifterLMS Labs
  * Plugin URI: https://lifterlms.com/
  * Description: A collection of experimental, conceptual, and possibly silly features which improve and enhance the functionality of the LifterLMS core.
- * Version: 1.8.1
+ * Version: 1.9.0
  * Author: LifterLMS
  * Author URI: https://lifterlms.com
  * Text Domain: lifterlms-labs
@@ -35,7 +35,7 @@ final class LifterLMS_Labs {
 	 *
 	 * @var string
 	 */
-	public $version = '1.8.1';
+	public $version = '1.9.0';
 
 	/**
 	 * Singleton Instance.
